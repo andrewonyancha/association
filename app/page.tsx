@@ -51,7 +51,7 @@ export default function Home() {
             Contact Support
           </a>
           <a
-  href="https://wa.me/254703435553?text=Hello%21%20I%20noticed%20your%20website%20is%20under%20maintenance.%20Could%20you%20please%20update%20me%20on%20the%20current%20status%20and%20estimated%20time%20to%20be%20back%20online%3F%20Thank%20you%21"
+  href="https://wa.me/254703435553?text=Hello%21%20I%20noticed%20your%20website%20is%20under%20maintenance.%20Could%20you%20please%20update%20me%20on%20the%20current%20status%20and%20estimated%20time%20to%20be%20back%20online%3F%20Thanks%21"
   target="_blank"
   rel="noopener noreferrer"
   className="inline-flex items-center justify-center gap-2 rounded-full border border-zinc-300 px-6 py-3 text-sm font-medium text-zinc-700 transition-all hover:border-zinc-400 dark:border-zinc-700 dark:text-zinc-300 dark:hover:border-zinc-600"
