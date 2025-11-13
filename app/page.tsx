@@ -691,7 +691,7 @@ export default function Home() {
             {/* 4 – Image */}
             <div className="relative w-1/4 overflow-hidden">
               <Image
-                src="/images/hero.jpg"
+                src="/images/trader.jpg"
                 alt="Trader Registration"
                 fill
                 className="object-cover"
