@@ -435,7 +435,7 @@ export default function Home() {
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent to-purple-950/0" />
                   {/* Name floating at bottom */}
                   <div className="absolute bottom-4 left-4 right-4">
-                    <p className="text-white font-semibold text-sm md:text-base">Sarah Johnson</p>
+                    <p className="text-white font-semibold text-sm md:text-base">Antony Njenga</p>
                     <p className="text-orange-300 text-xs md:text-sm">CEO & Founder</p>
                   </div>
                 </div>
