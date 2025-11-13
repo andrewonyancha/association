@@ -459,7 +459,7 @@ export default function Home() {
 
         {/* Right Side - Orange Background with 5 Compelling Benefits */}
         <div className="bg-orange-600 p-3 md:p-12 md:w-1/2">
-          <div className="grid grid-cols-1 gap-8">
+          <div className="grid grid-cols-1 gap-4">
             {[
               { 
                 shade: "bg-white", 
