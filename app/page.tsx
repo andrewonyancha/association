@@ -463,27 +463,27 @@ export default function Home() {
             {[
               { 
                 shade: "bg-orange-200", 
-                benefit: "Exclusive Global Partnerships",
+                benefit: "Africa",
                 image: "/images/hero.jpg"
               },
               { 
                 shade: "bg-orange-200", 
-                benefit: "Increased Revenue Streams",
+                benefit: "Asia",
                 image: "/images/hero.jpg"
               },
               { 
                 shade: "bg-orange-200", 
-                benefit: "Advanced Technology Platform",
+                benefit: "North America",
                 image: "/images/hero.jpg"
               },
               { 
                 shade: "bg-orange-200", 
-                benefit: "Priority Lead Generation",
+                benefit: "South America",
                 image: "/images/hero.jpg"
               },
               { 
                 shade: "bg-orange-200", 
-                benefit: "24/7 Dedicated Support",
+                benefit: " Europe",
                 image: "/images/hero.jpg"
               },
             ].map((item, index) => (
@@ -662,7 +662,7 @@ export default function Home() {
             {/* 2 – Image */}
             <div className="relative w-1/4 overflow-hidden">
               <Image
-                src="/images/hero.jpg"
+                src="/images/marketplace.jpg"
                 alt="Freight Marketplace"
                 fill
                 className="object-cover"
