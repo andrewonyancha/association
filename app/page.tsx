@@ -426,7 +426,7 @@ export default function Home() {
               <div className="flex-shrink-0">
                 <div className="relative aspect-[3/4] w-110 md:w-64 md:h-72 h-48 overflow-hidden">
                   <Image
-                    src="/images/hero.jpg"
+                    src="/images/tony.webp"
                     alt="Founder"
                     fill
                     className="object-cover"
