@@ -444,7 +444,7 @@ export default function Home() {
               {/* CEO Message */}
               <div className="flex-1">
                 <p className="text-sm pt-3 leading-relaxed mb-6">
-                  "As the CEO of TMX Global, I invite you to join our growing network of logistics professionals. 
+                  "As the Founder of TMX Global Freight Network, I invite you to join our growing network of logistics professionals. 
                   Together, we're building the future of global freight with innovation, collaboration, and 
                   unparalleled service excellence. Join us in shaping the industry."
                 </p>
