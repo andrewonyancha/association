@@ -459,7 +459,7 @@ export default function Home() {
 
         {/* Right Side - Orange Background with 5 Compelling Benefits */}
         <div className="bg-orange-600 p-3 md:p-12 md:w-1/2">
-          <div className="grid grid-cols-1 gap-4">
+          <div className="grid grid-cols-1 gap-8">
             {[
               { 
                 shade: "bg-white", 
@@ -492,7 +492,7 @@ export default function Home() {
                 className={`${item.shade}  flex items-center overflow-hidden rounded-full hover:shadow-lg transition-shadow`}
               >
                 {/* Benefit Image - Touching top, bottom, and left edges */}
-                <div className="relative w-16 h-16 m-1 md:w-20 md:h-20 flex-shrink-0">
+                <div className="relative w-16 h-16 m-1 md:w-16 md:h-16 flex-shrink-0">
                   <Image
                     src={item.image}
                     alt={item.benefit}
