@@ -17,6 +17,7 @@ import {
   Mail as MailIcon,
   ChevronRight,
 } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -140,10 +141,14 @@ export function Footer() {
               <div className="space-y-3 text-purple-200 text-sm">
                 <div className="flex items-center gap-3">
                   <MapPin className="w-4 h-4 text-orange-400" />
-                  <span>123 Logistics Blvd, Nairobi, Kenya</span>
+                  <span>View park Towers, Nairobi, Kenya</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <Phone className="w-4 h-4 text-orange-400" />
+                  <span>+254 722 359 463</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <FaWhatsapp className="w-4 h-4 text-orange-400" />
                   <span>+254 722 359 463</span>
                 </div>
                 <div className="flex items-center gap-3">

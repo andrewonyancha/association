@@ -1,9 +1,9 @@
 'use client';
 
 import Image from 'next/image';
-import { Facebook, Twitter, Linkedin, Instagram, Mail, MoveRight, Quote } from 'lucide-react';
+import { Facebook, Twitter, Linkedin, Instagram, Mail, MoveRight, Quote, Search } from 'lucide-react';
 import { IoIosPeople } from "react-icons/io";
-import { FaGlobe } from "react-icons/fa";
+import { FaGlobe, FaHandshake } from "react-icons/fa";
 import { PiAirplaneTaxiingThin } from "react-icons/pi";
 import { GiBattleship } from "react-icons/gi";
 import { PiWarehouseThin } from "react-icons/pi";
@@ -67,17 +67,18 @@ const CalendarImageWithOverlay = React.memo(function CalendarImageWithOverlay({ 
         </h3>
         <p className="text-sm md:text-base mb-4 max-w-xs">
           {isLeft
-            ? 'Stay updated with industry events, webinars, and networking opportunities.'
-            : 'Access the full TMX Global member calendar and plan your year ahead.'}
+            ? 'The first Physical event of TMX Global Freight Network is scheduled for 2026 in Nairobi, Kenya. Join us for networking, insights, and growth opportunities.'
+            : 'Access the full TMX Global Freight Network member calendar and plan your year ahead.'}
         </p>
         <button className="bg-orange-600 text-white px-5 py-2 text-sm font-semibold hover:bg-orange-700 transition-colors flex items-center gap-2">
-          View {isLeft ? 'Events' : 'Calendar'}
+          View {isLeft ? 'Event' : 'Calendar'}
           <MoveRight className="w-4 h-4" />
         </button>
       </div>
     </div>
   );
 });
+
 export default function Home() {
   // ---------- TESTIMONIAL STATE ----------
   const testimonials = [
@@ -119,17 +120,17 @@ export default function Home() {
           <Quote className="w-16 h-16 md:w-48 md:h-48" />
         </div>
 
-        <p className="relative z-10 text-sm md:text-base leading-relaxed mb-6 flex-grow">
+        <p className="relative z-10 text-sm md:text-base leading-relaxed mb-2 px-8 flex-grow">
           {text}
         </p>
 
-        <div className="relative z-10 overflow-hidden mb-2 border- border-white aspect-[3/4]">
+        <div className="relative z-10 overflow-hidden mb-2 border- border-white ">
           <Image
             src={img || "https://via.placeholder.com/64?text=Client"}
             alt={name}
             width={64}
             height={64}
-            className="object-cover aspect-[3/4] w-16 h-20 md:w-24 md:h-32"
+            className="object-cover w-32 h-20 md:w-32 md:h-20"
           />
         </div>
 
@@ -146,7 +147,7 @@ export default function Home() {
     );
   }
 
-  const [centerIdx, setCenterIdx] = useState(0);   // index of the **center** card
+  const [centerIdx, setCenterIdx] = useState(0);
   const total = testimonials.length;
 
   const prev = () => setCenterIdx((i) => (i + 1 + total) % total);
@@ -160,7 +161,7 @@ export default function Home() {
   }, [total]);
 
   return (
-    <section className='overflow-hidden -mt-2' >
+    <section className='overflow-hidden -mt-2'>
       {/* HERO SECTION */}
       <section className="relative -top-6 min-h-screen flex items-center justify-start overflow-hidden">
         {/* Background Image */}
@@ -175,6 +176,15 @@ export default function Home() {
             blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8/OnPfQAJAgGBjA5h9gAAAABJRU5ErkJggg=="
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/40" />
+        </div>
+
+        {/* LEFT VERTICAL TEXT - TMX Global Freight Network */}
+        <div className="absolute md:left-4 left-0 top-[32%] h-full flex items-center pl-4 md:pl-8">
+          <div className="transform -rotate-90 origin-left whitespace-nowrap">
+            <p className="text-white text-xs md:text-sm font-medium border-b border-l border-r pb-2 px-4 tracking-[0.4em]">
+             TMX GLOBAL FREIGHT NETWORK 
+            </p>
+          </div>
         </div>
 
         {/* Right Vertical Social Bar */}
@@ -199,6 +209,36 @@ export default function Home() {
               ))}
             </div>
             <div className="w-px h-20 bg-white/70" />
+          </div>
+        </div>
+
+        {/* HERO CONTENT + BUTTONS */}
+        <div className="relative z-10 container mx-auto px-12 md:px-12 max-w-5xl text-white">
+          <h1 className="text-4xl md:text-6xl  font-bold mb-4 md:mb-6 leading-tight">
+            Global Freight,<br /> <span className='flex'>Connected. <FaHandshake  className='md:mt-2 mt-1 md:ml-2 ml-2'/></span>
+          </h1>
+          <p className="text-base md:text-xl mb-8 md:mb-10 max-w-2xl">
+            Join a trusted network of freight forwarders spanning 120+ countries. Move cargo faster, safer, and smarter.
+          </p>
+
+          {/* TWO CALL-TO-ACTION BUTTONS */}
+          <div className="flex flex-col sm:flex-row gap-4 md:gap-6">
+            <a
+              href="/find-agent"
+              className="bg-orange-600 text-white px-6 md:px-8 py-3 md:py-4 font-semibold text-sm md:text-base 
+                         hover:bg-orange-700 transition-all duration-300 flex items-center justify-center gap-3 group"
+            >
+              Find an Agent
+              <Search className="w-4 h-4 animate-bounce transition-transform group-hover:translate-x-1" />
+            </a>
+            <a
+              href="/join"
+              className="bg-white text-purple-900 px-6 md:px-8 py-3 md:py-4 font-semibold text-sm md:text-base 
+                         hover:bg-gray-100 transition-all duration-300 flex items-center justify-center gap-2 group border border-white"
+            >
+              Join the Network
+              <MoveRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+            </a>
           </div>
         </div>
 
@@ -281,132 +321,126 @@ export default function Home() {
         </div>
       </section>
 
-      {/* OUR SERVICES SECTION – Grid (Large) / Vertical Stack (Mobile) */}
-      <section className="py-12">
+      {/* BENEFITS OF BEING A MEMBER SECTION */}
+      <section className="py-12 bg-gray-50">
         <div className="container mx-auto px-3 md:px-0">
           {/* Section titles */}
           <div className="text-center mb-4 md:mb-10">
-            <h2 className="text-lg md:text-3xl font-semibold text-gray-900">[ Our Services ]</h2>
+            <h2 className="text-lg md:text-3xl font-semibold text-gray-900">[ Benefits of Being a Member ]</h2>
           </div>
 
-          {/* LARGE SCREEN: 2x3 Grid - No outer border, internal partitions only */}
+          {/* LARGE SCREEN: 2x3 Grid */}
           <div className="hidden md:grid md:grid-cols-3 md:grid-rows-2">
             {[
               {
+                Icon: GiFireShield,
+                title: "Cargo Insurance",
+                desc: "Protect every shipment with comprehensive, network-backed insurance — giving your clients total peace of mind.",
+              },
+              {
                 Icon: GiMoneyStack,
-                title: "Financing",
-                desc: "Get Finacning for you clients to help complete the logistics process",
-                btnText: "Learn More",
-              },
-              {
-                Icon: PiAirplaneTaxiingThin,
-                title: "Air Freight",
-                desc: "Fastest global air cargo solutions for time-sensitive shipments worldwide.",
-                btnText: "Learn More",
-              },
-              {
-                Icon: GiBattleship,
-                title: "Sea Freight",
-                desc: "Cost-effective ocean shipping for bulk cargo with full container options.",
-                btnText: "Learn More",
-              },
-              {
-                Icon: PiWarehouseThin,
-                title: "Warehousing",
-                desc: "Secure storage, inventory management, and distribution from strategic hubs.",
-                btnText: "Learn More",
+                title: "Financing for Cargo",
+                desc: "Unlock working capital with flexible freight financing. Close bigger deals without cash flow delays.",
               },
               {
                 Icon: FaConnectdevelop,
-                title: "Partnerships",
-                desc: "End-to-end supply chain solutions tailored to your business needs.",
-                btnText: "Learn More",
+                title: "Global Partnerships",
+                desc: "Connect with 500+ vetted agents in 120+ countries. Expand your reach without building from scratch.",
               },
               {
-                Icon: GiFireShield,
-                title: "Cargo Insurance",
-                desc: "Comprehensive coverage to protect your goods at every step of the journey.",
-                btnText: "Learn More",
+                Icon: IoIosPeople,
+                title: "Business Leads",
+                desc: "Receive qualified freight inquiries daily. Grow revenue through exclusive network opportunities.",
               },
-            ].map((service, idx) => (
+              {
+                Icon: FaGlobe,
+                title: "Investment Opportunities",
+                desc: "Access joint ventures, shared warehouses, and co-investment in high-growth trade lanes.",
+              },
+              {
+                Icon: PiAirplaneTaxiingThin,
+                title: "Priority Freight Routes",
+                desc: "Secure preferred rates and capacity on high-demand air, sea, and land corridors — year-round.",
+              },
+            ].map((benefit, idx) => (
               <div
                 key={idx}
                 className={`
-                  p-2 md:p-6 bg-white flex flex-col
-                  ${idx % 3 !== 2 ? "border-r border-gray-300" : ""}
-                  ${idx < 3 ? "border-b border-gray-300" : ""}
+                  p-2 md:p-6 bg-white flex flex-col border-gray-200
+                  ${idx % 3 !== 2 ? "border-r" : ""}
+                  ${idx < 3 ? "border-b" : ""}
                 `}
               >
-                <service.Icon className="w-12 h-12 md:w-16 md:h-16 text-orange-500 mx-auto mb-1" />
-                <h4 className="text-lg md:text-xl font-bold text-center mb-2">
-                  {service.title}
+                <benefit.Icon className="w-12 h-12 md:w-16 md:h-16 text-orange-600 mx-auto mb-3" />
+                <h4 className="text-lg md:text-xl font-bold text-center mb-2 text-purple-900">
+                  {benefit.title}
                 </h4>
-                <p className="text-sm md:text-base  text-center flex-grow">
-                  {service.desc}
+                <p className="text-sm md:text-base text-gray-700 text-center flex-grow">
+                  {benefit.desc}
                 </p>
-                <button className="mt- mx-auto flex items-center gap-2 text-white border bg-orange-600 mt-4 border-orange-600 px-4 py-1.5 hover:text-purple-950 transition-colors group text-sm">
-                  <span>{service.btnText}</span>
+                <a
+                  href="/join"
+                  className="mt-4 mx-auto flex items-center gap-2 text-orange-600 hover:text-purple-900 font-medium text-sm group"
+                >
+                  Learn More
                   <MoveRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                </button>
+                </a>
               </div>
             ))}
           </div>
 
-          {/* MOBILE: Vertical Column - One item per "card", full width, with border */}
+          {/* MOBILE: Vertical Stack */}
           <div className="md:hidden space-y-6">
             {[
               {
+                Icon: GiFireShield,
+                title: "Cargo Insurance",
+                desc: "Protect every shipment with comprehensive, network-backed insurance.",
+              },
+              {
                 Icon: GiMoneyStack,
-                title: "Financing",
-                desc: "Get Finacning for you clients to help complete the logistics process.",
-                btnText: "Learn More",
-              },
-              {
-                Icon: PiAirplaneTaxiingThin,
-                title: "Air Freight",
-                desc: "Fastest global air cargo solutions for time-sensitive shipments worldwide.",
-                btnText: "Learn More",
-              },
-              {
-                Icon: GiBattleship,
-                title: "Sea Freight",
-                desc: "Cost-effective ocean shipping for bulk cargo with full container options.",
-                btnText: "Learn More",
-              },
-              {
-                Icon: PiWarehouseThin,
-                title: "Warehousing",
-                desc: "Secure storage, inventory management, and distribution from strategic hubs.",
-                btnText: "Learn More",
+                title: "Financing for Cargo",
+                desc: "Unlock working capital with flexible freight financing.",
               },
               {
                 Icon: FaConnectdevelop,
-                title: "Partnerships",
-                desc: "End-to-end supply chain solutions tailored to your business needs.",
-                btnText: "Learn More",
+                title: "Global Partnerships",
+                desc: "Connect with 500+ vetted agents in 120+ countries.",
               },
               {
-                Icon: GiFireShield,
-                title: "Cargo Insurance",
-                desc: "Comprehensive coverage to protect your goods at every step of the journey.",
-                btnText: "Learn More",
+                Icon: IoIosPeople,
+                title: "Business Leads",
+                desc: "Receive qualified freight inquiries daily.",
               },
-            ].map((service, idx) => (
+              {
+                Icon: FaGlobe,
+                title: "Investment Opportunities",
+                desc: "Access joint ventures and co-investment in high-growth lanes.",
+              },
+              {
+                Icon: PiAirplaneTaxiingThin,
+                title: "Priority Freight Routes",
+                desc: "Secure preferred rates and capacity on key trade corridors.",
+              },
+            ].map((benefit, idx) => (
               <div
                 key={idx}
-                className="border border-gray-300 bg-white p-6 flex flex-col w-full mx-auto max-w-md"
+                className="border border-gray-300 bg-white p-6 flex flex-col w-full mx-auto max-w-md rounded-lg shadow-sm"
               >
-                <service.Icon className="w-12 h-12 text-orange-500 mx-auto mb-4" />
-                <h4 className="text-lg font-bold text-gray-900 text-center mb-2">
-                  {service.title}
+                <benefit.Icon className="w-12 h-12 text-orange-600 mx-auto mb-4" />
+                <h4 className="text-lg font-bold text-purple-900 text-center mb-2">
+                  {benefit.title}
                 </h4>
-                <p className="text-sm text-gray-600 text-center flex-grow">
-                  {service.desc}
+                <p className="text-sm text-gray-700 text-center flex-grow">
+                  {benefit.desc}
                 </p>
-                <button className="mt-6 mx-auto flex items-center gap-2 text-black border-2 border-orange-600 px-4 py-1.5 hover:text-purple-950 transition-colors group text-sm">
-                  <span>{service.btnText}</span>
+                <a
+                  href="/join"
+                  className="mt-4 mx-auto text-orange-600 hover:text-purple-900 font-medium text-sm flex items-center gap-1 group"
+                >
+                  Learn More
                   <MoveRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                </button>
+                </a>
               </div>
             ))}
           </div>
@@ -424,7 +458,7 @@ export default function Home() {
             <div className="flex flex-col md:flex-row gap-8 items-start">
               {/* Founder Image with 3/4 aspect ratio and gradient overlay */}
               <div className="flex-shrink-0">
-                <div className="relative aspect-[3/4] w-110 md:w-64 md:h-80 h-48 overflow-hidden">
+                <div className="relative aspect-[3/4] w-110 md:w-64 md:h-80 h-48 rounded md:rounded-none overflow-hidden">
                   <Image
                     src="/images/tony.webp"
                     alt="Founder"
@@ -434,7 +468,7 @@ export default function Home() {
                   {/* Gradient overlay - transparent at top to purple at bottom */}
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent to-purple-950/0" />
                   {/* Name floating at bottom */}
-                  <div className="absolute bg-black/50 text-center bottom-4 left-4 right-4">
+                  <div className="absolute bg-black/50 text-center w-32 rounded-full md:rounded jutify-center mx-auto bottom-4 left-4 right-4">
                     <p className="text-white font-semibold text-sm md:text-base">Antony Njenga</p>
                     <p className="text-orange-400 text-xs md:text-sm">Founder</p>
                   </div>
@@ -458,32 +492,32 @@ export default function Home() {
         </div>
 
         {/* Right Side - Orange Background with 5 Compelling Benefits */}
-        <div className="bg-orange-600 p-3 md:p-12 md:w-1/2">
-          <div className="grid grid-cols-1 gap-8">
+        <div className="bg-orange-600 px-2 md:px-8 py-4 md:py-12 md:p-12 md:w-1/2">
+          <div className="grid grid-cols-1 md:gap-8 gap-5">
             {[
               { 
                 shade: "bg-white", 
-                benefit: "Africa",
+                benefit: "Africa Channel ",
                 image: "/images/Africa.svg"
               },
               { 
                 shade: "bg-white", 
-                benefit: "Asia",
+                benefit: "Asia Channel",
                 image: "/images/Asia.svg"
               },
               { 
                 shade: "bg-white", 
-                benefit: "North America",
+                benefit: "North America Channel",
                 image: "/images/North_America.svg"
               },
               { 
                 shade: "bg-white", 
-                benefit: "South America",
+                benefit: "South America Channel",
                 image: "/images/South_America.svg"
               },
               { 
                 shade: "bg-white", 
-                benefit: " Europe",
+                benefit: " Europe Channel",
                 image: "/images/Europe.svg"
               },
             ].map((item, index) => (
@@ -492,16 +526,16 @@ export default function Home() {
                 className={`${item.shade}  flex items-center overflow-hidden rounded-full shadow-lg hover:shadow-xl transition-shadow`}
               >
                 {/* Benefit Image - Touching top, bottom, and left edges */}
-                <div className="relative w-16 h-16 m-1 md:w-16 md:h-16 flex-shrink-0">
+                <div className="relative w-14 h-14 m-1 md:w-18 md:h-18 flex-shrink-0">
                   <Image
                     src={item.image}
                     alt={item.benefit}
                     fill
-                    className="rounded-full shadow-2xl object-cover"
+                    className="rounded-full grayscale shadow-2xl object-cover"
                   />
                 </div>
                 {/* Benefit Name - Far right */}
-                <span className="text-sm md:text-base font-semibold text-purple-900 ml-auto mr-4">
+                <span className="text-sm md:text-base font-semibold text-gray-700 ml-auto mr-4">
                   {item.benefit}
                 </span>
               </div>
@@ -514,7 +548,7 @@ export default function Home() {
       <section className="md:pt-16 pt-6">
         <div className="container mx-auto px-3 md:px-0">
           <div className="relative max-w-5xl mx-auto">
-            {/* === PURPLE STRIP – Full screen width, behind images === */}
+            {/* PURPLE STRIP – Full screen width, behind images */}
             <div
               className="absolute top-1/2 left-0 right-0 -translate-y-1/2 h-48 bg-purple-950 flex items-center justify-center z-0"
               style={{
@@ -523,7 +557,7 @@ export default function Home() {
               }}
             />
 
-            {/* === 2 IMAGES WITH ANIMATED OVERLAYS === */}
+            {/* 2 IMAGES WITH ANIMATED OVERLAYS */}
             <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-16 px-2 md:px-4">
               {[1, 2].map((i) => (
                 <CalendarImageWithOverlay key={i} index={i} />
@@ -541,7 +575,7 @@ export default function Home() {
             <h2 className="text-lg md:text-3xl font-semibold text-gray-900">[ Testimonial ]</h2>
           </div>
 
-          {/* === MOBILE: Show only 1 testimonial === */}
+          {/* MOBILE: Show only 1 testimonial */}
           <div className="md:hidden">
             <div className="max-w-sm mx-auto ">
               <TestimonialCard
@@ -569,22 +603,10 @@ export default function Home() {
               </button>
             </div>
 
-            {/* Optional: Dots indicator */}
-            <div className="flex justify-center gap-2 mt-4">
-              {testimonials.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setCenterIdx(i)}
-                  className={`w-2 h-2 rounded-full transition-all ${
-                    i === centerIdx ? "bg-orange-600 w-8" : "bg-gray-400"
-                  }`}
-                  aria-label={`Go to testimonial ${i + 1}`}
-                />
-              ))}
-            </div>
+            
           </div>
 
-          {/* === DESKTOP: 3-card carousel (unchanged logic) === */}
+          {/* DESKTOP: 3-card carousel */}
           <div className="hidden md:block">
             <div className="relative max-w-5xl mx-auto overflow-hidden">
               {/* Sliding track */}
@@ -638,21 +660,21 @@ export default function Home() {
 
       {/* MARKETPLACE SECTION – full‑bleed on desktop, padded on mobile */}
       <section className="md:border-4 border-orange-600">
-        {/* ==== DESKTOP – 4 columns, no outer padding ==== */}
+        {/* DESKTOP – 4 columns, no outer padding */}
         <div className="hidden md:block">
           <div className="flex">
             {/* 1 – Orange – Explore Marketplace */}
-            <div className="bg-orange-600 text-white flex flex-col justify-between p-3 md:p-6   w-1/4 aspect-square ">
+            <div className="bg-orange-600 text-white flex flex-col justify-between p-3 md:p-6 w-1/4 aspect-square">
               <div>
                 <h3 className="text-lg md:text-3xl font-semibold text-white">[ Explore Marketplace ]</h3>
                 <p className="text-sm md:text-base leading-relaxed mb-4">
-                  Discover real‑time freight opportunities, connect with verified partners,
+                  Discover real-time freight opportunities, connect with verified partners,
                   and grow your business globally.
                 </p>
               </div>
               <a
                 href="/marketplace"
-                className="bg-purple-950 text-white px-6 py-3 font-semibold hover:text-purple-950 hover:bg-gray-100 transition-colors inline-flex items-center gap-2 self-start text-sm"
+                className="bg-white text-purple-950 px-6 py-3 font-semibold hover:text-text-purple-950-950 hover:bg-gray-100 transition-colors inline-flex items-center gap-2 self-start text-sm"
               >
                 Go to Marketplace
                 <MoveRight className="w-4 h-4" />
@@ -681,7 +703,7 @@ export default function Home() {
               </div>
               <a
                 href="/register-trader"
-                className="bg-purple-950 text-white px-6 py-3 font-semibold hover:bg-gray-100 hover:text-purple-950 transition-colors inline-flex items-center gap-2 self-start text-sm"
+                className="text-purple-950 bg-white px-6 py-3 font-semibold hover:bg-gray-100 hover:text-purple-950 transition-colors inline-flex items-center gap-2 self-start text-sm"
               >
                 Join Now
                 <MoveRight className="w-4 h-4" />
@@ -702,13 +724,13 @@ export default function Home() {
           </div>
         </div>
 
-        {/* ==== MOBILE – vertical stack with padding ==== */}
+        {/* MOBILE – vertical stack with padding */}
         <div className="md:hidden px-0">
           {/* Orange 1 */}
           <div className="bg-orange-600 text-white p-8 text-center">
             <h3 className="text-xl font-bold mb-3">Explore Marketplace</h3>
             <p className="text-sm mb-4">
-              Discover real‑time freight opportunities, connect with verified partners.
+              Discover real-time freight opportunities, connect with verified partners.
             </p>
             <a
               href="/marketplace"
@@ -722,7 +744,7 @@ export default function Home() {
           {/* Image 1 */}
           <div className="relative h-48 overflow-hidden">
             <Image
-              src="/images/hero.jpg"
+              src="/images/marketplace.jpg"
               alt="Marketplace"
               fill
               className="object-cover"
@@ -749,14 +771,14 @@ export default function Home() {
           {/* Image 2 */}
           <div className="relative h-48 overflow-hidden">
             <Image
-              src="/images/hero.jpg"
+              src="/images/trader.jpg"
               alt="Trader"
               fill
               className="object-cover"
               placeholder="blur"
               blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8/OnPfQAJAgGBjA5h9gAAAABJRU5ErkJggg=="
             />
-          </div>
+          </div> 
         </div>
       </section>
     </section>
