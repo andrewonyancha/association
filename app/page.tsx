@@ -434,9 +434,9 @@ export default function Home() {
                   {/* Gradient overlay - transparent at top to purple at bottom */}
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent to-purple-950/0" />
                   {/* Name floating at bottom */}
-                  <div className="absolute bottom-4 left-4 right-4">
+                  <div className="absolute bg-black/50 text-center bottom-4 left-4 right-4">
                     <p className="text-white font-semibold text-sm md:text-base">Antony Njenga</p>
-                    <p className="text-orange-300 text-xs md:text-sm">CEO & Founder</p>
+                    <p className="text-orange-400 text-xs md:text-sm">CEO & Founder</p>
                   </div>
                 </div>
               </div>
@@ -459,30 +459,30 @@ export default function Home() {
 
         {/* Right Side - Orange Background with 5 Compelling Benefits */}
         <div className="bg-orange-600 p-3 md:p-12 md:w-1/2">
-          <div className="grid grid-cols-1 gap-4">
+          <div className="grid grid-cols-1 gap-8">
             {[
               { 
-                shade: "bg-orange-200", 
+                shade: "bg-white", 
                 benefit: "Africa",
                 image: "/images/Africa.svg"
               },
               { 
-                shade: "bg-orange-200", 
+                shade: "bg-white", 
                 benefit: "Asia",
                 image: "/images/Asia.svg"
               },
               { 
-                shade: "bg-orange-200", 
+                shade: "bg-white", 
                 benefit: "North America",
                 image: "/images/North_America.svg"
               },
               { 
-                shade: "bg-orange-200", 
+                shade: "bg-white", 
                 benefit: "South America",
                 image: "/images/South_America.svg"
               },
               { 
-                shade: "bg-orange-200", 
+                shade: "bg-white", 
                 benefit: " Europe",
                 image: "/images/Europe.svg"
               },
@@ -492,7 +492,7 @@ export default function Home() {
                 className={`${item.shade}  flex items-center overflow-hidden rounded-full hover:shadow-lg transition-shadow`}
               >
                 {/* Benefit Image - Touching top, bottom, and left edges */}
-                <div className="relative w-16 h-16  md:w-20 md:h-20 flex-shrink-0">
+                <div className="relative w-16 h-16 m-1 md:w-20 md:h-20 flex-shrink-0">
                   <Image
                     src={item.image}
                     alt={item.benefit}
