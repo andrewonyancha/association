@@ -106,7 +106,7 @@ export default function Home() {
       <div
         className={`
           relative flex flex-col items-center text-center p-6 transition-all duration-500 
-          ${isCenter ? "bg-orange-600 text-white scale-105 z-10" : "bg-gray-50 text-gray-800 scale-95"}
+          ${isCenter ? "bg-orange-600 text-white scale-105 z-10" : "bg-gray-100 text-gray-800 scale-95"}
         `}
       >
         {/* Quote icon background */}
@@ -424,7 +424,7 @@ export default function Home() {
             <div className="flex flex-col md:flex-row gap-8 items-start">
               {/* Founder Image with 3/4 aspect ratio and gradient overlay */}
               <div className="flex-shrink-0">
-                <div className="relative aspect-[3/4] w-110 md:w-64 md:h-72 h-48 overflow-hidden">
+                <div className="relative aspect-[3/4] w-110 md:w-64 md:h-80 h-48 overflow-hidden">
                   <Image
                     src="/images/tony.webp"
                     alt="Founder"
@@ -436,7 +436,7 @@ export default function Home() {
                   {/* Name floating at bottom */}
                   <div className="absolute bg-black/50 text-center bottom-4 left-4 right-4">
                     <p className="text-white font-semibold text-sm md:text-base">Antony Njenga</p>
-                    <p className="text-orange-400 text-xs md:text-sm">CEO & Founder</p>
+                    <p className="text-orange-400 text-xs md:text-sm">Founder</p>
                   </div>
                 </div>
               </div>
