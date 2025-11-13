@@ -489,7 +489,7 @@ export default function Home() {
             ].map((item, index) => (
               <div 
                 key={index}
-                className={`${item.shade}  flex items-center overflow-hidden rounded-full hover:shadow-lg transition-shadow`}
+                className={`${item.shade}  flex items-center overflow-hidden rounded-full shadow-lg hover:shadow-xl transition-shadow`}
               >
                 {/* Benefit Image - Touching top, bottom, and left edges */}
                 <div className="relative w-16 h-16 m-1 md:w-16 md:h-16 flex-shrink-0">
@@ -537,7 +537,7 @@ export default function Home() {
       <section className="py-12 md:py-20">
         <div className="container mx-auto px-3 md:px-0">
           {/* Title */}
-          <div className="text-center mb-10 md:mb-16">
+          <div className="text-center mb-10 md:mb-8">
             <h2 className="text-lg md:text-3xl font-semibold text-gray-900">[ Testimonial ]</h2>
           </div>
 
