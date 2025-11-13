@@ -464,40 +464,40 @@ export default function Home() {
               { 
                 shade: "bg-orange-200", 
                 benefit: "Africa",
-                image: "/images/hero.jpg"
+                image: "/images/Africa.svg"
               },
               { 
                 shade: "bg-orange-200", 
                 benefit: "Asia",
-                image: "/images/hero.jpg"
+                image: "/images/Asia.svg"
               },
               { 
                 shade: "bg-orange-200", 
                 benefit: "North America",
-                image: "/images/hero.jpg"
+                image: "/images/North_America.svg"
               },
               { 
                 shade: "bg-orange-200", 
                 benefit: "South America",
-                image: "/images/hero.jpg"
+                image: "/images/South_America.svg"
               },
               { 
                 shade: "bg-orange-200", 
                 benefit: " Europe",
-                image: "/images/hero.jpg"
+                image: "/images/Europe.svg"
               },
             ].map((item, index) => (
               <div 
                 key={index}
-                className={`${item.shade}  flex items-center overflow-hidden hover:shadow-lg transition-shadow`}
+                className={`${item.shade}  flex items-center overflow-hidden rounded-full hover:shadow-lg transition-shadow`}
               >
                 {/* Benefit Image - Touching top, bottom, and left edges */}
-                <div className="relative w-16 h-16 md:w-20 md:h-20 flex-shrink-0">
+                <div className="relative w-16 h-16  md:w-20 md:h-20 flex-shrink-0">
                   <Image
                     src={item.image}
                     alt={item.benefit}
                     fill
-                    className="object-cover"
+                    className="rounded-full shadow-2xl object-cover"
                   />
                 </div>
                 {/* Benefit Name - Far right */}
