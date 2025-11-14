@@ -756,7 +756,7 @@ export default function Home() {
             <div className="flex justify-center gap-4 mt-6">
               <button
                 onClick={() => setCenterIdx((i) => (i - 1 + total) % total)}
-                className="p-2 bg-orange-600 text-white hover:bg-purple-800 transition-colors rotate-180"
+                className="px-8 bg-orange-600 text-white hover:bg-purple-800 transition-colors rotate-180"
                 aria-label="Previous"
               >
                 <MoveRight className="w-5 h-5" />
@@ -764,7 +764,7 @@ export default function Home() {
 
               <button
                 onClick={() => setCenterIdx((i) => (i + 1) % total)}
-                className="p-2 bg-orange-600 text-white hover:bg-purple-800 transition-colors"
+                className="px-8 bg-orange-600 text-white hover:bg-purple-800 transition-colors"
                 aria-label="Next"
               >
                 <MoveRight className="w-5 h-5" />
