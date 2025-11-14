@@ -33,7 +33,7 @@ export function Footer() {
       ],
     },
     {
-      title: "Services",
+      title: "Benefits",
       links: [
         { label: "Freight Forwarding", href: "/services/freight" },
         { label: "Logistics", href: "/services/logistics" },

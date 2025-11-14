@@ -257,7 +257,7 @@ export default function Home() {
               {/* Image */}
               <div className="relative md:aspect-[4/3] aspect-[3/1] overflow-hidden">
                 <Image
-                  src="/images/hero.jpg"
+                  src="/images/view.png"
                   alt="About TMX Global"
                   fill
                   className="object-cover"
@@ -533,9 +533,11 @@ export default function Home() {
                   />
                 </div>
                 {/* Benefit Name - Far right */}
-                <span className="text-sm md:text-base font-semibold text-gray-700 ml-auto mr-4">
+                <span className="text-sm md:text-base font-semibold text-gray-700 mx-auto text-center">
                   {item.benefit}
                 </span>
+
+                
               </div>
             ))}
           </div>
@@ -708,7 +710,7 @@ export default function Home() {
                   height={160}
                   className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500"
                 />
-                 <div className="absolute -bottom-5 left-1/2 transform -translate-x-1/2 bg-orange-600 text-white px-3 py-1 text-xs font-semibold">
+                 <div className="absolute -bottom-5 left-1/2 transform -translate-x-1/2 bg-white shadow text-orange-600 px-3 py-1 text-xs font-semibold">
                 {member.position}
               </div>
               </div>
@@ -761,7 +763,7 @@ export default function Home() {
             </div>
             <h3 className="text-xl font-bold text-white mb-2">Antony Njenga</h3>
             <p className="text-orange-400 font-semibold mb-3">Founder </p>
-            <p className="text-gray-200 text-sm leading-relaxed mb-4">
+            <p className="text-gray-200 text-sm leading-relaxed mb-4 px-6 ">
               Visionary leader with 25+ years transforming global logistics through innovation and strategic growth.
             </p>
             <a
@@ -780,7 +782,7 @@ export default function Home() {
         {[
           {
             name: "Christine Awuor",
-            position: "Cordinator",
+            position: "Global Cordinator",
             image: "/images/christine.jpeg",
             bgImage: "/images/christine.jpeg",
             linkedin: "#"
@@ -815,7 +817,7 @@ export default function Home() {
                   height={160}
                   className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500"
                 />
-                <div className="absolute -bottom-5 left-1/2 transform -translate-x-1/2 bg-orange-600 text-white px-3 py-1 text-xs font-semibold">
+                <div className="absolute -bottom-5 left-1/2 transform -translate-x-1/2 bg-white text-orange-600 shadow px-3 py-1 text-xs font-semibold">
                 {member.position}
               </div>
               </div>
@@ -840,14 +842,14 @@ export default function Home() {
 </section>
 
       {/* MARKETPLACE SECTION – full‑bleed on desktop, padded on mobile */}
-      <section className="md:border-4 border-orange-600">
+      <section className="md:border-b border-white">
         {/* DESKTOP – 4 columns, no outer padding */}
         <div className="hidden md:block">
           <div className="flex">
             {/* 1 – Orange – Explore Marketplace */}
             <div className="bg-orange-600 text-white flex flex-col justify-between p-3 md:p-6 w-1/4 aspect-square">
               <div>
-                <h3 className="text-lg md:text-3xl font-semibold text-white">[ Explore Marketplace ]</h3>
+                <h3 className="text-lg md:text-3xl font-semibold text-white pb-2">[ Explore Marketplace ]</h3>
                 <p className="text-sm md:text-base leading-relaxed mb-4">
                   Discover real-time freight opportunities, connect with verified partners,
                   and grow your business globally.
@@ -877,7 +879,7 @@ export default function Home() {
             {/* 3 – Orange – Register as Trader */}
             <div className="bg-orange-600 text-white flex flex-col justify-between p-3 md:p-6 w-1/4 aspect-square">
               <div>
-                <h3 className="text-lg md:text-3xl font-semibold text-white">[ Join as Trader ]</h3>
+                <h3 className="text-lg md:text-3xl font-semibold text-white mb-2">[ Join as Trader ]</h3>
                 <p className="text-sm md:text-base leading-relaxed mb-4">
                   Join our network of trusted logistics professionals. List your services and get direct leads.
                 </p>
