@@ -43,7 +43,7 @@ const CalendarImageWithOverlay = React.memo(function CalendarImageWithOverlay({ 
       className="relative aspect-[3/2] overflow-hidden bg-gray-200"
     >
       <Image
-        src={`/images/calender-${index}.jpg`}
+        src={`/images/calendr-${index}.jpg`}
         alt={`Calendar ${index}`}
         fill
         className="object-cover hover:scale-105 transition-transform duration-500"
@@ -54,7 +54,7 @@ const CalendarImageWithOverlay = React.memo(function CalendarImageWithOverlay({ 
       {/* Overlay with symmetrical slide animation */}
       <div
         className={`
-          absolute inset-0 bg-gradient-to-r from-purple-900/70 to-purple-900/70
+          absolute inset-0 bg-gradient-to-r from-purple-900/50 to-purple-900/50
           flex flex-col items-center justify-center text-white text-center px-6
           transition-transform duration-700 ease-out
           ${isVisible ? 'translate-x-0' : (isLeft ? '-translate-x-full' : 'translate-x-full')}
