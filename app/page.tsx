@@ -91,7 +91,6 @@ export default function Home() {
   function TestimonialCard({
     text,
     name,
-    country,
     img,
     isCenter,
   }: {
@@ -172,7 +171,7 @@ export default function Home() {
         {/* LEFT VERTICAL TEXT - TMX Global Freight Network */}
         <div className="absolute md:left-4 left-0 top-[25%] h-full flex items-center pl-4 md:pl-8">
           <div className="transform -rotate-90 origin-left whitespace-nowrap">
-            <p className="text-white text-xs md:text-sm font-medium border-b border-l border-r pb-2 px-4 tracking-[0.4em]">
+            <p className="text-white text-xs md:text-sm font-medium border-b border-l border-r pb-2 px-4 tracking-[0.6em]">
              TMX GLOBAL FREIGHT NETWORK 
             </p>
           </div>
