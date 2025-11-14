@@ -700,7 +700,7 @@ export default function Home() {
 
             {/* Name & Title ONLY */}
             <div className="flex-1 min-w-0 relative z-10 text-white">
-              <h3 className="font-bold text-transparent text-lg">{member.name}</h3>
+              <h3 className="font-bold md:text-transparent text-lg">{member.name}</h3>
               
               {/* <p className="text-orange-400 text-sm font-bold">{member.position}</p> */}
             </div>
@@ -737,14 +737,14 @@ export default function Home() {
                 Founder
               </div>
             </div>
-            <h3 className="text-xl font-bold text-transparent mb-2">Antony Njenga</h3>
+            <h3 className="text-xl font-bold text-white md:text-transparent mb-2">Antony Njenga</h3>
             <p className="text-orange-400 font-semibold mb-3 text-transparent">Founder </p>
-            <p className="text-transparent text-sm leading-relaxed mb-4 px-6 ">
+            <p className="md:text-transparent text-white text-sm leading-relaxed mb-4 px-6 ">
               Visionary leader with 25+ years transforming global logistics through innovation and strategic growth.
             </p>
             <a
               href="#"
-              className="inline-flex items-center gap-2 text-transparent hover:text-white transition-colors text-sm font-medium"
+              className="inline-flex items-center gap-2 md:text-transparent text-orange-200 hover:text-white transition-colors text-sm font-medium"
             >
               <FaLinkedin className=" w-4 h-4" />
               Connect on LinkedIn
@@ -807,7 +807,7 @@ export default function Home() {
 
             {/* Name & Title ONLY */}
             <div className="flex-1 min-w-0 relative z-10 text-white">
-              <h3 className="text-transparent font-bold text-lg mb-1">{member.name}</h3>
+              <h3 className="md:text-transparent font-bold text-lg mb-1">{member.name}</h3>
              
             </div>
           </div>
