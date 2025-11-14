@@ -3,10 +3,8 @@
 import Image from 'next/image';
 import { Facebook, Twitter, Linkedin, Instagram, Mail, MoveRight, Quote, Search } from 'lucide-react';
 import { IoIosPeople } from "react-icons/io";
-import { FaGlobe, FaHandshake } from "react-icons/fa";
+import { FaGlobe, FaHandshake, FaLinkedin } from "react-icons/fa";
 import { PiAirplaneTaxiingThin } from "react-icons/pi";
-import { GiBattleship } from "react-icons/gi";
-import { PiWarehouseThin } from "react-icons/pi";
 import { GiFireShield } from "react-icons/gi";
 import { GiMoneyStack } from "react-icons/gi";
 import { FaConnectdevelop } from "react-icons/fa";
@@ -106,7 +104,7 @@ export default function Home() {
     return (
       <div
         className={`
-          relative flex flex-col items-center text-center p-6 transition-all duration-500 
+          relative flex flex-col items-center text-center p-4 transition-all duration-500 
           ${isCenter ? "bg-orange-600 text-white scale-105 z-10" : "bg-gray-100 text-gray-800 scale-95"}
         `}
       >
@@ -114,13 +112,13 @@ export default function Home() {
         <div
           className={`
             absolute inset-0 flex items-center justify-center opacity-70 pointer-events-none
-            ${isCenter ? "text-white/20" : "text-gray-600/10"}
+            ${isCenter ? "text-white/20 " : "text-gray-600/10"}
           `}
         >
-          <Quote className="w-16 h-16 md:w-48 md:h-48" />
+          <Quote className="w-16 h-16 md:w-60 md:h-60" />
         </div>
 
-        <p className="relative z-10 text-sm md:text-base leading-relaxed mb-2 px-8 flex-grow">
+        <p className="relative z-10 text-sm leading-relaxed mb-2 px-8 flex-grow">
           {text}
         </p>
 
@@ -568,7 +566,7 @@ export default function Home() {
       </section>
 
       {/* TESTIMONIAL SECTION – Mobile: 1 card, Desktop: 3-card carousel */}
-      <section className="py-12 md:py-20">
+      <section className="pt-12 pb-2">
         <div className="container mx-auto px-3 md:px-0">
           {/* Title */}
           <div className="text-center mb-10 md:mb-8">
@@ -637,7 +635,7 @@ export default function Home() {
             </div>
 
             {/* Desktop Navigation */}
-            <div className="flex justify-center gap-4 mt-8">
+            <div className="flex justify-center gap-4 mt-3">
               <button
                 onClick={() => setCenterIdx((i) => (i - 1 + total) % total)}
                 className="p-3 bg-orange-600 text-white hover:bg-purple-800 transition-colors rotate-180"
@@ -657,6 +655,189 @@ export default function Home() {
           </div>
         </div>
       </section>
+  {/* Executive Leadership – 5 Members Balanced Layout */}
+<section className="py-12 bg-gray-50">
+  <div className="container mx-auto">
+    {/* Section Header */}
+    <div className="text-center mb-12">
+      <h2 className="text-lg md:text-left text-center md:text-3xl font-semibold text-gray-900">
+        [ Executive Leadership ]
+      </h2>
+    </div>
+
+    {/* Leadership Team - 5 Members Balanced Layout */}
+    <div className="flex flex-col lg:flex-row items-stretch justify-center gap-2 max-w-7xl mx-auto">
+      
+      {/* LEFT: 2 stacked cards */}
+      <div className="flex flex-col gap-4 lg:w-1/3">
+        {[
+          {
+            name: "Madhu Sarkar",
+            position: "Director Marketing",
+            image: "/images/Madhu-Sarkar.jpeg",
+            bgImage: "/images/Madhu-Sarkar.jpeg",
+            linkedin: "#"
+          },
+          {
+            name: "Andrew Onyancha",
+            position: "Director of Technology",
+            image: "/images/drew.jpeg",
+            bgImage: "/images/drew.jpeg",
+            linkedin: "#"
+          }
+        ].map((member) => (
+          <div 
+            key={member.name}
+            className="relative flex items-center gap-2 p-6 bg-white border border-gray-200 hover:shadow-lg transition-all duration-300 group overflow-hidden flex-1"
+            style={{
+              backgroundImage: `url(${member.bgImage})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+            }}
+          >
+            {/* Black 50% Overlay */}
+            <div className="absolute inset-0 bg-black/50" />
+            
+            {/* Profile Image - SAME HEIGHT as center */}
+            <div className="flex-shrink-0 relative z-10">
+              <div className="w-32 h-32 md:w-24 md:h-24 overflow-hidden border-2 border-white shadow-lg">
+                <Image
+                  src={member.image}
+                  alt={member.name}
+                  width={160}
+                  height={160}
+                  className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500"
+                />
+                 <div className="absolute -bottom-5 left-1/2 transform -translate-x-1/2 bg-orange-600 text-white px-3 py-1 text-xs font-semibold">
+                {member.position}
+              </div>
+              </div>
+              <a
+                href={member.linkedin}
+                className="absolute -bottom-1 -right-1 bg-purple-900 text-white p-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              >
+                <FaLinkedin className="w-3 h-3" />
+              </a>
+            </div>
+
+            {/* Name & Title ONLY */}
+            <div className="flex-1 min-w-0 relative z-10 text-white">
+              <h3 className="font-bold text-lg">{member.name}</h3>
+              
+              {/* <p className="text-orange-400 text-sm font-bold">{member.position}</p> */}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* CENTER: CEO */}
+      <div className="lg:w-1/3 flex justify-center my-8 lg:my-0">
+        <div 
+          className="relative text-center bg-gradient-to-b from-purple-50 to-white p-8 max-w-xs overflow-hidden flex flex-col justify-center h-full"
+          style={{
+            backgroundImage: `url(/images/tony.webp)`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        >
+          {/* Black 50% Overlay */}
+          <div className="absolute inset-0 bg-black/50" />
+          
+          <div className="relative z-10">
+            <div className="relative mb-6 mx-auto">
+              {/* Center Image - Same size as side images */}
+              <div className="w-32 h-32 md:w-32 md:h-32 overflow-hidden  shadow-2xl mx-auto">
+                <Image
+                  src="/images/tony.webp"
+                  alt="Antony Njenga - Founder"
+                  width={160}
+                  height={160}
+                  className="object-cover w-full h-full"
+                />
+              </div>
+              <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-orange-600 text-white px-3 py-1 text-xs font-semibold">
+                Founder
+              </div>
+            </div>
+            <h3 className="text-xl font-bold text-white mb-2">Antony Njenga</h3>
+            <p className="text-orange-400 font-semibold mb-3">Founder </p>
+            <p className="text-gray-200 text-sm leading-relaxed mb-4">
+              Visionary leader with 25+ years transforming global logistics through innovation and strategic growth.
+            </p>
+            <a
+              href="#"
+              className="inline-flex items-center gap-2 text-orange-300 hover:text-white transition-colors text-sm font-medium"
+            >
+              <FaLinkedin className="w-4 h-4" />
+              Connect on LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* RIGHT: 2 stacked cards */}
+      <div className="flex flex-col gap-4 lg:w-1/3">
+        {[
+          {
+            name: "Christine Awuor",
+            position: "Cordinator",
+            image: "/images/christine.jpeg",
+            bgImage: "/images/christine.jpeg",
+            linkedin: "#"
+          },
+          {
+            name: "Rose Gakuo",
+            position: "Operations Manager",
+            image: "/images/Rose.png",
+            bgImage: "/images/Rose.png",
+            linkedin: "#"
+          }
+        ].map((member) => (
+          <div 
+            key={member.name}
+            className="relative flex items-center gap-4 p-6 bg-white  hover:shadow-lg transition-all duration-300 group overflow-hidden flex-1"
+            style={{
+              backgroundImage: `url(${member.bgImage})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+            }}
+          >
+            {/* Black 50% Overlay */}
+            <div className="absolute inset-0 bg-black/50" />
+            
+            {/* Profile Image - SAME HEIGHT as center */}
+            <div className="flex-shrink-0 relative z-10">
+              <div className="w-32 h-32 md:w-24 md:h-24 overflow-hidden border-2 border-white shadow-lg">
+                <Image
+                  src={member.image}
+                  alt={member.name}
+                  width={160}
+                  height={160}
+                  className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute -bottom-5 left-1/2 transform -translate-x-1/2 bg-orange-600 text-white px-3 py-1 text-xs font-semibold">
+                {member.position}
+              </div>
+              </div>
+              <a
+                href={member.linkedin}
+                className="absolute -bottom-1 -right-1 bg-purple-900 text-white p-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              >
+                <FaLinkedin className="w-3 h-3" />
+              </a>
+            </div>
+
+            {/* Name & Title ONLY */}
+            <div className="flex-1 min-w-0 relative z-10 text-white">
+              <h3 className="font-bold text-lg mb-1">{member.name}</h3>
+             
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* MARKETPLACE SECTION – full‑bleed on desktop, padded on mobile */}
       <section className="md:border-4 border-orange-600">
