@@ -105,14 +105,14 @@ export default function Home() {
       <div
         className={`
           relative flex flex-col items-center text-center p-4 transition-all duration-500 
-          ${isCenter ? "bg-orange-600 text-white scale-105 z-10" : "bg-gray-100 text-gray-800 scale-95"}
+          ${isCenter ? "bg-orange-600 text-white scale-105 z-10" : "bg-gray-50 shadow text-orange-300 scale-95"}
         `}
       >
         {/* Quote icon background */}
         <div
           className={`
             absolute inset-0 flex items-center justify-center opacity-70 pointer-events-none
-            ${isCenter ? "text-white/20 " : "text-gray-600/10"}
+            ${isCenter ? "text-white/20 " : "text-gray-500/5"}
           `}
         >
           <Quote className="w-16 h-16 md:w-60 md:h-60" />
@@ -133,14 +133,7 @@ export default function Home() {
         </div>
 
         <h4 className="relative z-10 font-semibold text-sm md:text-base">{name}</h4>
-        <p
-          className={`
-            relative z-10 text-xs md:text-sm
-            ${isCenter ? "text-orange-300" : "text-gray-600"}
-          `}
-        >
-          {country}
-        </p>
+        
       </div>
     );
   }
@@ -456,7 +449,7 @@ export default function Home() {
             <div className="flex flex-col md:flex-row gap-8 items-start">
               {/* Founder Image with 3/4 aspect ratio and gradient overlay */}
               <div className="flex-shrink-0">
-                <div className="relative aspect-[3/4] w-110 md:w-64 md:h-80 h-48 rounded md:rounded-none overflow-hidden">
+                <div className="relative aspect-[3/4] w-[92vw] md:w-64 md:h-80 h-64 rounded md:rounded-none overflow-hidden">
                   <Image
                     src="/images/tony.webp"
                     alt="Founder"
@@ -466,7 +459,7 @@ export default function Home() {
                   {/* Gradient overlay - transparent at top to purple at bottom */}
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent to-purple-950/0" />
                   {/* Name floating at bottom */}
-                  <div className="absolute bg-black/50 text-center w-32 rounded-full md:rounded jutify-center mx-auto bottom-4 left-4 right-4">
+                  <div className="absolute bg-black/50 text-center w-32 rounded md:rounded jutify-center mx-auto bottom-4 left-4 right-4">
                     <p className="text-white font-semibold text-sm md:text-base">Antony Njenga</p>
                     <p className="text-orange-400 text-xs md:text-sm">Founder</p>
                   </div>
@@ -489,41 +482,20 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Right Side - Orange Background with 5 Compelling Benefits */}
+                {/* Right Side - Orange Background with 5 Compelling Benefits */}
         <div className="bg-orange-600 px-2 md:px-8 py-4 md:py-12 md:p-12 md:w-1/2">
           <div className="grid grid-cols-1 md:gap-8 gap-5">
             {[
-              { 
-                shade: "bg-white", 
-                benefit: "Africa Channel ",
-                image: "/images/Africa.svg"
-              },
-              { 
-                shade: "bg-white", 
-                benefit: "Asia Channel",
-                image: "/images/Asia.svg"
-              },
-              { 
-                shade: "bg-white", 
-                benefit: "North America Channel",
-                image: "/images/North_America.svg"
-              },
-              { 
-                shade: "bg-white", 
-                benefit: "South America Channel",
-                image: "/images/South_America.svg"
-              },
-              { 
-                shade: "bg-white", 
-                benefit: " Europe Channel",
-                image: "/images/Europe.svg"
-              },
+              { shade: "bg-white", benefit: "Africa Channel ", image: "/images/Africa.svg" },
+              { shade: "bg-white", benefit: "Asia Channel", image: "/images/Asia.svg" },
+              { shade: "bg-white", benefit: "North America Channel", image: "/images/North_America.svg" },
+              { shade: "bg-white", benefit: "South America Channel", image: "/images/South_America.svg" },
+              { shade: "bg-white", benefit: "Europe Channel", image: "/images/Europe.svg" },
             ].map((item, index) => (
               <div 
                 key={index}
-                className={`${item.shade}  flex items-center overflow-hidden rounded-full shadow-lg hover:shadow-xl transition-shadow`}
+                className={`${item.shade} flex items-center justify-between overflow-hidden rounded-full shadow-lg hover:shadow-xl transition-shadow`}
               >
-                {/* Benefit Image - Touching top, bottom, and left edges */}
                 <div className="relative w-14 h-14 m-1 md:w-18 md:h-18 flex-shrink-0">
                   <Image
                     src={item.image}
@@ -532,12 +504,16 @@ export default function Home() {
                     className="rounded-full grayscale shadow-2xl object-cover"
                   />
                 </div>
-                {/* Benefit Name - Far right */}
-                <span className="text-sm md:text-base font-semibold text-gray-700 mx-auto text-center">
+                <span className="text-sm md:text-base font-semibold text-gray-700 mx-auto text-center flex-1">
                   {item.benefit}
                 </span>
-
-                
+                <a
+                  href="/join"
+                  className="bg-purple-950 text-white px-4 py-5 text-xs md:text-sm rounded-r-full font-semibold hover:bg-orange-700 transition-colors flex items-center gap-1 mr-2"
+                >
+                  Join 
+                  <MoveRight className="w-3 h-3 md:w-4 md:h-4" />
+                </a>
               </div>
             ))}
           </div>
@@ -724,7 +700,7 @@ export default function Home() {
 
             {/* Name & Title ONLY */}
             <div className="flex-1 min-w-0 relative z-10 text-white">
-              <h3 className="font-bold text-lg">{member.name}</h3>
+              <h3 className="font-bold text-transparent text-lg">{member.name}</h3>
               
               {/* <p className="text-orange-400 text-sm font-bold">{member.position}</p> */}
             </div>
@@ -761,16 +737,16 @@ export default function Home() {
                 Founder
               </div>
             </div>
-            <h3 className="text-xl font-bold text-white mb-2">Antony Njenga</h3>
-            <p className="text-orange-400 font-semibold mb-3">Founder </p>
-            <p className="text-gray-200 text-sm leading-relaxed mb-4 px-6 ">
+            <h3 className="text-xl font-bold text-transparent mb-2">Antony Njenga</h3>
+            <p className="text-orange-400 font-semibold mb-3 text-transparent">Founder </p>
+            <p className="text-transparent text-sm leading-relaxed mb-4 px-6 ">
               Visionary leader with 25+ years transforming global logistics through innovation and strategic growth.
             </p>
             <a
               href="#"
-              className="inline-flex items-center gap-2 text-orange-300 hover:text-white transition-colors text-sm font-medium"
+              className="inline-flex items-center gap-2 text-transparent hover:text-white transition-colors text-sm font-medium"
             >
-              <FaLinkedin className="w-4 h-4" />
+              <FaLinkedin className=" w-4 h-4" />
               Connect on LinkedIn
             </a>
           </div>
@@ -831,7 +807,7 @@ export default function Home() {
 
             {/* Name & Title ONLY */}
             <div className="flex-1 min-w-0 relative z-10 text-white">
-              <h3 className="font-bold text-lg mb-1">{member.name}</h3>
+              <h3 className="text-transparent font-bold text-lg mb-1">{member.name}</h3>
              
             </div>
           </div>
