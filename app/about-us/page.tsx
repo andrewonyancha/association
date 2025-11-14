@@ -94,7 +94,7 @@ export default function AboutUs() {
         </div>
 
         {/* Right Vertical Social Bar - Consistent with Landing Page */}
-        <div className="absolute right-0 top-3 h-full flex items-center pr-2 md:pr-12">
+        <div className="absolute right-0 top-3 h-full flex items-center pr-1 md:pr-4">
           <div className="flex flex-col items-center gap-8">
             <div className="w-px h-20 bg-white/70" />
             <div className="flex flex-col gap-6">
