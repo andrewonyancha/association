@@ -85,7 +85,7 @@ export default function AboutUs() {
         </div>
 
         {/* LEFT VERTICAL TEXT - Consistent with Landing Page */}
-        <div className="absolute md:left-2 left-0 top-0 md:top-[46%] h-full flex items-center pl-4 md:pl-8">
+        <div className="absolute md:left-2 left-0 top-0 md:top-[46%] h-full flex items-center pl-1 md:pl-4">
           <div className="transform -rotate-90 origin-left whitespace-nowrap">
             <p className="text-white text-xs md:text-sm font-medium border-b border-l border-r pb-2 px-2 tracking-[0.1em]">
               TMX GLOBAL FREIGHT NETWORK
@@ -94,7 +94,7 @@ export default function AboutUs() {
         </div>
 
         {/* Right Vertical Social Bar - Consistent with Landing Page */}
-        <div className="absolute right-0 top-3 h-full flex items-center pr-1 md:pr-4">
+        <div className="absolute right-0 top-3 h-full flex items-center pr-1 md:pr-6">
           <div className="flex flex-col items-center gap-8">
             <div className="w-px h-20 bg-white/70" />
             <div className="flex flex-col gap-6">
