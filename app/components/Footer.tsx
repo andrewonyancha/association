@@ -213,7 +213,7 @@ export function Footer() {
           {/* MOBILE TMX DIVIDER */}
           <div className="lg:hidden flex justify-center py-6 border-t border-gray-500">
             <div className="bg-orange-600 text-white font-bold text-xl px-6 py-2  ">
-              TMX
+              TMX Global Freight Network
             </div>
           </div>
         </div>
