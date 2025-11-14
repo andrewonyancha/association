@@ -190,7 +190,7 @@ export default function Benefits() {
                         href="/join"
                         className="mt-4 mx-auto flex items-center gap-2 text-orange-600 hover:text-purple-900 font-medium text-sm group"
                       >
-                        Learn More
+                        Inquire
                         <MoveRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                       </a>
                     </div>
