@@ -178,7 +178,7 @@ export default function Home() {
         </div>
 
         {/* Right Vertical Social Bar */}
-        <div className="absolute right-0 -top-4 h-full flex items-center pr-2 md:pr-12">
+        <div className="absolute right-0 -top-8 h-full flex items-center pr-2 md:pr-12">
           <div className="flex flex-col items-center gap-8">
             <div className="w-px h-20 bg-white/70" />
             <div className="flex flex-col gap-6">
@@ -203,7 +203,8 @@ export default function Home() {
         </div>
 
         {/* HERO CONTENT + BUTTONS */}
-        <div className="relative z-10 container mx-auto px-12 md:px-12 max-w-5xl text-white">
+        <div className="relative z-10 container mx-auto px-12 pb-8
+         md:px-12 max-w-5xl text-white">
           <h1 className="text-4xl md:text-6xl  font-bold mb-4 md:mb-6 leading-tight">
             Global Freight,<br /> <span className='flex'>Connected. <FaHandshake  className='md:mt-2 mt-1 md:ml-2 ml-2'/></span>
           </h1>
