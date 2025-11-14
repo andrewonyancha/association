@@ -169,7 +169,7 @@ export default function Home() {
         </div>
 
         {/* LEFT VERTICAL TEXT - TMX Global Freight Network */}
-        <div className="absolute left-0 top-[25%] md:top-[33%] h-full flex items-center pl-4 md:pl-8">
+        <div className="absolute left-0 top-[25%] md:top-[33%] h-full flex items-center pl-4 md:pl-6">
           <div className="transform -rotate-90 origin-left whitespace-nowrap">
             <p className="text-white text-xs md:text-sm font-medium border-b border-l border-r pb-2 px-4 md:tracking-[0.4em] tracking-[0.6em]">
              TMX GLOBAL FREIGHT NETWORK 
@@ -178,7 +178,7 @@ export default function Home() {
         </div>
 
         {/* Right Vertical Social Bar */}
-        <div className="absolute right-0 md:-right-6 -top-10 h-full flex items-center pr-2 md:pr-12">
+        <div className="absolute right-0 md:-right-6 -top-10 md:-top-4 h-full flex items-center pr-2 md:pr-12">
           <div className="flex flex-col items-center gap-8">
             <div className="w-px h-26 bg-white/70" />
             <div className="flex flex-col gap-6">
@@ -203,14 +203,18 @@ export default function Home() {
         </div>
 
         {/* HERO CONTENT + BUTTONS */}
-        <div className="relative z-10 container mx-auto px-12 pb-12
+        <div className="relative z-10 container mx-auto px-12 pb-12 md:pb-0
          md:px-12 max-w-5xl text-white">
-          <h1 className="text-4xl md:text-6xl  font-bold mb-4 md:mb-6 leading-tight">
+          <h1 className="text-4xl md:text-6xl  font-bold leading-tight">
             Global Freight,<br /> <span className='flex'>Connected. <FaHandshake  className='md:mt-2 mt-1 md:ml-2 ml-2'/></span>
           </h1>
-          <p className="text-base md:text-xl mb-8 md:mb-10 max-w-2xl">
-            Join a trusted network of freight forwarders spanning 120+ countries. Move cargo faster, safer, and smarter.
-          </p>
+          <ul className="list-disc list-inside md:text-base text-sm  mb-1 max-w-2xl">
+            <li>Finacing and insurance</li>
+            <li>Priority Freight Routes.</li>
+            <li>Global Partnerships.</li>
+            <li>Business Leads.</li>
+            <li>Investment Opportunities.</li>  
+          </ul>
 
           {/* TWO CALL-TO-ACTION BUTTONS */}
           <div className="flex flex-col sm:flex-row gap-4 md:gap-6">
