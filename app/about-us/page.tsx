@@ -1,9 +1,9 @@
 'use client';
 
 import Image from 'next/image';
-import { Facebook, Twitter, Linkedin, Instagram, Mail, MoveRight, Quote, Search, Users, Target, Award, Globe, Binoculars } from 'lucide-react';
+import { Facebook, Twitter, Linkedin, Instagram, Mail, MoveRight, Award,  Binoculars, Eye, Clock } from 'lucide-react';
 import { IoIosPeople } from "react-icons/io";
-import { FaGlobe, FaHandshake, FaLinkedin, FaShippingFast, FaShieldAlt } from "react-icons/fa";
+import { FaGlobe, FaHandshake,  FaShippingFast, FaShieldAlt } from "react-icons/fa";
 import { PiAirplaneTaxiingThin } from "react-icons/pi";
 import { GiFireShield } from "react-icons/gi";
 import { GiMoneyStack } from "react-icons/gi";
@@ -21,7 +21,7 @@ export default function AboutUs() {
       textColor: "text-black"
     },
     {
-      Icon: Binoculars,
+      Icon: Clock,
       title: "Our Vision",
       description: "To be the leading global freight network that transforms international trade through innovation, collaboration, and exceptional service, making world-class logistics accessible to businesses of all sizes.",
       color: "bg-white",
@@ -187,45 +187,47 @@ export default function AboutUs() {
         </div>
       </section>
 
-      {/* MISSION, VISION & VALUES SECTION */}
-      <section className="py-12 md:py-20 bg-gray-50">
-        <div className="container mx-auto px-3 md:px-0">
-          <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-lg md:text-3xl font-semibold text-gray-900">[ Our Guiding Principles ]</h2>
-          </div>
+     {/* MISSION, VISION & VALUES SECTION */}
+<section className="py-12 md:py-20 bg-gray-50">
+  <div className="container mx-auto px-3 md:px-0">
+    <div className="text-center mb-12 md:mb-16">
+      <h2 className="text-lg md:text-3xl font-semibold text-gray-900">[ Our Guiding Principles ]</h2>
+    </div>
 
-          <div className="grid md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
-            {missionVisionData.map((item, index) => (
-              <div
-                key={index}
-                className={`${item.color} ${item.textColor} p-8 md:p-10 relative overflow-hidden group hover:transform hover:scale-105 transition-all duration-300`}
-              >
-                {/* Background Icon */}
-                <div className={`absolute right-4 top-4 opacity-10 ${item.textColor}`}>
-                  <item.Icon className="w-24 h-24 md:w-32 md:h-32" />
-                </div>
+    <div className="grid md:grid-cols-3 max-w-6xl mx-auto relative">
+      {missionVisionData.map((item, index) => (
+        <div
+          key={index}
+          className={`
+            ${item.color} ${item.textColor} p-8 relative overflow-hidden 
+            group hover:scale-105 transition-all duration-300
+          `}
+        >
+          {/* Full-height thin line between cards — edge to edge */}
+          {index < 2 && (
+            <div className="absolute right-0 top-0 bottom-0 w-px bg-gray-300 hidden md:block" />
+          )}
 
-                {/* Content */}
-                <div className="relative z-10">
-                  <item.Icon className="w-12 h-12 md:w-16 md:h-16 mb-6" />
-                  <h3 className="text-xl md:text-2xl font-bold mb-4">{item.title}</h3>
-                  <p className="text-sm md:text-base leading-relaxed opacity-90">
-                    {item.description}
-                  </p>
-                </div>
-              </div>
-            ))}
+          {/* Content */}
+          <div className="relative z-10">
+            <item.Icon className="w-12 h-12 md:w-12 md:h-12 mb-4 text-purple-900" />
+            <h3 className="text-xl md:text-2xl font-bold mb-4">{item.title}</h3>
+            <p className="text-sm md:text-base leading-relaxed opacity-90">
+              {item.description}
+            </p>
           </div>
         </div>
-      </section>
-
+      ))}
+    </div>
+  </div>
+</section>
     
 
       {/* WHY CHOOSE TMX SECTION */}
       <section className="py-12 md:py-20 bg-purple-950 text-white">
         <div className="container mx-auto px-3 md:px-0">
           <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-lg md:text-3xl font-semibold text-orange-600">[ Why Choose TMX Global ]</h2>
+            <h2 className="text-lg md:text-3xl font-semibold text-white">[ Why Choose TMX Global ]</h2>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-6xl mx-auto">
@@ -270,7 +272,7 @@ export default function AboutUs() {
       <section className="py-12 md:py-20 bg-gray-50">
         <div className="container mx-auto px-3 md:px-0 text-center">
           <h2 className="text-lg md:text-3xl font-semibold text-gray-900 mb-4">Ready to Join Our Global Network?</h2>
-          <p className="text-base md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+          <p className="md:text-base text-sm  text-gray-600 mb-8 max-w-xl px-12  text-left mx-auto">
             Become part of the world's most connected freight forwarding community and transform your business.
           </p>
           
