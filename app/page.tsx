@@ -105,7 +105,7 @@ export default function Home() {
       <div
         className={`
           relative flex flex-col items-center text-center p-4 transition-all duration-500 
-          ${isCenter ? "bg-orange-600 text-white scale-105 z-10" : "bg-gray-50 shadow text-orange-300 scale-95"}
+          ${isCenter ? "bg-orange-600 text-white scale-105 z-10" : "bg-gray-50 shadow text-gray-500 scale-95"}
         `}
       >
         {/* Quote icon background */}
