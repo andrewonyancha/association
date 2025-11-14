@@ -153,7 +153,7 @@ export default function Home() {
   return (
     <section className='overflow-hidden -mt-2'>
       {/* HERO SECTION */}
-      <section className="relative -top-6 min-h-screen flex items-center justify-start overflow-hidden">
+      <section className="relative h-screen flex items-center justify-start overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
