@@ -135,7 +135,7 @@ export default function AboutUs() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Left: Image with Contact Bar - Consistent with Landing Page */}
             <div className="space-y-6">
-              <div className="relative aspect-[3/4] overflow-hidden">
+              <div className="relative md:aspect-[3/4] aspect-[3/2] overflow-hidden">
                 <Image
                   src="/images/view.png"
                   alt="TMX Global Story"
