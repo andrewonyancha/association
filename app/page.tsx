@@ -153,7 +153,7 @@ export default function Home() {
   return (
     <section className='overflow-hidden -mt-2'>
       {/* HERO SECTION */}
-      <section className="relative min-h-screen flex items-center justify-start overflow-hidden">
+      <section className="relative -top-6 min-h-screen flex items-center justify-start overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
@@ -169,7 +169,7 @@ export default function Home() {
         </div>
 
         {/* LEFT VERTICAL TEXT - TMX Global Freight Network */}
-        <div className="absolute md:left-0 left-0 md:top-[30%] top-[25%] h-full flex items-center pl-4 md:pl-8">
+        <div className="absolute left-0 top-[25%] md:top-[33%] h-full flex items-center pl-4 md:pl-8">
           <div className="transform -rotate-90 origin-left whitespace-nowrap">
             <p className="text-white text-xs md:text-sm font-medium border-b border-l border-r pb-2 px-4 md:tracking-[0.4em] tracking-[0.6em]">
              TMX GLOBAL FREIGHT NETWORK 
@@ -208,7 +208,7 @@ export default function Home() {
           <h1 className="text-4xl md:text-6xl  font-bold mb-4 md:mb-6 leading-tight">
             Global Freight,<br /> <span className='flex'>Connected. <FaHandshake  className='md:mt-2 mt-1 md:ml-2 ml-2'/></span>
           </h1>
-          <p className="text-base md:text-xl mb-8 md:mb-10 max-w-xl">
+          <p className="text-base md:text-xl mb-8 md:mb-10 max-w-2xl">
             Join a trusted network of freight forwarders spanning 120+ countries. Move cargo faster, safer, and smarter.
           </p>
 
