@@ -85,7 +85,7 @@ export default function AboutUs() {
         </div>
 
         {/* LEFT VERTICAL TEXT - Consistent with Landing Page */}
-        <div className="absolute md:left-2 left-4 top-[35%] md:top-[46%] h-full flex items-center pl-1 md:pl-4">
+        <div className="absolute md:left-2 left-4 top-[40%] md:top-[46%] h-full flex items-center pl-1 md:pl-4">
           <div className="transform -rotate-90 origin-left whitespace-nowrap">
             <p className="text-white text-xs md:text-sm font-medium border-b border-l border-r pb-2 px-2 md:tracking-[0.1em] tracking-[0.4em]">
               TMX GLOBAL FREIGHT NETWORK
