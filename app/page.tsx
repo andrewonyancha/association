@@ -208,7 +208,7 @@ export default function Home() {
           <h1 className="text-4xl md:text-6xl  font-bold mb-4 md:mb-6 leading-tight">
             Global Freight,<br /> <span className='flex'>Connected. <FaHandshake  className='md:mt-2 mt-1 md:ml-2 ml-2'/></span>
           </h1>
-          <p className="text-base md:text-xl mb-8 md:mb-10 max-w-2xl">
+          <p className="text-base md:text-xl mb-8 md:mb-10 max-w-xl">
             Join a trusted network of freight forwarders spanning 120+ countries. Move cargo faster, safer, and smarter.
           </p>
 
