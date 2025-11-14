@@ -194,7 +194,7 @@ export default function AboutUs() {
       <h2 className="text-lg md:text-3xl font-semibold text-gray-900">[ Our Guiding Principles ]</h2>
     </div>
 
-    <div className="grid md:grid-cols-3 md:gap-0 gap-4 max-w-6xl mx-auto relative">
+    <div className="grid md:grid-cols-3 md:gap-0 gap-8 max-w-6xl mx-auto relative">
       {missionVisionData.map((item, index) => (
         <div
           key={index}
