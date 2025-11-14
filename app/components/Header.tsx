@@ -219,7 +219,7 @@ export function Header() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
-          className="fixed inset-0 z-30 bg-orange-50 backdrop-blur-lg pt-[22%] px-6 lg:hidden"
+          className="fixed inset-0 z-30 bg-orange-50 backdrop-blur-lg pt-[24%] px-6 lg:hidden"
         >
           <nav className="flex flex-col items-start gap-5">
             {mainMenuItems.map((item) => (
