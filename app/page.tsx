@@ -722,7 +722,7 @@ export default function Home() {
             <div className="flex-1 min-w-0 relative z-10 text-white">
              
             </div>
-          <div className="absolute -bottom-0 right-0 transform bg-white border border-gray-100  text-black px-3 py-1 text-xs font-semibold">
+          <div className="absolute -bottom-0 right-0 transform bg-white border border-gray-200  text-black px-3 py-1 text-xs font-semibold">
              <h3 className="font-bold text-base text-purple-900">{member.name}</h3>
                 {member.position}
               </div>
