@@ -130,7 +130,7 @@ export default function AboutUs() {
       </section>
 
       {/* OUR STORY SECTION */}
-      <section className="py-12 bg-white">
+      <section className="md:py-12 py-4 bg-white">
         <div className="container mx-auto px-3 md:px-0">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Left: Image with Contact Bar - Consistent with Landing Page */}
@@ -194,18 +194,18 @@ export default function AboutUs() {
       <h2 className="text-lg md:text-3xl font-semibold text-gray-900">[ Our Guiding Principles ]</h2>
     </div>
 
-    <div className="grid md:grid-cols-3 max-w-6xl mx-auto relative">
+    <div className="grid md:grid-cols-3 md:gap-0 gap-4 max-w-6xl mx-auto relative">
       {missionVisionData.map((item, index) => (
         <div
           key={index}
           className={`
-            ${item.color} ${item.textColor} p-8 relative overflow-hidden 
+            ${item.color} ${item.textColor} p-8 border border-gray-200 relative overflow-hidden 
             group  transition-all duration-300
           `}
         >
           {/* Full-height thin line between cards — edge to edge */}
           {index < 2 && (
-            <div className="absolute right-0 top-0 bottom-0 w-px bg-gray-300 hidden md:block" />
+            <div className="absolute right-0 top-0 bottom-0  hidden md:block" />
           )}
 
           {/* Content */}
