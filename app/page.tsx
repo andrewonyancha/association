@@ -449,7 +449,7 @@ export default function Home() {
             <div className="flex flex-col md:flex-row gap-8 items-start">
               {/* Founder Image with 3/4 aspect ratio and gradient overlay */}
               <div className="flex-shrink-0">
-                <div className="relative aspect-[3/4] w-[92vw] md:w-64 md:h-80 h-64 rounded md:rounded-none overflow-hidden">
+                <div className="relative aspect-[3/4] w-[92vw] md:w-64 md:h-80 h-64 md:rounded-none overflow-hidden">
                   <Image
                     src="/images/tony.webp"
                     alt="Founder"
