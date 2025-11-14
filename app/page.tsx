@@ -203,7 +203,7 @@ export default function Home() {
         </div>
 
         {/* HERO CONTENT + BUTTONS */}
-        <div className="relative z-10 container mx-auto px-12 pb-8
+        <div className="relative z-10 container mx-auto px-12 pb-12
          md:px-12 max-w-5xl text-white">
           <h1 className="text-4xl md:text-6xl  font-bold mb-4 md:mb-6 leading-tight">
             Global Freight,<br /> <span className='flex'>Connected. <FaHandshake  className='md:mt-2 mt-1 md:ml-2 ml-2'/></span>
