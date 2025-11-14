@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { Facebook, Twitter, Linkedin, Instagram, Mail, MoveRight, Quote, Search } from 'lucide-react';
+import { Facebook, Twitter, Linkedin, Instagram, Mail, MoveRight, Quote, Search, CheckCircle } from 'lucide-react';
 import { IoIosPeople } from "react-icons/io";
 import { FaGlobe, FaHandshake, FaLinkedin } from "react-icons/fa";
 import { PiAirplaneTaxiingThin } from "react-icons/pi";
@@ -208,12 +208,12 @@ export default function Home() {
           <h1 className="text-3xl md:text-6xl -mt-2 pb-3 font-bold leading-tight">
             Global Freight,<br /> <span className='flex'>Connected. <FaHandshake  className='md:mt-2 mt-1 md:ml-2 ml-2'/></span>
           </h1>
-          <ul className="list-disc list-inside md:text-base text-sm  mb-6 gap-4 pl-1 max-w-2xl">
-            <li>Finacing and insurance</li>
-            <li>Priority Freight Routes.</li>
-            <li>Global Partnerships.</li>
-            <li>Business Leads.</li>
-            <li>Investment Opportunities.</li>  
+          <ul className=" list-inside md:text-base text-sm  mb-6 pl-1 max-w-2xl">
+            <li className='flex gap-1'><CheckCircle className='p-1 text-orange-500'/> Finacing and insurance</li>
+            <li className='flex gap-1'><CheckCircle className='p-1 text-orange-500'/>Priority Freight Routes.</li>
+            <li className='flex gap-1'><CheckCircle className='p-1 text-orange-500'/>Global Partnerships.</li>
+            <li className='flex gap-1'><CheckCircle className='p-1 text-orange-500'/> Business Leads.</li>
+            <li className='flex gap-1'><CheckCircle className='p-1 text-orange-500'/> Investment Opportunities.</li>  
           </ul>
 
           {/* TWO CALL-TO-ACTION BUTTONS */}
