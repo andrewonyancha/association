@@ -170,7 +170,7 @@ export default function Home() {
         </div>
 
         {/* LEFT VERTICAL TEXT - TMX Global Freight Network */}
-        <div className="absolute md:left-4 left-0 top-[32%] h-full flex items-center pl-4 md:pl-8">
+        <div className="absolute md:left-4 left-0 top-[25%] h-full flex items-center pl-4 md:pl-8">
           <div className="transform -rotate-90 origin-left whitespace-nowrap">
             <p className="text-white text-xs md:text-sm font-medium border-b border-l border-r pb-2 px-4 tracking-[0.4em]">
              TMX GLOBAL FREIGHT NETWORK 
@@ -179,7 +179,7 @@ export default function Home() {
         </div>
 
         {/* Right Vertical Social Bar */}
-        <div className="absolute right-0 top-0 h-full flex items-center pr-2 md:pr-12">
+        <div className="absolute right-0 -top-4 h-full flex items-center pr-2 md:pr-12">
           <div className="flex flex-col items-center gap-8">
             <div className="w-px h-20 bg-white/70" />
             <div className="flex flex-col gap-6">
@@ -248,7 +248,7 @@ export default function Home() {
             {/* Left: Image + Contact Bar */}
             <div className="space-y-6">
               {/* Image */}
-              <div className="relative md:aspect-[4/3] aspect-[3/1] overflow-hidden">
+              <div className="relative md:aspect-[4/3] aspect-[3/2] overflow-hidden">
                 <Image
                   src="/images/view.png"
                   alt="About TMX Global"
