@@ -178,9 +178,9 @@ export default function Home() {
         </div>
 
         {/* Right Vertical Social Bar */}
-        <div className="absolute right-0 md:-right-6 -top-8 h-full flex items-center pr-2 md:pr-12">
+        <div className="absolute right-0 md:-right-6 -top-10 h-full flex items-center pr-2 md:pr-12">
           <div className="flex flex-col items-center gap-8">
-            <div className="w-px h-28 bg-white/70" />
+            <div className="w-px h-26 bg-white/70" />
             <div className="flex flex-col gap-6">
               {[
                 { Icon: Facebook, label: 'Facebook' },
@@ -198,7 +198,7 @@ export default function Home() {
                 </a>
               ))}
             </div>
-            <div className="w-px h-28 bg-white/70" />
+            <div className="w-px h-26 bg-white/70" />
           </div>
         </div>
 
