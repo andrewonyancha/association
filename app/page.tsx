@@ -208,7 +208,7 @@ export default function Home() {
           <h1 className="text-3xl md:text-6xl -mt-2 pb-3 font-bold leading-tight">
             Global Freight,<br /> <span className='flex'>Connected. <FaHandshake  className='md:mt-2 mt-1 md:ml-2 ml-2'/></span>
           </h1>
-          <ul className="list-disc list-inside md:text-base text-sm  mb-6 gap-4 max-w-2xl">
+          <ul className="list-disc list-inside md:text-base text-sm  mb-6 gap-4 pl-1 max-w-2xl">
             <li>Finacing and insurance</li>
             <li>Priority Freight Routes.</li>
             <li>Global Partnerships.</li>
