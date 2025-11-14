@@ -10,7 +10,7 @@ import { GiMoneyStack } from "react-icons/gi";
 import { FaConnectdevelop } from "react-icons/fa";
 import { BiTargetLock } from 'react-icons/bi';
 
-export default function AboutUs() {
+export default function Benefits() {
   // Mission & Vision Cards Data
   const missionVisionData = [
     {
@@ -121,7 +121,7 @@ export default function AboutUs() {
         {/* HERO CONTENT */}
         <div className="relative z-10 container mx-auto px-12 md:px-12 max-w-5xl text-white">
           <h1 className="text-4xl md:text-6xl font-bold mb-4 md:mb-6 leading-tight">
-            About TMX Global<br /> <span className='flex'>Excellence. <FaHandshake className='md:mt-2 mt-1 md:ml-2 ml-2'/></span>
+            Benefits of being a member of the <br /> <span className='flex'>Association. <FaHandshake className='md:mt-2 mt-1 md:ml-2 ml-2'/></span>
           </h1>
           <p className="text-base md:text-xl mb-8 md:mb-10 max-w-2xl">
             Pioneering the future of global freight with innovation, trust, and unparalleled network connectivity across 120+ countries.
@@ -129,144 +129,131 @@ export default function AboutUs() {
         </div>
       </section>
 
-      {/* OUR STORY SECTION */}
-      <section className="py-12 bg-white">
-        <div className="container mx-auto px-3 md:px-0">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Left: Image with Contact Bar - Consistent with Landing Page */}
-            <div className="space-y-6">
-              <div className="relative aspect-[3/4] overflow-hidden">
-                <Image
-                  src="/images/view.png"
-                  alt="TMX Global Story"
-                  fill
-                  className="object-cover hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-
-              {/* Contact Bar - Consistent with Landing Page */}
-              <div className="bg-gray-100 overflow-hidden flex items-center md:h-20 h-12">
-                <div className="bg-purple-900 h-full w-20 flex items-center justify-center">
-                  <Mail className="md:w-8 md:h-8 w-4 h-4 text-white" />
+       {/* BENEFITS OF BEING A MEMBER SECTION */}
+            <section className="py-16 -mt-12 bg-gray-50">
+              <div className="container mx-auto px-3 md:px-0">
+                {/* Section titles */}
+                <div className="text-center mb-4 md:mb-10">
+                  <h2 className="text-lg md:text-3xl font-semibold text-gray-900">[ Benefits of Being a Member ]</h2>
                 </div>
-                <div className="pl-6 pr-8">
-                  <p className="font-semibold text-gray-800">Get in Touch</p>
-                  <a href="mailto:info@tmxglobal.com" className="text-purple-900 hover:underline text-sm">
-                    info@tmxglobal.com
-                  </a>
+      
+                {/* LARGE SCREEN: 2x3 Grid */}
+                <div className="hidden md:grid md:grid-cols-3 md:grid-rows-2">
+                  {[
+                    {
+                      Icon: GiFireShield,
+                      title: "Cargo Insurance",
+                      desc: "Protect every shipment with comprehensive, network-backed insurance — giving your clients total peace of mind.",
+                    },
+                    {
+                      Icon: GiMoneyStack,
+                      title: "Financing for Cargo",
+                      desc: "Unlock working capital with flexible freight financing. Close bigger deals without cash flow delays.",
+                    },
+                    {
+                      Icon: FaConnectdevelop,
+                      title: "Global Partnerships",
+                      desc: "Connect with 500+ vetted agents in 120+ countries. Expand your reach without building from scratch.",
+                    },
+                    {
+                      Icon: IoIosPeople,
+                      title: "Business Leads",
+                      desc: "Receive qualified freight inquiries daily. Grow revenue through exclusive network opportunities.",
+                    },
+                    {
+                      Icon: FaGlobe,
+                      title: "Investment Opportunities",
+                      desc: "Access joint ventures, shared warehouses, and co-investment in high-growth trade lanes.",
+                    },
+                    {
+                      Icon: PiAirplaneTaxiingThin,
+                      title: "Priority Freight Routes",
+                      desc: "Secure preferred rates and capacity on high-demand air, sea, and land corridors — year-round.",
+                    },
+                  ].map((benefit, idx) => (
+                    <div
+                      key={idx}
+                      className={`
+                        p-2 md:p-6 bg-white flex flex-col border-gray-200
+                        ${idx % 3 !== 2 ? "border-r" : ""}
+                        ${idx < 3 ? "border-b" : ""}
+                      `}
+                    >
+                      <benefit.Icon className="w-12 h-12 md:w-16 md:h-16 text-orange-600 mx-auto mb-3" />
+                      <h4 className="text-lg md:text-xl font-bold text-center mb-2 text-purple-900">
+                        {benefit.title}
+                      </h4>
+                      <p className="text-sm md:text-base text-gray-700 text-center flex-grow">
+                        {benefit.desc}
+                      </p>
+                      <a
+                        href="/join"
+                        className="mt-4 mx-auto flex items-center gap-2 text-orange-600 hover:text-purple-900 font-medium text-sm group"
+                      >
+                        Learn More
+                        <MoveRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                      </a>
+                    </div>
+                  ))}
+                </div>
+      
+                {/* MOBILE: Vertical Stack */}
+                <div className="md:hidden space-y-6">
+                  {[
+                    {
+                      Icon: GiFireShield,
+                      title: "Cargo Insurance",
+                      desc: "Protect every shipment with comprehensive, network-backed insurance.",
+                    },
+                    {
+                      Icon: GiMoneyStack,
+                      title: "Financing for Cargo",
+                      desc: "Unlock working capital with flexible freight financing.",
+                    },
+                    {
+                      Icon: FaConnectdevelop,
+                      title: "Global Partnerships",
+                      desc: "Connect with 500+ vetted agents in 120+ countries.",
+                    },
+                    {
+                      Icon: IoIosPeople,
+                      title: "Business Leads",
+                      desc: "Receive qualified freight inquiries daily.",
+                    },
+                    {
+                      Icon: FaGlobe,
+                      title: "Investment Opportunities",
+                      desc: "Access joint ventures and co-investment in high-growth lanes.",
+                    },
+                    {
+                      Icon: PiAirplaneTaxiingThin,
+                      title: "Priority Freight Routes",
+                      desc: "Secure preferred rates and capacity on key trade corridors.",
+                    },
+                  ].map((benefit, idx) => (
+                    <div
+                      key={idx}
+                      className="border border-gray-300 bg-white p-6 flex flex-col w-full mx-auto max-w-md rounded-lg shadow-sm"
+                    >
+                      <benefit.Icon className="w-12 h-12 text-orange-600 mx-auto mb-4" />
+                      <h4 className="text-lg font-bold text-purple-900 text-center mb-2">
+                        {benefit.title}
+                      </h4>
+                      <p className="text-sm text-gray-700 text-center flex-grow">
+                        {benefit.desc}
+                      </p>
+                      <a
+                        href="/join"
+                        className="mt-4 mx-auto text-orange-600 hover:text-purple-900 font-medium text-sm flex items-center gap-1 group"
+                      >
+                        Learn More
+                        <MoveRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                      </a>
+                    </div>
+                  ))}
                 </div>
               </div>
-            </div>
-
-            {/* Right: Story Content */}
-            <div className="space-y-6">
-              <div>
-                <h2 className="text-lg md:text-3xl font-semibold text-gray-900">[ Our Story ]</h2>
-              </div>
-
-              <p className="leading-relaxed text-sm md:text-base text-gray-700">
-                Founded in 2018, TMX Global Freight Network emerged from a simple yet powerful vision: to create a truly connected global freight ecosystem where trust, reliability, and innovation are paramount. What started as a network of dedicated logistics professionals has evolved into a comprehensive platform serving 500+ members across 120+ countries.
-              </p>
-
-              <p className="leading-relaxed text-sm md:text-base text-gray-700">
-                Our journey has been marked by strategic growth, digital transformation, and an unwavering commitment to excellence. Today, we stand as a testament to what's possible when industry expertise meets cutting-edge technology and global collaboration.
-              </p>
-
-              {/* Stats Grid - Consistent with Landing Page Style */}
-              <div className="grid grid-cols-2 gap-4 md:gap-6">
-                {statsData.map((stat, index) => (
-                  <div key={index} className="bg-gray-100 p-6 text-center hover:shadow transition-shadow">
-                    <stat.Icon className={`w-8 h-8 md:w-12 md:h-12 ${stat.color} mx-auto mb-3`} />
-                    <h4 className="text-2xl md:text-4xl font-bold text-gray-800">{stat.number}</h4>
-                    <p className="text-xs md:text-sm text-gray-600 mt-2">{stat.label}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-     {/* MISSION, VISION & VALUES SECTION */}
-<section className="py-12 md:py-20 bg-gray-50">
-  <div className="container mx-auto px-3 md:px-0">
-    <div className="text-center mb-12 md:mb-16">
-      <h2 className="text-lg md:text-3xl font-semibold text-gray-900">[ Our Guiding Principles ]</h2>
-    </div>
-
-    <div className="grid md:grid-cols-3 max-w-6xl mx-auto relative">
-      {missionVisionData.map((item, index) => (
-        <div
-          key={index}
-          className={`
-            ${item.color} ${item.textColor} p-8 relative overflow-hidden 
-            group  transition-all duration-300
-          `}
-        >
-          {/* Full-height thin line between cards — edge to edge */}
-          {index < 2 && (
-            <div className="absolute right-0 top-0 bottom-0 w-px bg-gray-300 hidden md:block" />
-          )}
-
-          {/* Content */}
-          <div className="relative z-10">
-            <item.Icon className="w-12 h-12 md:w-12 md:h-12 mb-4 text-purple-900" />
-            <h3 className="text-xl md:text-2xl font-bold mb-4">{item.title}</h3>
-            <p className="text-sm md:text-base leading-relaxed opacity-90">
-              {item.description}
-            </p>
-          </div>
-        </div>
-      ))}
-    </div>
-  </div>
-</section>
-    
-
-      {/* WHY CHOOSE TMX SECTION */}
-      <section className="py-12 md:py-20 bg-purple-950 text-white">
-        <div className="container mx-auto px-3 md:px-0">
-          <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-lg md:text-3xl font-semibold text-white">[ Why Choose TMX Global Freight Network]</h2>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-6xl mx-auto">
-            {[
-              {
-                Icon: FaConnectdevelop,
-                title: "Global Network",
-                description: "Access 500+ verified partners across 120+ countries with local expertise"
-              },
-              {
-                Icon: GiFireShield,
-                title: "Risk Management",
-                description: "Comprehensive cargo insurance and secure payment solutions"
-              },
-              {
-                Icon: GiMoneyStack,
-                title: "Financial Solutions",
-                description: "Flexible financing options and competitive rates for all shipments"
-              },
-              {
-                Icon: PiAirplaneTaxiingThin,
-                title: "Multi-Modal Expertise",
-                description: "Air, sea, and land freight solutions with end-to-end visibility"
-              }
-            ].map((feature, index) => (
-              <div
-                key={index}
-                className="bg-purple-800 p-6 md:p-8 text-center group hover:bg-purple-700 transition-all duration-300 hover:transform hover:scale-105"
-              >
-                <feature.Icon className="w-12 h-12 md:w-16 md:h-16 text-white mx-auto mb-4 group-hover:scale-110 transition-transform" />
-                <h3 className="text-lg text-orange-300 md:text-xl font-bold mb-3">{feature.title}</h3>
-                <p className="text-sm md:text-base text-purple-100 leading-relaxed">
-                  {feature.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+            </section>
 
       {/* CTA SECTION - Consistent with Landing Page */}
       <section className="py-12 md:py-20 bg-gray-50">
