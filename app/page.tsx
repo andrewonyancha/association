@@ -104,7 +104,7 @@ export default function Home() {
       <div
         className={`
           relative flex flex-col items-center text-center p-4 transition-all duration-500 
-          ${isCenter ? "bg-orange-600 text-white scale-105 z-10" : "bg-gray-50 shadow text-gray-500 scale-95"}
+          ${isCenter ? "bg-orange-600 text-white scale-105 z-10" : "bg-gray-100 md:bg-gray-50 shadow text-gray-500 scale-95"}
         `}
       >
         {/* Quote icon background */}
@@ -313,7 +313,7 @@ export default function Home() {
       </section>
 
       {/* BENEFITS OF BEING A MEMBER SECTION */}
-      <section className="py-12 bg-gray-50">
+      <section className="py-12 bg-gray-100 md:bg-gray-50">
         <div className="container mx-auto px-3 md:px-0">
           {/* Section titles */}
           <div className="text-center mb-4 md:mb-10">
@@ -544,7 +544,7 @@ export default function Home() {
       </section>
 
   {/* Executive Leadership – 5 Members Balanced Layout */}
-<section className="py-12 bg-gray-50">
+<section className="py-12 bg-gray-100 md:bg-gray-50">
   <div className="container mx-auto">
     {/* Section Header */}
     <div className="text-center mb-12">
