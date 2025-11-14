@@ -686,9 +686,7 @@ export default function Home() {
                   height={160}
                   className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500"
                 />
-                 <div className="absolute -bottom-5 left-1/2 transform -translate-x-1/2 bg-white shadow text-orange-600 px-3 py-1 text-xs font-semibold">
-                {member.position}
-              </div>
+                 
               </div>
               <a
                 href={member.linkedin}
@@ -696,7 +694,12 @@ export default function Home() {
               >
                 <FaLinkedin className="w-3 h-3" />
               </a>
+              
             </div>
+            <div className="absolute -bottom-0 right-0 transform bg-white shadow text-black px-3 py-1 text-xs font-semibold">
+                {member.position}
+              </div>
+            
 
             {/* Name & Title ONLY */}
             <div className="flex-1 min-w-0 relative z-10 text-white">
@@ -793,9 +796,7 @@ export default function Home() {
                   height={160}
                   className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500"
                 />
-                <div className="absolute -bottom-5 left-1/2 transform -translate-x-1/2 bg-white text-orange-600 shadow px-3 py-1 text-xs font-semibold">
-                {member.position}
-              </div>
+                
               </div>
               <a
                 href={member.linkedin}
@@ -804,13 +805,18 @@ export default function Home() {
                 <FaLinkedin className="w-3 h-3" />
               </a>
             </div>
+            
 
             {/* Name & Title ONLY */}
             <div className="flex-1 min-w-0 relative z-10 text-white">
               <h3 className="md:text-transparent font-bold text-lg mb-1">{member.name}</h3>
              
             </div>
+          <div className="absolute -bottom-0 right-0 transform bg-white border border-gray-100  text-black px-3 py-1 text-xs font-semibold">
+                {member.position}
+              </div>
           </div>
+          
         ))}
       </div>
     </div>
