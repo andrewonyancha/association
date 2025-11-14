@@ -459,7 +459,7 @@ export default function Home() {
                   {/* Gradient overlay - transparent at top to purple at bottom */}
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent to-purple-950/0" />
                   {/* Name floating at bottom */}
-                  <div className="absolute bg-black/50 text-center w-32 rounded md:rounded jutify-center mx-auto bottom-4 left-4 right-4">
+                  <div className="absolute bg-black/50 text-center w-32 jutify-center mx-auto bottom-4 left-4 right-4">
                     <p className="text-white font-semibold text-sm md:text-base">Antony Njenga</p>
                     <p className="text-orange-400 text-xs md:text-sm">Founder</p>
                   </div>
