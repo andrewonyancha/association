@@ -210,11 +210,12 @@ export default function AboutUs() {
 
           {/* Content */}
           <div className="relative z-10 mx-auto text-center max-w-md">
+           <item.Icon className="w-12 mx-auto  h-12 md:w-12 md:h-12 md:mt-4 text-purple-900 mt-1" />
            
-            <h3 className="text-xl text-orange-600 md:text-2xl font-bold md:mb-4 mb-1">{item.title}</h3>
             <p className="text-sm md:text-base leading-relaxed opacity-90">
               {item.description}
-            </p> <item.Icon className="w-12 mx-auto  h-12 md:w-12 md:h-12 md:mt-4 text-purple-900 mt-1" />
+            </p> 
+             <h3 className="text-xl text-orange-600 md:text-2xl font-bold md:mb-4 mb-1">{item.title}</h3>
           </div>
         </div>
       ))}
