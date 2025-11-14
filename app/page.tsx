@@ -236,7 +236,7 @@ export default function Home() {
         {/* Scroll Indicator */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
           <div className="w-5 h-8 border border-white/40 flex justify-center">
-            <div className="w-0.5 h-2 bg-white/60 mt-1.5 animate-pulse" />
+            <div className="w-0.5 h-2 bg-white/60 mt-1.5 animate-bouncec" />
           </div>
         </div>
       </section>
