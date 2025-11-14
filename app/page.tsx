@@ -896,8 +896,8 @@ export default function Home() {
           {/* Orange 1 */}
           <div className="bg-orange-600 text-white p-8 text-center">
             <h3 className="text-xl font-bold mb-3">Explore Marketplace</h3>
-            <p className="text-sm mb-4">
-              Discover real-time freight opportunities, connect with verified partners.
+            <p className="text-sm mb-4 px-12">
+              Find verified sellers, manufacturers, and wholesalers globally. Logistics needs covered.
             </p>
             <a
               href="/marketplace"
@@ -922,9 +922,9 @@ export default function Home() {
 
           {/* Orange 2 */}
           <div className="bg-orange-600 text-white p-8 text-center">
-            <h3 className="text-xl font-bold mb-3">Register as Trader</h3>
-            <p className="text-sm mb-4">
-              Join our network and get direct leads.
+            <h3 className="text-xl  font-bold mb-3">Register as Trader</h3>
+            <p className="text-sm mb-4 px-12">
+              List your products on our marketplace and reach a global audience of buyers and logistics partners.
             </p>
             <a
               href="/register-trader"
