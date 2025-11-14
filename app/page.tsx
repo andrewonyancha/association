@@ -607,13 +607,14 @@ export default function Home() {
               
             </div>
             <div className="absolute -bottom-0 right-0 transform bg-white shadow text-black px-3 py-1 text-xs font-semibold">
+              <h3 className="font-bold text-base text-purple-900">{member.name}</h3>
                 {member.position}
               </div>
             
 
             {/* Name & Title ONLY */}
             <div className="flex-1 min-w-0 relative z-10 text-white">
-              <h3 className="font-bold md:text-transparent text-lg">{member.name}</h3>
+              
               
               {/* <p className="text-orange-400 text-sm font-bold">{member.position}</p> */}
             </div>
@@ -719,10 +720,10 @@ export default function Home() {
 
             {/* Name & Title ONLY */}
             <div className="flex-1 min-w-0 relative z-10 text-white">
-              <h3 className="md:text-transparent font-bold text-lg mb-1">{member.name}</h3>
              
             </div>
           <div className="absolute -bottom-0 right-0 transform bg-white border border-gray-100  text-black px-3 py-1 text-xs font-semibold">
+             <h3 className="font-bold text-base text-purple-900">{member.name}</h3>
                 {member.position}
               </div>
           </div>
