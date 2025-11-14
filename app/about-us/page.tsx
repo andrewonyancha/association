@@ -188,7 +188,7 @@ export default function AboutUs() {
       </section>
 
      {/* MISSION, VISION & VALUES SECTION */}
-<section className="py-12 md:py-20 bg-gray-50">
+<section className="py-12 md:py-20 bg-gray-100 md:bg-gray-50">
   <div className="container mx-auto px-3 md:px-0">
     <div className="text-center mb-12 md:mb-16">
       <h2 className="text-lg md:text-3xl font-semibold text-gray-900">[ Our Guiding Principles ]</h2>
@@ -269,7 +269,7 @@ export default function AboutUs() {
       </section>
 
       {/* CTA SECTION - Consistent with Landing Page */}
-      <section className="py-12 md:py-20 bg-gray-50">
+      <section className="py-12 md:py-20 bg-gray-100 md:bg-gray-50">
         <div className="container mx-auto px-3 md:px-0 text-center">
           <h2 className="text-lg md:text-3xl font-semibold text-gray-900 mb-4">Ready to Join Our Global Network?</h2>
           <p className="md:text-base text-sm  text-gray-600 mb-8 max-w-xl px-12  text-left mx-auto">
