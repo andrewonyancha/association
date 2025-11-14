@@ -69,7 +69,7 @@ export function Header() {
         <Calendar className="w-3 h-3 animate-pulse" />
         <span className="hidden xs:inline">NAIROBI SUMMIT 2025</span>
         <span className="xs:hidden">1st SUMMIT 2026</span>
-        <span className="hidden sm:inline">• NOV 28-30</span>
+        <span className="hidden sm:inline">TBD</span>
         <motion.a
           href="/events/nairobi-summit-2025"
           className="flex items-center gap-1 pl-0.5 border-b py-0.5 text-orange-100 hover:text-orange-400"

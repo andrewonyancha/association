@@ -543,96 +543,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* TESTIMONIAL SECTION – Mobile: 1 card, Desktop: 3-card carousel */}
-      <section className="pt-12 pb-2">
-        <div className="container mx-auto px-3 md:px-0">
-          {/* Title */}
-          <div className="text-center mb-10 md:mb-8">
-            <h2 className="text-lg md:text-3xl font-semibold text-gray-900">[ Testimonial ]</h2>
-          </div>
-
-          {/* MOBILE: Show only 1 testimonial */}
-          <div className="md:hidden">
-            <div className="max-w-sm mx-auto ">
-              <TestimonialCard
-                {...testimonials[centerIdx]}
-                isCenter={true}
-              />
-            </div>
-
-            {/* Navigation for mobile */}
-            <div className="flex justify-center gap-4 mt-6">
-              <button
-                onClick={() => setCenterIdx((i) => (i - 1 + total) % total)}
-                className="p-2 bg-orange-600 text-white hover:bg-purple-800 transition-colors rotate-180"
-                aria-label="Previous"
-              >
-                <MoveRight className="w-5 h-5" />
-              </button>
-
-              <button
-                onClick={() => setCenterIdx((i) => (i + 1) % total)}
-                className="p-2 bg-orange-600 text-white hover:bg-purple-800 transition-colors"
-                aria-label="Next"
-              >
-                <MoveRight className="w-5 h-5" />
-              </button>
-            </div>
-
-            
-          </div>
-
-          {/* DESKTOP: 3-card carousel */}
-          <div className="hidden md:block">
-            <div className="relative max-w-5xl mx-auto overflow-hidden">
-              {/* Sliding track */}
-              <div
-                className="flex transition-transform duration-700 ease-in-out"
-                style={{
-                  transform: `translateX(-${centerIdx * 33.333}%)`,
-                }}
-              >
-                {/* Render all testimonials in a loop (infinite feel) */}
-                {[...testimonials, ...testimonials].map((t, i) => {
-                  const pos = (i - centerIdx + total) % total; // 0 = left, 1 = center, 2 = right
-                  const isCenter = pos === 1;
-
-                  return (
-                    <div
-                      key={i}
-                      className="flex-shrink-0 w-1/3 px-2 md:px-4"
-                    >
-                      <TestimonialCard
-                        {...t}
-                        isCenter={isCenter}
-                      />
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Desktop Navigation */}
-            <div className="flex justify-center gap-4 mt-3">
-              <button
-                onClick={() => setCenterIdx((i) => (i - 1 + total) % total)}
-                className="p-3 bg-orange-600 text-white hover:bg-purple-800 transition-colors rotate-180"
-                aria-label="Previous"
-              >
-                <MoveRight className="w-5 h-5" />
-              </button>
-
-              <button
-                onClick={() => setCenterIdx((i) => (i + 1) % total)}
-                className="p-3 bg-orange-600 text-white hover:bg-purple-800 transition-colors"
-                aria-label="Next"
-              >
-                <MoveRight className="w-5 h-5" />
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
   {/* Executive Leadership – 5 Members Balanced Layout */}
 <section className="py-12 bg-gray-50">
   <div className="container mx-auto">
@@ -823,6 +733,98 @@ export default function Home() {
   </div>
 </section>
 
+
+      {/* TESTIMONIAL SECTION – Mobile: 1 card, Desktop: 3-card carousel */}
+      <section className="pt-1 pb-8">
+        <div className="container mx-auto px-3 md:px-0">
+          {/* Title */}
+          <div className="text-center mb-10 md:mb-8">
+            <h2 className="text-lg md:text-3xl font-semibold text-gray-900">[ Testimonial ]</h2>
+          </div>
+
+          {/* MOBILE: Show only 1 testimonial */}
+          <div className="md:hidden">
+            <div className="max-w-sm mx-auto ">
+              <TestimonialCard
+                {...testimonials[centerIdx]}
+                isCenter={true}
+              />
+            </div>
+
+            {/* Navigation for mobile */}
+            <div className="flex justify-center gap-4 mt-6">
+              <button
+                onClick={() => setCenterIdx((i) => (i - 1 + total) % total)}
+                className="p-2 bg-orange-600 text-white hover:bg-purple-800 transition-colors rotate-180"
+                aria-label="Previous"
+              >
+                <MoveRight className="w-5 h-5" />
+              </button>
+
+              <button
+                onClick={() => setCenterIdx((i) => (i + 1) % total)}
+                className="p-2 bg-orange-600 text-white hover:bg-purple-800 transition-colors"
+                aria-label="Next"
+              >
+                <MoveRight className="w-5 h-5" />
+              </button>
+            </div>
+
+            
+          </div>
+
+          {/* DESKTOP: 3-card carousel */}
+          <div className="hidden md:block">
+            <div className="relative max-w-5xl mx-auto overflow-hidden">
+              {/* Sliding track */}
+              <div
+                className="flex transition-transform duration-700 ease-in-out"
+                style={{
+                  transform: `translateX(-${centerIdx * 33.333}%)`,
+                }}
+              >
+                {/* Render all testimonials in a loop (infinite feel) */}
+                {[...testimonials, ...testimonials].map((t, i) => {
+                  const pos = (i - centerIdx + total) % total; // 0 = left, 1 = center, 2 = right
+                  const isCenter = pos === 1;
+
+                  return (
+                    <div
+                      key={i}
+                      className="flex-shrink-0 w-1/3 px-2 md:px-4"
+                    >
+                      <TestimonialCard
+                        {...t}
+                        isCenter={isCenter}
+                      />
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Desktop Navigation */}
+            <div className="flex justify-center gap-4 mt-3">
+              <button
+                onClick={() => setCenterIdx((i) => (i - 1 + total) % total)}
+                className="p-3 bg-orange-600 text-white hover:bg-purple-800 transition-colors rotate-180"
+                aria-label="Previous"
+              >
+                <MoveRight className="w-5 h-5" />
+              </button>
+
+              <button
+                onClick={() => setCenterIdx((i) => (i + 1) % total)}
+                className="p-3 bg-orange-600 text-white hover:bg-purple-800 transition-colors"
+                aria-label="Next"
+              >
+                <MoveRight className="w-5 h-5" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* MARKETPLACE SECTION – full‑bleed on desktop, padded on mobile */}
       <section className="md:border-b border-white">
         {/* DESKTOP – 4 columns, no outer padding */}
@@ -833,8 +835,7 @@ export default function Home() {
               <div>
                 <h3 className="text-lg md:text-3xl font-semibold text-white pb-2">[ Explore Marketplace ]</h3>
                 <p className="text-sm md:text-base leading-relaxed mb-4">
-                  Discover real-time freight opportunities, connect with verified partners,
-                  and grow your business globally.
+                  Find Verified Sellers, manufactures and wholesalers and have your Logistics needs covered.
                 </p>
               </div>
               <a
@@ -863,7 +864,7 @@ export default function Home() {
               <div>
                 <h3 className="text-lg md:text-3xl font-semibold text-white mb-2">[ Join as Trader ]</h3>
                 <p className="text-sm md:text-base leading-relaxed mb-4">
-                  Join our network of trusted logistics professionals. List your services and get direct leads.
+                  List your products on our marketplace and reach a global audience of buyers and logistics partners.
                 </p>
               </div>
               <a
@@ -907,7 +908,7 @@ export default function Home() {
           </div>
 
           {/* Image 1 */}
-          <div className="relative h-48 overflow-hidden">
+          <div className="relative md:h-48 h-64 overflow-hidden">
             <Image
               src="/images/marketplace.jpg"
               alt="Marketplace"
@@ -934,7 +935,7 @@ export default function Home() {
           </div>
 
           {/* Image 2 */}
-          <div className="relative h-48 overflow-hidden">
+          <div className="relative md:h-48 h-64 overflow-hidden">
             <Image
               src="/images/trader.jpg"
               alt="Trader"
