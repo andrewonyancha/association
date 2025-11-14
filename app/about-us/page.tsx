@@ -200,7 +200,7 @@ export default function AboutUs() {
           key={index}
           className={`
             ${item.color} ${item.textColor} p-8 relative overflow-hidden 
-            group hover:scale-105 transition-all duration-300
+            group  transition-all duration-300
           `}
         >
           {/* Full-height thin line between cards — edge to edge */}
@@ -227,7 +227,7 @@ export default function AboutUs() {
       <section className="py-12 md:py-20 bg-purple-950 text-white">
         <div className="container mx-auto px-3 md:px-0">
           <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-lg md:text-3xl font-semibold text-white">[ Why Choose TMX Global ]</h2>
+            <h2 className="text-lg md:text-3xl font-semibold text-white">[ Why Choose TMX Global Freight Network]</h2>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-6xl mx-auto">
@@ -257,8 +257,8 @@ export default function AboutUs() {
                 key={index}
                 className="bg-purple-800 p-6 md:p-8 text-center group hover:bg-purple-700 transition-all duration-300 hover:transform hover:scale-105"
               >
-                <feature.Icon className="w-12 h-12 md:w-16 md:h-16 text-orange-400 mx-auto mb-4 group-hover:scale-110 transition-transform" />
-                <h3 className="text-lg md:text-xl font-bold mb-3">{feature.title}</h3>
+                <feature.Icon className="w-12 h-12 md:w-16 md:h-16 text-white mx-auto mb-4 group-hover:scale-110 transition-transform" />
+                <h3 className="text-lg text-orange-300 md:text-xl font-bold mb-3">{feature.title}</h3>
                 <p className="text-sm md:text-base text-purple-100 leading-relaxed">
                   {feature.description}
                 </p>
