@@ -11,31 +11,33 @@ import { FaConnectdevelop } from "react-icons/fa";
 import { BiTargetLock } from 'react-icons/bi';
 
 export default function AboutUs() {
-  // Mission & Vision Cards Data
-  const missionVisionData = [
-    {
-      Icon: BiTargetLock,
-      title: "Our Mission",
-      description: "To revolutionize global freight forwarding by creating the world's most connected and trusted network, enabling seamless cargo movement across 120+ countries with unmatched reliability and efficiency.",
-      color: "bg-white",
-      textColor: "text-black"
-    },
-    {
-      Icon: Clock,
-      title: "Our Vision",
-      description: "To be the leading global freight network that transforms international trade through innovation, collaboration, and exceptional service, making world-class logistics accessible to businesses of all sizes.",
-      color: "bg-white",
-      textColor: "text-black"
-    },
-    {
-      Icon: Award,
-      title: "Our Values",
-      description: "Trust, Innovation, Collaboration, and Excellence guide every decision we make and every partnership we build. We're committed to setting new standards in global logistics.",
-      color: "bg-white",
-      textColor: "text-black"
-    }
-  ];
-
+ // Mission & Vision Cards Data - Now with Images
+const missionVisionData = [
+  {
+    imageSrc: "/images/principles/mission.png",
+    alt: "Our Mission Icon",
+    title: "Our Mission",
+    description: "To revolutionize global freight forwarding by creating the world's most connected and trusted network, enabling seamless cargo movement across 120+ countries with unmatched reliability and efficiency.",
+    color: "bg-white",
+    textColor: "text-black"
+  },
+  {
+    imageSrc: "/images/principles/vision.png",
+    alt: "Our Vision Icon",
+    title: "Our Vision",
+    description: "To be the leading global freight network that transforms international trade through innovation, collaboration, and exceptional service, making world-class logistics accessible to businesses of all sizes.",
+    color: "bg-white",
+    textColor: "text-black"
+  },
+  {
+    imageSrc: "/images/principles/values.png",
+    alt: "Our Values Icon",
+    title: "Our Values",
+    description: "Trust, Innovation, Collaboration, and Excellence guide every decision we make and every partnership we build. We're committed to setting new standards in global logistics.",
+    color: "bg-white",
+    textColor: "text-black"
+  }
+];
   
 
   // Stats Data
@@ -193,33 +195,44 @@ export default function AboutUs() {
     <div className="text-center mb-12 md:mb-16">
       <h2 className="text-lg md:text-3xl font-semibold text-gray-900">[ Our Guiding Principles ]</h2>
     </div>
+<div className="grid md:grid-cols-3 md:gap-0 gap-8 max-w-6xl mx-auto relative">
+  {missionVisionData.map((item, index) => (
+    <div
+      key={index}
+      className={`
+        ${item.color} ${item.textColor} md:p-4 p-3 md:rounded-none rounded-lg border border-gray-300 relative overflow-hidden 
+        group transition-all duration-300
+      `}
+    >
+      {/* Full-height thin line between cards */}
+      {index < 2 && (
+        <div className="absolute right-0 top-0 bottom-0 hidden md:block w-px bg-gray-300" />
+      )}
 
-    <div className="grid md:grid-cols-3 md:gap-0 gap-8 max-w-6xl mx-auto relative">
-      {missionVisionData.map((item, index) => (
-        <div
-          key={index}
-          className={`
-            ${item.color} ${item.textColor} md:p-4 p-3 md:rounded-none rounded-lg border border-gray-300 relative overflow-hidden 
-            group  transition-all duration-300
-          `}
-        >
-          {/* Full-height thin line between cards — edge to edge */}
-          {index < 2 && (
-            <div className="absolute right-0 top-0 bottom-0  hidden md:block" />
-          )}
-
-          {/* Content */}
-          <div className="relative z-10 mx-auto text-center max-w-md">
-           <item.Icon className="w-12 mx-auto  h-10 md:w-12 md:h-12 mb-2 text-purple-900 " />
-           
-            <p className="text-sm md:text-base leading-relaxed opacity-90">
-              {item.description}
-            </p> 
-             <h3 className="text-xl text-orange-600 md:text-2xl font-bold md:mb-4 mb-1">{item.title}</h3>
-          </div>
+      {/* Content */}
+      <div className="relative z-10 mx-auto text-center max-w-md">
+        {/* Circular Image with Orange Border */}
+        <div className="w-12 h-16 md:w-16  md:h-20 mx-auto mb-4 rounded-full border-4 border-orange-500 p-2 bg-white shadow-sm">
+          <Image
+            src={item.imageSrc}
+            alt={item.alt}
+            width={80}
+            height={80}
+            className="w-full h-full object-contain rounded-full"
+          />
         </div>
-      ))}
+
+        
+        <p className="text-sm md:text-base text-left px-4 leading-relaxed opacity-90 mt-3">
+          {item.description}
+        </p>
+        <h3 className="text-xl text-purple-900 md:text-2xl font-bold md:mt-2 mt-1">
+          {item.title}
+        </h3>
+      </div>
     </div>
+  ))}
+</div>
   </div>
 </section>
     
@@ -231,7 +244,7 @@ export default function AboutUs() {
             <h2 className="text-lg md:text-3xl font-semibold text-white">[ Why Choose TMX Global Freight Network]</h2>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-0  max-w-6xl mx-auto">
             {[
               {
                 Icon: FaConnectdevelop,
@@ -256,7 +269,7 @@ export default function AboutUs() {
             ].map((feature, index) => (
               <div
                 key={index}
-                className="bg-purple-800 p-6 md:p-8 text-center group hover:bg-purple-700 transition-all duration-300 hover:transform hover:scale-105"
+                className="bg-purple-800 p-6 md:p-8 text-center group hover:bg-purple-700 border border-purple-900 transition-all duration-300 hover:transform hover:scale-105"
               >
                 <feature.Icon className="w-12 h-12 md:w-16 md:h-16 text-white mx-auto mb-4 group-hover:scale-110 transition-transform" />
                 <h3 className="text-lg text-orange-300 md:text-xl font-bold mb-3">{feature.title}</h3>
