@@ -233,7 +233,7 @@ export default function Benefits() {
                   ].map((benefit, idx) => (
                     <div
                       key={idx}
-                      className="border border-gray-300 bg-white p-6 flex flex-col w-full mx-auto max-w-md rounded-lg shadow-sm"
+                      className="border border-gray-300 bg-white p-6 flex flex-col w-full mx-auto max-w-md rounded-lg "
                     >
                       <benefit.Icon className="w-12 h-12 text-orange-600 mx-auto mb-4" />
                       <h4 className="text-lg font-bold text-purple-900 text-center mb-2">

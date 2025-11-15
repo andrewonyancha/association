@@ -205,10 +205,11 @@ export default function Home() {
         {/* HERO CONTENT + BUTTONS */}
         <div className="relative z-10 container mx-auto px-12 pb-12 md:pb-0
          md:px-12 max-w-5xl text-white">
-          <h1 className="text-3xl md:text-6xl -mt-2 pb-3 font-bold leading-tight">
+          <h1 className="text-3xl md:text-6xl -mt-2 md:pb-0 pb-3  font-bold leading-tight">
             Global Freight,<br /> <span className='flex'>Connected. <FaHandshake  className='md:mt-2 mt-1 md:ml-2 ml-2'/></span>
           </h1>
           <ul className=" list-inside md:text-base text-sm  mb-6 pl-1 max-w-2xl">
+            
             <li className='flex gap-1'><CheckCircle className='p-1 text-orange-500'/> Finacing and insurance</li>
             <li className='flex gap-1'><CheckCircle className='p-1 text-orange-500'/>Priority Freight Routes.</li>
             <li className='flex gap-1'><CheckCircle className='p-1 text-orange-500'/>Global Partnerships.</li>
