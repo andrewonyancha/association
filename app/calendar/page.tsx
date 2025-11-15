@@ -1,14 +1,83 @@
 'use client';
 
 import Image from 'next/image';
-import { Facebook, Twitter, Linkedin, Instagram, } from 'lucide-react';
+import { Facebook, Twitter, Linkedin, Instagram, MoveRight, } from 'lucide-react';
 import {  FaHandshake,   } from "react-icons/fa";
+import { useEffect, useRef, useState } from 'react';
+import React from 'react';
 
 
 export default function AboutUs() {
+  const CalendarImageWithOverlay = React.memo(function CalendarImageWithOverlay({ index }: { index: number }) {
+    const elementRef = useRef<HTMLDivElement>(null);
+    const [isVisible, setIsVisible] = useState(false);
+  
+    useEffect(() => {
+      const element = elementRef.current;
+      if (!element) return;
+  
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          setIsVisible(entry.isIntersecting);
+        },
+        { 
+          threshold: 0.5,
+          rootMargin: '0px 0px -10% 0px'
+        }
+      );
+  
+      observer.observe(element);
+  
+      return () => {
+        observer.disconnect();
+      };
+    }, []);
+  
+    const isLeft = index === 1;
+  
+    return (
+      <div
+        ref={elementRef}
+        className="relative aspect-[3/2] overflow-hidden bg-gray-200"
+      >
+        <Image
+          src={`/images/calendr-${index}.jpg`}
+          alt={`Calendar ${index}`}
+          fill
+          className="object-cover hover:scale-105 transition-transform duration-500"
+          placeholder="blur"
+          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8/OnPfQAJAgGBjA5h9gAAAABJRU5ErkJggg=="
+        />
+  
+        {/* Overlay with symmetrical slide animation */}
+        <div
+          className={`
+            absolute inset-0 bg-gradient-to-r from-purple-950/80 to-purple-950/80
+            flex flex-col items-center justify-center text-white text-center px-6
+            transition-transform duration-700 ease-out
+            ${isVisible ? 'translate-x-0' : (isLeft ? '-translate-x-full' : 'translate-x-full')}
+          `}
+        >
+          <h3 className="text-xl md:text-2xl font-bold mb-2">
+            {isLeft ? 'Upcoming Events' : 'Association Calendar'}
+          </h3>
+          <p className="text-sm md:text-base mb-4 max-w-xs">
+            {isLeft
+              ? 'The first Physical event of TMX Global Freight Network is scheduled for 2026 in Nairobi, Kenya. Join us for networking, insights, and growth opportunities.'
+              : 'Access the full TMX Global Freight Network member calendar and plan your year ahead.'}
+          </p>
+          <button className="bg-orange-600 text-white px-5 py-2 text-sm font-semibold hover:bg-orange-700 transition-colors flex items-center gap-2">
+            View {isLeft ? 'Event' : 'Calendar'}
+            <MoveRight className="w-4 h-4" />
+          </button>
+        </div>
+      </div>
+    );
+  });
   
 
   return (
+    <section className='mb-12'>
     <section className='overflow-hidden -mt-2'>
       {/* HERO SECTION - Consistent with Landing Page */}
       <section className="relative -top-6 min-h-[60vh] flex items-center justify-start overflow-hidden">
@@ -70,7 +139,30 @@ export default function AboutUs() {
           </p>
         </div>
       </section>
+       
 
     </section>
+    <section className=" pt-6">
+        <div className="container mx-auto px-3 md:px-0">
+          <div className="relative max-w-5xl mx-auto">
+            {/* PURPLE STRIP – Full screen width, behind images */}
+            <div
+              className="absolute top-1/2 left-0 right-0 -translate-y-1/2 h-48 bg-purple-950 flex items-center justify-center z-0"
+              style={{
+                width: '100vw',
+                marginLeft: 'calc(50% - 50vw)',
+              }}
+            />
+
+            {/* 2 IMAGES WITH ANIMATED OVERLAYS */}
+            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-16 px-2 md:px-4">
+              {[1, 2].map((i) => (
+                <CalendarImageWithOverlay key={i} index={i} />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+      </section>
   );
 }
