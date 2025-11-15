@@ -134,7 +134,7 @@ export default function Benefits() {
               <div className="container mx-auto px-3 md:px-0">
                 {/* Section titles */}
                 <div className="text-center mb-4 md:mb-10">
-                  <h2 className="text-lg md:text-3xl font-semibold text-gray-900">[ Benefits of Being a Member ]</h2>
+                  <h2 className="text-lg md:text-3xl font-semibold text-gray-900">[ What you stand gain ]</h2>
                 </div>
       
                 {/* LARGE SCREEN: 2x3 Grid */}

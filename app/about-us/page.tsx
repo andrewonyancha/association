@@ -199,7 +199,7 @@ export default function AboutUs() {
         <div
           key={index}
           className={`
-            ${item.color} ${item.textColor} md:p-8 p-4 md:rounded-none rounded-lg border border-gray-300 relative overflow-hidden 
+            ${item.color} ${item.textColor} md:p-4 p-3 md:rounded-none rounded-lg border border-gray-300 relative overflow-hidden 
             group  transition-all duration-300
           `}
         >
@@ -210,7 +210,7 @@ export default function AboutUs() {
 
           {/* Content */}
           <div className="relative z-10 mx-auto text-center max-w-md">
-           <item.Icon className="w-12 mx-auto  h-12 md:w-12 md:h-12 md:mt-4 text-purple-900 mt-1" />
+           <item.Icon className="w-12 mx-auto  h-10 md:w-12 md:h-12 mb-2 text-purple-900 " />
            
             <p className="text-sm md:text-base leading-relaxed opacity-90">
               {item.description}

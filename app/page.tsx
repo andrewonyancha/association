@@ -9,6 +9,7 @@ import { GiFireShield } from "react-icons/gi";
 import { GiMoneyStack } from "react-icons/gi";
 import { FaConnectdevelop } from "react-icons/fa";
 import React, { useEffect, useRef, useState } from 'react';
+import { BsWhatsapp } from 'react-icons/bs';
 
 const CalendarImageWithOverlay = React.memo(function CalendarImageWithOverlay({ index }: { index: number }) {
   const elementRef = useRef<HTMLDivElement>(null);
@@ -103,8 +104,8 @@ export default function Home() {
     return (
       <div
         className={`
-          relative flex flex-col items-center text-center p-4 transition-all duration-500 
-          ${isCenter ? "bg-orange-600 text-white scale-105 z-10" : "bg-gray-100 md:bg-gray-50 shadow text-gray-500 scale-95"}
+          relative h-52 mb-4 flex flex-col items-center text-center p-4 transition-all duration-500 
+          ${isCenter ? "bg-orange-600 rounded-xl text-white z-10" : "bg-gray-500 md:bg-gray-100 border border-gray-200 rounded-xl text-gray-400 scale-95"}
         `}
       >
         {/* Quote icon background */}
@@ -658,15 +659,15 @@ export default function Home() {
             </div>
             <h3 className="text-xl font-bold text-white md:text-transparent mb-2">Antony Njenga</h3>
             <p className="text-orange-400 font-semibold mb-3 text-transparent">Founder </p>
-            <p className="md:text-transparent text-white text-sm leading-relaxed mb-4 px-6 ">
+            <p className=" text-white text-sm leading-relaxed mb-4 px-6 ">
               Visionary leader with 25+ years transforming global logistics through innovation and strategic growth.
             </p>
             <a
               href="#"
-              className="inline-flex items-center gap-2 md:text-transparent text-orange-200 hover:text-white transition-colors text-sm font-medium"
+              className="inline-flex items-center gap-2  text-green-400 hover:text-white transition-colors text-sm font-medium border-b px-0.5"
             >
-              <FaLinkedin className=" w-4 h-4" />
-              Connect on LinkedIn
+              <BsWhatsapp className=" w-4 h-4 text-green-600" />
+              Chat on whatsapp
             </a>
           </div>
         </div>
@@ -813,7 +814,7 @@ export default function Home() {
             <div className="flex justify-center gap-4 mt-3">
               <button
                 onClick={() => setCenterIdx((i) => (i - 1 + total) % total)}
-                className="p-3 bg-orange-600 text-white hover:bg-purple-800 transition-colors rotate-180"
+                className="px-16 rounded-full bg-gray-200 text-black hover:bg-purple-800 transition-colors rotate-180"
                 aria-label="Previous"
               >
                 <MoveRight className="w-5 h-5" />
@@ -821,7 +822,7 @@ export default function Home() {
 
               <button
                 onClick={() => setCenterIdx((i) => (i + 1) % total)}
-                className="p-3 bg-orange-600 text-white hover:bg-purple-800 transition-colors"
+                className="px-16 rounded-full bg-gray-200 text-black hover:bg-purple-800 transition-colors"
                 aria-label="Next"
               >
                 <MoveRight className="w-5 h-5" />
