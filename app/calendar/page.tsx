@@ -77,8 +77,8 @@ export default function AboutUs() {
   
 
   return (
-    <section className='mb-0 bg-purple-50 overflow-hidden'>
-    <section className='overflow-hidden -mt-2'>
+    <section className='mb-0 -mt-2 bg-purple-50 overflow-hidden'>
+    <section className='overflow-hidden '>
       {/* HERO SECTION - Consistent with Landing Page */}
       <section className="relative -top-6 min-h-[60vh] flex items-center justify-start overflow-hidden">
         {/* Background Image */}
@@ -147,7 +147,7 @@ export default function AboutUs() {
           <div className="relative max-w-5xl mx-auto">
             {/* PURPLE STRIP – Full-width, centered behind the single image */}
             <div
-              className="absolute top-1/2 left-0 right-0 -translate-y-1/2 h-54 md:h-96 bg-purple-950 flex items-center justify-center z-0"
+              className="absolute top-1/2 left-0 right-0 -translate-y-1/2 h-48 md:h-96 bg-purple-950 flex items-center justify-center z-0"
               style={{
                 width: '100vw',
                 marginLeft: 'calc(50% - 50vw)',
