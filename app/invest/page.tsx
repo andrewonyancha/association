@@ -62,7 +62,7 @@ export default function AboutUs() {
         {/* HERO CONTENT */}
         <div className="relative z-10 container mx-auto px-12 md:px-12 max-w-5xl text-white">
           <h1 className="text-4xl md:text-6xl font-bold mb-4 md:mb-6 leading-tight">
-            About TMX Global<br /> <span className='flex'>Excellence. <FaHandshake className='md:mt-2 mt-1 md:ml-2 ml-2'/></span>
+            TMX Global Investment<br /> <span className='flex'>opportuniies. <FaHandshake className='md:mt-2 mt-1 md:ml-2 ml-2'/></span>
           </h1>
           <p className="text-base md:text-xl mb-8 md:mb-10 max-w-2xl">
             Pioneering the future of global freight with innovation, trust, and unparalleled network connectivity across 120+ countries.
