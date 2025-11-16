@@ -81,7 +81,7 @@ export function Header() {
 
       {/* MAIN HEADER */}
       <header
-        className={`fixed left-0 right-0 z-40 flex items-center bg-gray-50 shadow transition-all duration-500 ${
+        className={`fixed left-0 right-0 z-40 flex items-center bg-white shadow transition-all duration-500 ${
           scrolled ? "top-0 h-12 lg:h-16" : "top-8 h-10 lg:h-20"
         }`}
       >

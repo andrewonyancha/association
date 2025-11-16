@@ -1,20 +1,19 @@
 'use client';
 
 import Image from 'next/image';
-import { Facebook, Twitter, Linkedin, Instagram, Mail, MoveRight, Award,  Binoculars, Eye, Clock } from 'lucide-react';
+import { Facebook, Twitter, Linkedin, Instagram, Mail, MoveRight } from 'lucide-react';
 import { IoIosPeople } from "react-icons/io";
 import { FaGlobe, FaHandshake,  FaShippingFast, FaShieldAlt } from "react-icons/fa";
 import { PiAirplaneTaxiingThin } from "react-icons/pi";
 import { GiFireShield } from "react-icons/gi";
 import { GiMoneyStack } from "react-icons/gi";
 import { FaConnectdevelop } from "react-icons/fa";
-import { BiTargetLock } from 'react-icons/bi';
 
 export default function AboutUs() {
  // Mission & Vision Cards Data - Now with Images
 const missionVisionData = [
   {
-    imageSrc: "/images/principles/mission.png",
+    imageSrc: "/images/hero.jpg",
     alt: "Our Mission Icon",
     title: "Our Mission",
     description: "To revolutionize global freight forwarding by creating the world's most connected and trusted network, enabling seamless cargo movement across 120+ countries with unmatched reliability and efficiency.",
@@ -22,7 +21,7 @@ const missionVisionData = [
     textColor: "text-black"
   },
   {
-    imageSrc: "/images/principles/vision.png",
+    imageSrc: "/images/TMXLOGO.webp",
     alt: "Our Vision Icon",
     title: "Our Vision",
     description: "To be the leading global freight network that transforms international trade through innovation, collaboration, and exceptional service, making world-class logistics accessible to businesses of all sizes.",
@@ -30,7 +29,7 @@ const missionVisionData = [
     textColor: "text-black"
   },
   {
-    imageSrc: "/images/principles/values.png",
+    imageSrc: "/images/TMXLOGO.webp",
     alt: "Our Values Icon",
     title: "Our Values",
     description: "Trust, Innovation, Collaboration, and Excellence guide every decision we make and every partnership we build. We're committed to setting new standards in global logistics.",
@@ -147,7 +146,7 @@ const missionVisionData = [
               </div>
 
               {/* Contact Bar - Consistent with Landing Page */}
-              <div className="bg-gray-100 overflow-hidden flex items-center md:h-20 h-12">
+              <div className="bg-purple-50 overflow-hidden flex items-center md:h-20 h-12">
                 <div className="bg-purple-900 h-full w-20 flex items-center justify-center">
                   <Mail className="md:w-8 md:h-8 w-4 h-4 text-white" />
                 </div>
@@ -177,7 +176,7 @@ const missionVisionData = [
               {/* Stats Grid - Consistent with Landing Page Style */}
               <div className="grid grid-cols-2 gap-4 md:gap-6">
                 {statsData.map((stat, index) => (
-                  <div key={index} className="bg-gray-100 p-6 text-center hover:shadow transition-shadow">
+                  <div key={index} className="bg-purple-50 p-6 text-center hover:shadow transition-shadow">
                     <stat.Icon className={`w-8 h-8 md:w-12 md:h-12 ${stat.color} mx-auto mb-3`} />
                     <h4 className="text-2xl md:text-4xl font-bold text-gray-800">{stat.number}</h4>
                     <p className="text-xs md:text-sm text-gray-600 mt-2">{stat.label}</p>
@@ -190,7 +189,7 @@ const missionVisionData = [
       </section>
 
      {/* MISSION, VISION & VALUES SECTION */}
-<section className="py-12 md:py-20 bg-gray-100 md:bg-gray-50">
+<section className="py-12 md:py-20 bg-purple-50 md:bg-purple-50">
   <div className="container mx-auto px-3 md:px-0">
     <div className="text-center mb-12 md:mb-16">
       <h2 className="text-lg md:text-3xl font-semibold text-gray-900">[ Our Guiding Principles ]</h2>
@@ -204,23 +203,22 @@ const missionVisionData = [
         group transition-all duration-300
       `}
     >
-      {/* Full-height thin line between cards */}
-      {index < 2 && (
-        <div className="absolute right-0 top-0 bottom-0 hidden md:block w-px bg-gray-300" />
-      )}
-
+    
       {/* Content */}
       <div className="relative z-10 mx-auto text-center max-w-md">
         {/* Circular Image with Orange Border */}
-        <div className="w-12 h-16 md:w-16  md:h-20 mx-auto mb-4 rounded-full border-4 border-orange-500 p-2 bg-white shadow-sm">
-          <Image
-            src={item.imageSrc}
-            alt={item.alt}
-            width={80}
-            height={80}
-            className="w-full h-full object-contain rounded-full"
-          />
-        </div>
+        <div className="w-20 h-12 md:w-16 md:h-18 mx-auto mb-0 md:rounded-2xl rounded-xl md:border border p-1 border-orange-500  bg-white shadow-sm overflow-hidden">
+  <Image
+    src={item.imageSrc}
+    alt={item.alt}
+    width={80}
+    height={100}
+    sizes="(max-width: 768px) 48px, 64px"
+    className="w-full h-full object-cover md:rounded-xl rounded-lg border border-orange-600 "
+    quality={95}
+    priority
+  />
+</div>
 
         
         <p className="text-sm md:text-base text-left px-4 leading-relaxed opacity-90 mt-3">
@@ -282,34 +280,107 @@ const missionVisionData = [
         </div>
       </section>
 
-      {/* CTA SECTION - Consistent with Landing Page */}
-      <section className="py-12 md:py-20 bg-gray-100 md:bg-gray-50">
-        <div className="container mx-auto px-3 md:px-0 text-center">
-          <h2 className="text-lg md:text-3xl font-semibold text-gray-900 mb-4">Ready to Join Our Global Network?</h2>
-          <p className="md:text-base text-sm  text-gray-600 mb-8 max-w-xl px-12  text-left mx-auto">
+   {/* CTA SECTION - Mobile: Image left of text, both above buttons | Desktop: UNCHANGED */}
+<section className="py-5 md:py-12 bg-purple-50 md:bg-purple-50">
+  <div className="container mx-auto px-3 md:px-0">
+    
+    {/* === DESKTOP LAYOUT (UNCHANGED - EXACTLY AS ORIGINAL) === */}
+    <div className="hidden md:grid md:grid-cols-2 gap-0 items-stretch max-w-6xl mx-auto aspect-auto md:aspect-[3/1] bg-white rounded-2xl overflow-hidden border border-gray-300">
+      {/* Left: Image – full height */}
+      <div className="relative overflow-hidden">
+        <Image
+          src="/images/contact1.png"
+          alt="TMX Global Network Community"
+          fill
+          className="object-cover"
+          priority
+          quality={95}
+          sizes="(max-width: 768px) 100vw, 50vw"
+        />
+      </div>
+
+      {/* Right: Content */}
+      <div className="flex flex-col justify-between p-6 md:p-8 lg:p-12">
+        <div>
+          <h2 className="text-lg md:text-3xl font-semibold text-gray-900 mb-2">
+            Ready to Join Our Global Network?
+          </h2>
+          <p className="md:text-base text-sm text-gray-600 mb-4">
             Become part of the world's most connected freight forwarding community and transform your business.
           </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center">
-            <a
-              href="/join"
-              className="bg-orange-600 text-white px-6 md:px-8 py-3 md:py-4 font-semibold text-sm md:text-base 
-                         hover:bg-orange-700 transition-all duration-300 flex items-center justify-center gap-3 group"
-            >
-              Join the Network
-              <MoveRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-            </a>
-            <a
-              href="/contact"
-              className="bg-purple-900 text-white px-6 md:px-8 py-3 md:py-4 font-semibold text-sm md:text-base 
-                         hover:bg-purple-800 transition-all duration-300 flex items-center justify-center gap-2 group border border-purple-900"
-            >
-              Contact Us
-              <Mail className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-            </a>
-          </div>
         </div>
-      </section>
+
+        <div className="flex flex-col sm:flex-row gap-4 md:gap-6 mt-auto">
+          <a
+            href="/join"
+            className="bg-orange-600 text-white px-6 md:px-8 py-3 md:py-4 font-semibold text-sm md:text-base 
+                       hover:bg-orange-700 transition-all duration-300 flex items-center justify-center gap-3 group"
+          >
+            Join the Network
+            <MoveRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+          </a>
+          <a
+            href="/contact"
+            className="bg-purple-900 text-white px-6 md:px-8 py-3 md:py-4 font-semibold text-sm md:text-base 
+                       hover:bg-purple-800 transition-all duration-300 flex items-center justify-center gap-2 group border border-purple-900"
+          >
+            Contact Us
+            <Mail className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+          </a>
+        </div>
+      </div>
+    </div>
+
+    {/* === MOBILE LAYOUT ONLY (NEW) === */}
+    <div className="md:hidden bg-white rounded-2xl overflow-hidden border border-gray-300 p-5">
+      {/* Row: Small Image + Text */}
+      <div className="flex gap-3 items-start mb-5">
+        {/* Small Image (80x80) */}
+        <div className="relative w-20 h-20 flex-shrink-0 rounded-lg overflow-hidden ">
+          <Image
+            src="/images/contact1.png"
+            alt="TMX Global Network"
+            fill
+            className="object-cover rounded-full"
+            quality={90}
+            sizes="80px"
+          />
+        </div>
+
+        {/* Text */}
+        <div className="flex-1">
+          <h2 className="text-lg font-semibold text-gray-900 leading-tight">
+            Ready to Join Our Global Network?
+          </h2>
+          <p className="text-sm text-gray-600 mt-1">
+            Become part of the world's most connected freight forwarding community and transform your business.
+          </p>
+        </div>
+      </div>
+
+      {/* Buttons - Stacked, full width */}
+      <div className="flex flex-col gap-3">
+        <a
+          href="/join"
+          className="bg-orange-600 text-white px-6 py-3 font-semibold text-sm 
+                     hover:bg-orange-700 transition-all duration-300 flex items-center justify-center gap-2 group"
+        >
+          Join the Network
+          <MoveRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+        </a>
+        <a
+          href="/contact"
+          className="bg-purple-900 text-white px-6 py-3 font-semibold text-sm 
+                     hover:bg-purple-800 transition-all duration-300 flex items-center justify-center gap-2 group border border-purple-900"
+        >
+          Contact Us
+          <Mail className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
     </section>
   );
 }

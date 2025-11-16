@@ -105,7 +105,7 @@ export function Footer() {
                   </Link>
                 </motion.div>
                 {index < quickActions.length - 1 && (
-                  <div className="hidden lg:block w-px bg-gray-500 self-stretch" />
+                  <div className="hidden lg:block w-px bg-purple-500 self-stretch" />
                 )}
               </div>
             ))}
@@ -173,7 +173,7 @@ export function Footer() {
                         <social.icon className="w-4 h-4" />
                       </Link>
                       {index < socialLinks.length - 1 && (
-                        <div className="w-px h-4 bg-gray-500 mx-2" />
+                        <div className="w-px h-4 bg-purple-500 mx-2" />
                       )}
                     </div>
                   ))}
@@ -232,7 +232,7 @@ export function Footer() {
                 <ChevronRight className="w-3 h-3" />
                 Privacy Policy
               </Link>
-              <div className="w-px h-4 bg-gray-500" />
+              <div className="w-px h-4 bg-purple-500" />
               <Link
                 href="/terms"
                 className="hover:text-orange-300 transition-colors flex items-center gap-1"

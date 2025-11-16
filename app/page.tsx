@@ -105,7 +105,7 @@ export default function Home() {
       <div
         className={`
           relative h-52 mb-4 flex flex-col items-center text-center p-4 transition-all duration-500 
-          ${isCenter ? "bg-orange-600 rounded-xl text-white z-10" : "bg-gray-500 md:bg-gray-100 border border-gray-200 rounded-xl text-gray-400 scale-95"}
+          ${isCenter ? "bg-orange-600 rounded-xl text-white z-10" : "bg-purple-500 md:bg-white border border-gray-200 rounded-xl text-gray-400 scale-95"}
         `}
       >
         {/* Quote icon background */}
@@ -115,7 +115,7 @@ export default function Home() {
             ${isCenter ? "text-white/20 " : "text-gray-500/5"}
           `}
         >
-          <Quote className="w-16 h-16 md:w-60 md:h-60" />
+          <Quote className="w-16 h-16 md:w-48 md:h-48" />
         </div>
 
         <p className="relative z-10 text-sm leading-relaxed mb-2 px-8 flex-grow">
@@ -231,7 +231,7 @@ export default function Home() {
             <a
               href="/join"
               className="bg-white text-purple-900 px-6 md:px-8 py-3 md:py-4 font-semibold text-sm md:text-base 
-                         hover:bg-gray-100 transition-all duration-300 flex items-center justify-center gap-2 group border border-white"
+                         hover:bg-purple-50 transition-all duration-300 flex items-center justify-center gap-2 group border border-white"
             >
               Join the Network
               <MoveRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
@@ -248,7 +248,7 @@ export default function Home() {
       </section>
 
       {/* ABOUT SECTION */}
-      <section className="py-0 md:py-12 bg-white">
+      <section className="py-0 md:py-12  bg-white">
         <div className="container mx-auto px-3 md:px-0">
           <div className="grid md:grid-cols-2 md:gap-12 gap-4 items-start">
             {/* Left: Image + Contact Bar */}
@@ -264,7 +264,7 @@ export default function Home() {
               </div>
 
               {/* Contact Bar Below Image */}
-              <div className="bg-gray-100 overflow-hidden flex items-center md:h-20 h-12">
+              <div className="bg-purple-50 overflow-hidden flex items-center md:h-20 h-12">
                 {/* Purple Bar */}
                 <div className="bg-purple-900 h-full w-20 flex items-center justify-center">
                   <Mail className="md:w-8 md:h-8 w-4 h-4 text-white" />
@@ -296,7 +296,7 @@ export default function Home() {
               {/* Feature Boxes */}
               <div className="grid md:grid-cols-2 md:gap-6 gap-2">
                 {/* Box 1 */}
-                <div className="bg-gray-100 p-8 text-center md:space-y-4 hover:shadow transition-shadow">
+                <div className="bg-purple-50 p-8 text-center md:space-y-4 hover:shadow transition-shadow">
                   <FaGlobe className="md:w-16 md:h-16 h-10 w-10 text-purple-900 mx-auto" />
                   <h4 className="md:text-5xl text-lg font-bold text-gray-800">100 +</h4>
                   <p className="text-gray-600">
@@ -305,7 +305,8 @@ export default function Home() {
                 </div>
 
                 {/* Box 2 */}
-                <div className="bg-gray-100 p-8 text-center md:space-y-4 hover:shadow transition-shadow">
+                <div className="bg-purple-50
+                 p-8 text-center md:space-y-4 hover:shadow transition-shadow">
                   <IoIosPeople className="md:w-16 md:h-16 h-10 w-10 text-purple-900 mx-auto" />
                   <h4 className="md:text-5xl text-lg font-bold text-gray-800">500 +</h4>
                   <p className="text-sm text-gray-600">
@@ -319,7 +320,7 @@ export default function Home() {
       </section>
 
       {/* BENEFITS OF BEING A MEMBER SECTION */}
-      <section className="py-12 bg-gray-100 md:bg-gray-50">
+      <section className="py-12 bg-purple-50 md:bg-purple-50">
         <div className="container mx-auto px-3 md:px-0">
           {/* Section titles */}
           <div className="text-center mb-4 md:mb-10">
@@ -527,7 +528,7 @@ export default function Home() {
       </section>
 
       {/* CALENDAR SECTION – 2 Images with Scroll-Triggered Overlays */}
-      <section className="md:pt-16 pt-6">
+      <section className="md:pt-16 pt-6 bg-purple-50 md:bg-purple-50">
         <div className="container mx-auto px-3 md:px-0">
           <div className="relative max-w-5xl mx-auto">
             {/* PURPLE STRIP – Full screen width, behind images */}
@@ -550,7 +551,7 @@ export default function Home() {
       </section>
 
   {/* Executive Leadership – 5 Members Balanced Layout */}
-<section className="py-12 bg-gray-100 md:bg-gray-50">
+<section className="py-12 bg-purple-50 md:bg-purple-50">
   <div className="container mx-auto">
     {/* Section Header */}
     <div className="text-center mb-12">
@@ -612,8 +613,8 @@ export default function Home() {
               </a>
               
             </div>
-            <div className="absolute -bottom-0 right-0 transform bg-white shadow text-black px-3 py-1 text-xs font-semibold">
-              <h3 className="font-bold text-base text-purple-900">{member.name}</h3>
+            <div className="absolute -bottom-0 right-0 transform bg-orange-600 shadow text-black px-3 pb-1 text-xs font-semibold">
+              <h3 className="font-bold text-base text-white">{member.name}</h3>
                 {member.position}
               </div>
             
@@ -657,7 +658,7 @@ export default function Home() {
                 Founder
               </div>
             </div>
-            <h3 className="text-xl font-bold text-white md:text-transparent mb-2">Antony Njenga</h3>
+            <h3 className="text-xl font-bold text-white  mb-2">Antony Njenga</h3>
             <p className="text-orange-400 font-semibold mb-3 text-transparent">Founder </p>
             <p className=" text-white text-sm leading-relaxed mb-4 px-6 ">
               Visionary leader with 25+ years transforming global logistics through innovation and strategic growth.
@@ -728,8 +729,8 @@ export default function Home() {
             <div className="flex-1 min-w-0 relative z-10 text-white">
              
             </div>
-          <div className="absolute -bottom-0 right-0 transform bg-white border border-gray-200  text-black px-3 py-1 text-xs font-semibold">
-             <h3 className="font-bold text-base text-purple-900">{member.name}</h3>
+          <div className="absolute -bottom-0 right-0 transform bg-orange-600   text-black px-3 pb-1 text-xs font-semibold">
+             <h3 className="font-bold text-base text-white">{member.name}</h3>
                 {member.position}
               </div>
           </div>
@@ -742,7 +743,8 @@ export default function Home() {
 
 
       {/* TESTIMONIAL SECTION – Mobile: 1 card, Desktop: 3-card carousel */}
-      <section className="pt-1 pb-8">
+      <section className="pt-1 pb-8
+ bg-purple-50 md:bg-purple-50">
         <div className="container mx-auto px-3 md:px-0">
           {/* Title */}
           <div className="text-center mb-10 md:mb-8">
@@ -847,7 +849,7 @@ export default function Home() {
               </div>
               <a
                 href="/marketplace"
-                className="bg-white text-purple-950 px-6 py-3 font-semibold hover:text-text-purple-950-950 hover:bg-gray-100 transition-colors inline-flex items-center gap-2 self-start text-sm"
+                className="bg-white text-purple-950 px-6 py-3 font-semibold hover:text-text-purple-950-950 hover:bg-purple-50 transition-colors inline-flex items-center gap-2 self-start text-sm"
               >
                 Go to Marketplace
                 <MoveRight className="w-4 h-4" />
@@ -876,7 +878,7 @@ export default function Home() {
               </div>
               <a
                 href="/register-trader"
-                className="text-purple-950 bg-white px-6 py-3 font-semibold hover:bg-gray-100 hover:text-purple-950 transition-colors inline-flex items-center gap-2 self-start text-sm"
+                className="text-purple-950 bg-white px-6 py-3 font-semibold hover:bg-purple-50 hover:text-purple-950 transition-colors inline-flex items-center gap-2 self-start text-sm"
               >
                 Join Now
                 <MoveRight className="w-4 h-4" />
@@ -952,6 +954,108 @@ export default function Home() {
               blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8/OnPfQAJAgGBjA5h9gAAAABJRU5ErkJggg=="
             />
           </div> 
+        </div>
+      </section>
+
+       {/* CTA SECTION - Mobile: Image left of text, both above buttons | Desktop: UNCHANGED */}
+      <section className="py-5 md:py-12 bg-purple-50 md:bg-purple-50">
+        <div className="container mx-auto px-3 md:px-0">
+          
+          {/* === DESKTOP LAYOUT (UNCHANGED - EXACTLY AS ORIGINAL) === */}
+          <div className="hidden md:grid md:grid-cols-2 gap-0 items-stretch max-w-6xl mx-auto aspect-auto md:aspect-[3/1] bg-white rounded-2xl overflow-hidden border border-gray-300">
+            {/* Left: Image – full height */}
+            <div className="relative overflow-hidden">
+              <Image
+                src="/images/contact1.png"
+                alt="TMX Global Network Community"
+                fill
+                className="object-cover"
+                priority
+                quality={95}
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
+      
+            {/* Right: Content */}
+            <div className="flex flex-col justify-between p-6 md:p-8 lg:p-12">
+              <div>
+                <h2 className="text-lg md:text-3xl font-semibold text-gray-900 mb-2">
+                  Ready to Join Our Global Network?
+                </h2>
+                <p className="md:text-base text-sm text-gray-600 mb-4">
+                  Become part of the world's most connected freight forwarding community and transform your business.
+                </p>
+              </div>
+      
+              <div className="flex flex-col sm:flex-row gap-4 md:gap-6 mt-auto">
+                <a
+                  href="/join"
+                  className="bg-orange-600 text-white px-6 md:px-8 py-3 md:py-4 font-semibold text-sm md:text-base 
+                             hover:bg-orange-700 transition-all duration-300 flex items-center justify-center gap-3 group"
+                >
+                  Join the Network
+                  <MoveRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                </a>
+                <a
+                  href="/contact"
+                  className="bg-purple-900 text-white px-6 md:px-8 py-3 md:py-4 font-semibold text-sm md:text-base 
+                             hover:bg-purple-800 transition-all duration-300 flex items-center justify-center gap-2 group border border-purple-900"
+                >
+                  Contact Us
+                  <Mail className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                </a>
+              </div>
+            </div>
+          </div>
+      
+          {/* === MOBILE LAYOUT ONLY (NEW) === */}
+          <div className="md:hidden bg-white rounded-2xl overflow-hidden border border-gray-300 p-5">
+            {/* Row: Small Image + Text */}
+            <div className="flex gap-3 items-start mb-5">
+              {/* Small Image (80x80) */}
+              <div className="relative w-20 h-20 flex-shrink-0 rounded-lg overflow-hidden ">
+                <Image
+                  src="/images/contact1.png"
+                  alt="TMX Global Network"
+                  fill
+                  className="object-cover rounded-full"
+                  quality={90}
+                  sizes="80px"
+                />
+              </div>
+      
+              {/* Text */}
+              <div className="flex-1">
+                <h2 className="text-lg font-semibold text-gray-900 leading-tight">
+                  Ready to Join Our Global Network?
+                </h2>
+                <p className="text-sm text-gray-600 mt-1">
+                  Become part of the world's most connected freight forwarding community and transform your business.
+                </p>
+              </div>
+            </div>
+      
+            {/* Buttons - Stacked, full width */}
+            <div className="flex flex-col gap-3">
+              <a
+                href="/join"
+                className="bg-orange-600 text-white px-6 py-3 font-semibold text-sm 
+                           hover:bg-orange-700 transition-all duration-300 flex items-center justify-center gap-2 group"
+              >
+                Join the Network
+                <MoveRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </a>
+              <a
+                href="/contact"
+                className="bg-purple-900 text-white px-6 py-3 font-semibold text-sm 
+                           hover:bg-purple-800 transition-all duration-300 flex items-center justify-center gap-2 group border border-purple-900"
+              >
+                Contact Us
+                <Mail className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </a>
+            </div>
+          </div>
+      
         </div>
       </section>
     </section>

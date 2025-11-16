@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { Facebook, Twitter, Linkedin, Instagram, MoveRight, } from 'lucide-react';
+import { Facebook, Twitter, Linkedin, Instagram, MoveRight, Mail, } from 'lucide-react';
 import {  FaHandshake,   } from "react-icons/fa";
 import { useEffect, useRef, useState } from 'react';
 import React from 'react';
@@ -38,13 +38,13 @@ export default function AboutUs() {
     return (
       <div
         ref={elementRef}
-        className="relative aspect-[3/2] overflow-hidden bg-gray-200"
+        className="relative aspect-[3/2] md:aspect-[4/2] rounded-lg overflow-hidden bg-gray-200"
       >
         <Image
           src={`/images/calendr-${index}.jpg`}
           alt={`Calendar ${index}`}
           fill
-          className="object-cover hover:scale-105 transition-transform duration-500"
+          className="object-cover hover:scale-105 transition-transform duration-500 "
           placeholder="blur"
           blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8/OnPfQAJAgGBjA5h9gAAAABJRU5ErkJggg=="
         />
@@ -52,7 +52,7 @@ export default function AboutUs() {
         {/* Overlay with symmetrical slide animation */}
         <div
           className={`
-            absolute inset-0 bg-gradient-to-r from-purple-950/80 to-purple-950/80
+            absolute rounded-lg inset-0 bg-gradient-to-r from-purple-950/80 to-purple-950/80
             flex flex-col items-center justify-center text-white text-center px-6
             transition-transform duration-700 ease-out
             ${isVisible ? 'translate-x-0' : (isLeft ? '-translate-x-full' : 'translate-x-full')}
@@ -77,17 +77,17 @@ export default function AboutUs() {
   
 
   return (
-    <section className='mb-12'>
+    <section className='mb-0 bg-purple-50 overflow-hidden'>
     <section className='overflow-hidden -mt-2'>
       {/* HERO SECTION - Consistent with Landing Page */}
       <section className="relative -top-6 min-h-[60vh] flex items-center justify-start overflow-hidden">
         {/* Background Image */}
-        <div className="absolute inset-0">
+        <div className="absolute  inset-0">
           <Image
             src="/images/hero.jpg"
             alt="About TMX Global Freight Network"
             fill
-            className="object-cover"
+            className="object-cover "
             priority
             placeholder="blur"
             blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8/OnPfQAJAgGBjA5h9gAAAABJRU5ErkJggg=="
@@ -142,27 +142,127 @@ export default function AboutUs() {
        
 
     </section>
-    <section className=" pt-6">
+         <section className="pt-6">
         <div className="container mx-auto px-3 md:px-0">
           <div className="relative max-w-5xl mx-auto">
-            {/* PURPLE STRIP – Full screen width, behind images */}
+            {/* PURPLE STRIP – Full-width, centered behind the single image */}
             <div
-              className="absolute top-1/2 left-0 right-0 -translate-y-1/2 h-48 bg-purple-950 flex items-center justify-center z-0"
+              className="absolute top-1/2 left-0 right-0 -translate-y-1/2 h-54 md:h-96 bg-purple-950 flex items-center justify-center z-0"
               style={{
                 width: '100vw',
                 marginLeft: 'calc(50% - 50vw)',
               }}
             />
 
-            {/* 2 IMAGES WITH ANIMATED OVERLAYS */}
-            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-16 px-2 md:px-4">
-              {[1, 2].map((i) => (
-                <CalendarImageWithOverlay key={i} index={i} />
-              ))}
+            {/* SINGLE IMAGE – covers the whole screen width (mobile) or max-w-5xl (desktop) */}
+            <div className="relative z-10 grid grid-cols-1 gap-0 px-2 md:px-4">
+              {/* We keep the “Upcoming Events” version – you can change the index to 2 if you prefer the calendar */}
+              <CalendarImageWithOverlay index={1} />
             </div>
           </div>
         </div>
       </section>
+       {/* CTA SECTION - Mobile: Image left of text, both above buttons | Desktop: UNCHANGED */}
+            <section className="py-5 mt-12 md:py-12 bg-purple-50 md:bg-purple-50">
+              <div className="container mx-auto px-3 md:px-0">
+                
+                {/* === DESKTOP LAYOUT (UNCHANGED - EXACTLY AS ORIGINAL) === */}
+                <div className="hidden md:grid md:grid-cols-2 gap-0 items-stretch max-w-6xl mx-auto aspect-auto md:aspect-[3/1] bg-white rounded-2xl overflow-hidden border border-gray-300">
+                  {/* Left: Image – full height */}
+                  <div className="relative overflow-hidden">
+                    <Image
+                      src="/images/contact1.png"
+                      alt="TMX Global Network Community"
+                      fill
+                      className="object-cover"
+                      priority
+                      quality={95}
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  </div>
+            
+                  {/* Right: Content */}
+                  <div className="flex flex-col justify-between p-6 md:p-8 lg:p-12">
+                    <div>
+                      <h2 className="text-lg md:text-3xl font-semibold text-gray-900 mb-2">
+                        Ready to Join Our Global Network?
+                      </h2>
+                      <p className="md:text-base text-sm text-gray-600 mb-4">
+                        Become part of the world's most connected freight forwarding community and transform your business.
+                      </p>
+                    </div>
+            
+                    <div className="flex flex-col sm:flex-row gap-4 md:gap-6 mt-auto">
+                      <a
+                        href="/join"
+                        className="bg-orange-600 text-white px-6 md:px-8 py-3 md:py-4 font-semibold text-sm md:text-base 
+                                   hover:bg-orange-700 transition-all duration-300 flex items-center justify-center gap-3 group"
+                      >
+                        Join the Network
+                        <MoveRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                      </a>
+                      <a
+                        href="/contact"
+                        className="bg-purple-900 text-white px-6 md:px-8 py-3 md:py-4 font-semibold text-sm md:text-base 
+                                   hover:bg-purple-800 transition-all duration-300 flex items-center justify-center gap-2 group border border-purple-900"
+                      >
+                        Contact Us
+                        <Mail className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+            
+                {/* === MOBILE LAYOUT ONLY (NEW) === */}
+                <div className="md:hidden bg-white rounded-2xl overflow-hidden border border-gray-300 p-5">
+                  {/* Row: Small Image + Text */}
+                  <div className="flex gap-3 items-start mb-5">
+                    {/* Small Image (80x80) */}
+                    <div className="relative w-20 h-20 flex-shrink-0 rounded-lg overflow-hidden ">
+                      <Image
+                        src="/images/contact1.png"
+                        alt="TMX Global Network"
+                        fill
+                        className="object-cover rounded-full"
+                        quality={90}
+                        sizes="80px"
+                      />
+                    </div>
+            
+                    {/* Text */}
+                    <div className="flex-1">
+                      <h2 className="text-lg font-semibold text-gray-900 leading-tight">
+                        Ready to Join Our Global Network?
+                      </h2>
+                      <p className="text-sm text-gray-600 mt-1">
+                        Become part of the world's most connected freight forwarding community and transform your business.
+                      </p>
+                    </div>
+                  </div>
+            
+                  {/* Buttons - Stacked, full width */}
+                  <div className="flex flex-col gap-3">
+                    <a
+                      href="/join"
+                      className="bg-orange-600 text-white px-6 py-3 font-semibold text-sm 
+                                 hover:bg-orange-700 transition-all duration-300 flex items-center justify-center gap-2 group"
+                    >
+                      Join the Network
+                      <MoveRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                    </a>
+                    <a
+                      href="/contact"
+                      className="bg-purple-900 text-white px-6 py-3 font-semibold text-sm 
+                                 hover:bg-purple-800 transition-all duration-300 flex items-center justify-center gap-2 group border border-purple-900"
+                    >
+                      Contact Us
+                      <Mail className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                    </a>
+                  </div>
+                </div>
+            
+              </div>
+            </section>
       </section>
   );
 }
