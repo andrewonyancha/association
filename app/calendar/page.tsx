@@ -38,7 +38,7 @@ export default function AboutUs() {
     return (
       <div
         ref={elementRef}
-        className="relative aspect-[3/2] md:aspect-[4/2] rounded-lg overflow-hidden bg-gray-200"
+        className="relative aspect-[5/4] md:aspect-[4/2] rounded-lg overflow-hidden bg-gray-200"
       >
         <Image
           src={`/images/calendr-${index}.jpg`}
@@ -142,12 +142,12 @@ export default function AboutUs() {
        
 
     </section>
-         <section className="pt-6">
+         <section className="">
         <div className="container mx-auto px-3 md:px-0">
           <div className="relative max-w-5xl mx-auto">
             {/* PURPLE STRIP – Full-width, centered behind the single image */}
             <div
-              className="absolute top-1/2 left-0 right-0 -translate-y-1/2 h-48 md:h-96 bg-purple-950 flex items-center justify-center z-0"
+              className="absolute top-1/2 left-0 right-0 -translate-y-1/2 h-46 md:h-96 bg-purple-950 flex items-center justify-center z-0"
               style={{
                 width: '100vw',
                 marginLeft: 'calc(50% - 50vw)',
