@@ -214,7 +214,7 @@ const missionVisionData = [
     width={80}
     height={100}
     sizes="(max-width: 768px) 48px, 64px"
-    className="w-full h-full object-cover md:rounded-xl rounded-lg border border-orange-600 "
+    className="w-full h-full object-cover md:rounded-xl rounded-lg"
     quality={95}
     priority
   />

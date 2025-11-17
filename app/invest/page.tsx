@@ -22,7 +22,7 @@ const investments = [
     title: "TMX Gold Coin",
     description:
       "A tokenized gold-backed digital asset offering stability, liquidity, and real-world utility within the TMX ecosystem. Secure your wealth with the power of gold on the blockchain.",
-    image: "/images/hero.jpg",  // <-- replace with real image
+    image: "/images/TMX-goldcoin.png",  // <-- replace with real image
     link: "https://tmxgoldcoin.co/",
     external: true,
   },
