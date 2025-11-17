@@ -115,7 +115,7 @@ export default function AboutUs() {
             {investments.map((inv) => (
               <div
                 key={inv.id}
-                className="bg-white p-4 overflow-hidden border border-gray-300 flex flex-col md:flex-row"
+                className="bg-white rounded-lg p-4 overflow-hidden border border-gray-300 flex flex-col md:flex-row"
               >
                 {/* MOBILE: Title first */}
                 <h3 className="font-semibold text-gray-900 mb-3 md:hidden">
