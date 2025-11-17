@@ -583,7 +583,7 @@ export default function Home() {
         ].map((member) => (
           <div 
             key={member.name}
-            className="relative flex items-center gap-2 p-6 bg-white border border-gray-200 hover:shadow-lg transition-all duration-300 group overflow-hidden flex-1"
+            className="relative flex items-center gap-2 p-6 bg-white  transition-all duration-300 group overflow-hidden flex-1"
             style={{
               backgroundImage: `url(${member.bgImage})`,
               backgroundSize: 'cover',
@@ -595,13 +595,13 @@ export default function Home() {
             
             {/* Profile Image - SAME HEIGHT as center */}
             <div className="flex-shrink-0 relative z-10">
-              <div className="w-32 h-32 md:w-24 md:h-24 overflow-hidden border-2 border-white shadow-lg">
+              <div className="w-32 h-32 rounded-full md:w-24 md:h-24 overflow-hidden border-2 border-white shadow-lg">
                 <Image
                   src={member.image}
                   alt={member.name}
                   width={160}
                   height={160}
-                  className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500"
+                  className="object-cover rounded-full w-full h-full group-hover:scale-110 transition-transform duration-500"
                 />
                  
               </div>
@@ -613,9 +613,9 @@ export default function Home() {
               </a>
               
             </div>
-            <div className="absolute -bottom-0 right-0 transform bg-orange-600 shadow text-black px-3 pb-1 text-xs font-semibold">
+            <div className="absolute -bottom-0 right-0 transform bg-black/50 text-black rounded-tl-3xl px-3 pb-1 text-xs font-semibold">
               <h3 className="font-bold text-base text-white">{member.name}</h3>
-                {member.position}
+               <span className='text-white'> {member.position}</span>
               </div>
             
 
@@ -645,13 +645,13 @@ export default function Home() {
           <div className="relative z-10">
             <div className="relative mb-6 mx-auto">
               {/* Center Image - Same size as side images */}
-              <div className="w-32 h-32 md:w-32 md:h-32 overflow-hidden  shadow-2xl mx-auto">
+              <div className="w-32 h-32 md:w-32 md:h-32 overflow-hidden rounded-full  shadow-2xl mx-auto">
                 <Image
                   src="/images/tony.webp"
                   alt="Antony Njenga - Founder"
                   width={160}
                   height={160}
-                  className="object-cover w-full h-full"
+                  className="object-cover w-full h-full rounded-full"
                 />
               </div>
               <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-orange-600 text-white px-3 py-1 text-xs font-semibold">
@@ -694,7 +694,7 @@ export default function Home() {
         ].map((member) => (
           <div 
             key={member.name}
-            className="relative flex items-center gap-4 p-6 bg-white  hover:shadow-lg transition-all duration-300 group overflow-hidden flex-1"
+            className="relative flex items-center gap-4 p-6 bg-white  transition-all duration-300 group overflow-hidden flex-1"
             style={{
               backgroundImage: `url(${member.bgImage})`,
               backgroundSize: 'cover',
@@ -706,13 +706,13 @@ export default function Home() {
             
             {/* Profile Image - SAME HEIGHT as center */}
             <div className="flex-shrink-0 relative z-10">
-              <div className="w-32 h-32 md:w-24 md:h-24 overflow-hidden border-2 border-white shadow-lg">
+              <div className="w-32 h-32 md:w-24 md:h-24 overflow-hidden border-2 border-white rounded-full shadow-lg">
                 <Image
                   src={member.image}
                   alt={member.name}
                   width={160}
                   height={160}
-                  className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500"
+                  className="object-cover w-full h-full rounded-full group-hover:scale-110 transition-transform duration-500"
                 />
                 
               </div>
@@ -729,9 +729,9 @@ export default function Home() {
             <div className="flex-1 min-w-0 relative z-10 text-white">
              
             </div>
-          <div className="absolute -bottom-0 right-0 transform bg-orange-600   text-black px-3 pb-1 text-xs font-semibold">
+          <div className="absolute -bottom-0 right-0 transform bg-black/50   rounded-tl-3xl px-3 pb-1 text-xs font-semibold">
              <h3 className="font-bold text-base text-white">{member.name}</h3>
-                {member.position}
+                <span className='text-white'> {member.position}</span>
               </div>
           </div>
           
