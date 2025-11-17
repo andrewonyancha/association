@@ -106,7 +106,7 @@ export default function AboutUs() {
       </section>
 
       {/* ====================== INVESTMENT CARDS ====================== */}
-      <section className="bg-purple-50 -mt-6 pt-12">
+      <section className="bg-purple-50 -mt-6 md:pt-12 pt-6">
         <div className="container mx-auto">
           
 
