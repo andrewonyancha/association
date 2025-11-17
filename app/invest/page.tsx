@@ -165,7 +165,7 @@ export default function AboutUs() {
       </section>
 
       {/* ====================== ORIGINAL CTA (AFTER CARDS) ====================== */}
-      <section className="py-5 md:py-12 bg-purple-50">
+      <section className="pt-12 pb-4 md:py-12 bg-purple-50">
         <div className="container mx-auto px-3 md:px-0">
           {/* DESKTOP LAYOUT */}
           <div className="hidden md:grid md:grid-cols-2 gap-0 items-stretch max-w-6xl mx-auto aspect-auto md:aspect-[3/1] bg-white rounded-2xl overflow-hidden border border-gray-300">
