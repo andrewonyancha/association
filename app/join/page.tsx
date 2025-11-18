@@ -1130,7 +1130,7 @@ function TraderForm({ currentStep, setCurrentStep, formData, setFormData, select
                   disabled={isSubmitting}
                   className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg md:rounded-none md:rounded-none md:rounded-none md:rounded-none transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  {isSubmitting ? 'Submitting...' : 'Complete Registration'}
+                  {isSubmitting ? 'Submitting...' : 'Finish '}
                   <CheckCircle className="w-4 h-4" />
                 </button>
               )}
