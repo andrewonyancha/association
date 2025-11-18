@@ -10,7 +10,9 @@
     "postbuild": "next-sitemap"
   },
   "dependencies": {
+    "@makozi/paystack-react-pay": "^1.0.5",
     "date-fns": "^4.1.0",
+    "firebase": "^12.6.0",
     "framer-motion": "^12.23.24",
     "lucide-react": "^0.552.0",
     "next": "16.0.1",

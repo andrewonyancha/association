@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { Facebook, Twitter, Linkedin, Instagram, Mail, MoveRight } from 'lucide-react';
-import { FaHandshake, FaUser, FaUserSlash } from "react-icons/fa";
+import { FaHandshake, FaUser, FaUserSlash,  } from "react-icons/fa";
 
 export default function AboutUs() {
   
@@ -10,40 +10,78 @@ export default function AboutUs() {
   const teamStructure = [
     // Level 1 - CEO
     [
-      { name: "Antony Njenga", position: "Founder", image: "/images/team/contact.png", continent: "Global", occupied: true }
+      { name: "Antony Njenga", position: "Founder", image: "/images/tony.webp", continent: "Global", occupied: true }
     ],
     // Level 2 - Executive Leadership
     [
-      { name: "Madhu Sarkar", position: "Director Marketing", image: "/images/team/contact.png", continent: "Asia", occupied: true },
-      { name: "Andrew Onyancha", position: "Director of Technology", image: "/images/team/contact.png", continent: "Europe", occupied: true }
+      { name: "Madhu Sarkar", position: "Director Marketing", image: "/images/Madhu-Sarkar.jpeg", continent: "Asia", occupied: true },
+      { name: "Andrew Onyancha", position: "Director of Technology", image: "/images/drew.jpeg", continent: "Europe", occupied: true }
     ],
     // Level 3 - Senior VPs
     [
-      { name: "Christine Awuor", position: "Global Cordinator", image: "/images/team/vp-ops.jpg", continent: "North America", occupied: true },
-      { name: "Rose Gakuo", position: "Operations Manager", image: "/images/team/vp-bd.jpg", continent: "Asia", occupied: true },
-      { name: "", position: "", image: "/images/team/vp-tech.jpg", continent: "Europe", occupied: true }
+      { name: "Christine Awuor", position: "Global Cordinator", image: "/images/christine.jpeg", continent: "North America", occupied: true },
+      { name: "Rose Gakuo", position: "Operations Manager", image: "/images/Rose.png", continent: "Asia", occupied: true },
+      { name: "Unoccupied", position: "", image: null, continent: "Europe", occupied: false }
     ],
     // Level 4 - Regional Directors
     
     // Level 5 - Continental Representatives (some unoccupied)
     [
-      { name: "Michael Brown", position: "Regional Manager", image: "/images/team/rep-na.jpg", continent: "North America", occupied: true },
-      { name: "Unoccupied", position: "Regional Manager", image: null, continent: "South America", occupied: false },
-      { name: "Unoccupied", position: "Regional Manager", image: null, continent: "Africa", occupied: false }
+      { name: "Unoccupied", position: "", image: null, continent: "North America", occupied: false },
+      { name: "Unoccupied", position: "Regions  Cordinator", image: null, continent: "South America", occupied: false },
+      { name: "Unoccupied", position: "", image: null, continent: "Africa", occupied: false }
     ],
     
    
   ];
 
-  // Continental representatives data
+  // Continental representatives data with images
   const continentalReps = [
-    { continent: "North America", representative: "Michael Brown", occupied: true,  flag: "🇺🇸" },
-    { continent: "South America", representative: "Vacant", occupied: false, flag: "🇧🇷" },
-    { continent: "Europe", representative: "Sophie Müller", occupied: true,  flag: "🇪🇺" },
-    { continent: "Asia", representative: "Wei Zhang", occupied: true,  flag: "🌏" },
-    { continent: "Africa", representative: "Vacant", occupied: false, flag: "🌍" },
-    { continent: "Oceania", representative: "Vacant", occupied: false, flag: "🇦🇺" }
+    { 
+      continent: "North America", 
+      representative: "Vacant", 
+      occupied: false,  
+      image: "/images/North_America.svg" // Replace with actual image path
+    },
+    { 
+      continent: "South America", 
+      representative: "Vacant", 
+      occupied: false, 
+      image: "/images/South_America.svg" // Replace with actual image path
+    },
+    { 
+      continent: "Europe", 
+      representative: "Vacant", 
+      occupied: false,  
+      image: "/images/Europe.svg" // Replace with actual image path
+    },
+    { 
+      continent: "Asia", 
+      representative: "Vacant", 
+      occupied: false,  
+      image: "/images/Asia.svg" // Replace with actual image path
+    },
+    { 
+      continent: "Africa", 
+      representative: "Christine Awuor", 
+      occupied: true, 
+      image: "/images/Africa.svg" // Replace with actual image path
+    },
+    { 
+      continent: "Oceania", 
+      representative: "Vacant", 
+      occupied: false, 
+      image: "/images/Africa.svg" // Replace with actual image path
+    }
   ];
+
+  // WhatsApp application function
+  const handleWhatsAppApply = () => {
+    const phoneNumber = "0790407508";
+    const message = "Hello! I'm interested in applying for a position at TMX Global Freight Network.";
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
 
   return (
     <section className='overflow-hidden -mt-2'>
@@ -182,8 +220,8 @@ export default function AboutUs() {
       <section className="py-12 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Continental Representation
+            <h2 className="text-lg md:text-3xl font-semibold text-gray-900">
+              [ Continental Representation ]
             </h2>
            
           </div>
@@ -198,7 +236,18 @@ export default function AboutUs() {
               >
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="text-xl font-semibold text-gray-900 flex items-center gap-2">
-                    <span className="text-2xl">{rep.flag}</span>
+                    {rep.image ? (
+                      <div className="w-8 h-6 relative">
+                        <Image
+                          src={rep.image}
+                          alt={`${rep.continent} flag`}
+                          fill
+                          className="object-cover rounded grayscale"
+                        />
+                      </div>
+                    ) : (
+                      <div className="w-8 h-6 bg-gray-200 rounded" />
+                    )}
                     {rep.continent}
                   </h3>
                   {rep.occupied ? (
@@ -218,10 +267,16 @@ export default function AboutUs() {
                     <strong>Representative:</strong> {rep.representative}
                   </p>
                   {!rep.occupied && (
-                    <div className="mt-3">
-                      <span className="inline-block bg-orange-100 text-orange-800 text-sm px-3 py-1 rounded-full">
-                        Opportunity Available
-                      </span>
+                    <div className="mt-3 flex flex-col gap-2">
+                     
+                      <button
+                        onClick={handleWhatsAppApply}
+                        className="bg-purple-900 hover:bg-gray-50 text-white hover:text-black  px-4 py-2  flex items-center justify-center gap-2 transition-colors duration-300"
+                      >
+                      
+                        Apply
+                        <MoveRight className="w-5 h-5 text-orange-600" />
+                      </button>
                     </div>
                   )}
                 </div>
