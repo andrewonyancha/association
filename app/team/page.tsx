@@ -166,12 +166,12 @@ export default function AboutUs() {
                   <div
                     key={memberIndex}
                     className={`bg-white rounded-lg md:rounded-none  border border-gray-200 p-4 text-center transform transition-transform duration-300 ${
-                      levelIndex === 0 ? 'md:w-120 w-112' : 
-                      levelIndex === 1 ? 'md:w-110 w-112' : 
-                      levelIndex === 2 ? 'md:w-80 w-112' : 
-                      levelIndex === 3 ? 'md:w-80 w-112' : 
-                      levelIndex === 4 ? 'md:w-80 w-112' : 
-                      levelIndex === 5 ? 'md:w-110 w-112' : 'md:w-110 w-112'
+                      levelIndex === 0 ? 'md:w-120 w-96' : 
+                      levelIndex === 1 ? 'md:w-110 w-96' : 
+                      levelIndex === 2 ? 'md:w-80 w-96' : 
+                      levelIndex === 3 ? 'md:w-80 w-96' : 
+                      levelIndex === 4 ? 'md:w-80 w-96' : 
+                      levelIndex === 5 ? 'md:w-110 w-96' : 'md:w-110 w-96'
                     } ${!member.occupied && member.name === 'Unoccupied' ? 'opacity-60 border-dashed' : ''}`}
                   >
                     <div className="relative mx-auto mb-3">
