@@ -144,9 +144,9 @@ export default function JoinPage() {
 
   // Form Steps
   return (
-    <div className="min-h-screen bg-purple-50">
+    <div className="min-h-screen bg-purple-50 -mt-2">
      
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto md:px-4 px-2 py-10">
         {selectedType === 'freight' && (
            <FreightForwarderForm
              currentStep={currentStep}
@@ -342,7 +342,7 @@ function FreightForwarderForm({ currentStep, setCurrentStep, formData, setFormDa
 
   return (
     <div className="max-w-2xl mx-auto">
-      <div className="bg-white md:rounded-none rounded-lg md:rounded-none md:rounded-none md:rounded-none md:rounded-none  border border-gray-200 p-8">
+      <div className="bg-white md:rounded-none rounded-lg md:rounded-none md:rounded-none md:rounded-none md:rounded-none  border border-gray-200 md:p-8 p-2">
         {/* Switch Type Button - Above Progress Steps */}
         <div className="flex justify-end mb-6">
           <button
@@ -372,7 +372,6 @@ function FreightForwarderForm({ currentStep, setCurrentStep, formData, setFormDa
                 currentStep >= step.number ? 'text-purple-900' : 'text-gray-500'
               }`}>
                 {step.title}
-                {step.optional && <span className="text-xs ml-1">(Optional)</span>}
               </span>
             </div>
           ))}
