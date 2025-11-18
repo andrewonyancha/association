@@ -820,7 +820,7 @@ function TraderForm({ currentStep, setCurrentStep, formData, setFormData, select
 
   return (
     <div className="max-w-2xl mx-auto">
-      <div className="bg-white rounded-lg md:rounded-none  border border-gray-200 p-8">
+      <div className="bg-white rounded-lg md:rounded-none  border border-gray-200 md:p-8 p-2">
         {/* Switch Type Button - Above Progress Steps */}
         <div className="flex justify-end mb-6">
           <button
