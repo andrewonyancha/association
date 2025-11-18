@@ -347,7 +347,7 @@ function FreightForwarderForm({ currentStep, setCurrentStep, formData, setFormDa
         <div className="flex justify-end mb-6">
           <button
             onClick={handleSwitchType}
-            className="text-orange-600 text-sm font-medium transition-colors hover:text-purple-900 bg-white px-0.5 border-b"
+            className="text-purple-900 text-sm font-medium transition-colors hover:text-orange-600 bg-white px-0.5 border-b"
           >
             Switch to Trader & Shipper
           </button>
