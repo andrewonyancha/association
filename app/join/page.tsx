@@ -178,6 +178,7 @@ function FreightForwarderForm({ currentStep, setCurrentStep, formData, setFormDa
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [paymentCompleted, setPaymentCompleted] = useState(false);
   const [paymentSkipped, setPaymentSkipped] = useState(false);
+  const [canSubmit, setCanSubmit] = useState(false); // NEW: Control when form can be submitted
 
   const steps = [
     { number: 1, title: 'Company', icon: User },
@@ -220,6 +221,16 @@ function FreightForwarderForm({ currentStep, setCurrentStep, formData, setFormDa
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [currentStep]);
 
+  // NEW: Check if form can be submitted
+  useEffect(() => {
+    if (currentStep === 4) {
+      // Only allow submission if payment is completed OR skipped
+      setCanSubmit(paymentCompleted || paymentSkipped);
+    } else {
+      setCanSubmit(false);
+    }
+  }, [currentStep, paymentCompleted, paymentSkipped]);
+
   const handleInputChange = (field: keyof FormData, value: any) => {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
@@ -255,7 +266,7 @@ function FreightForwarderForm({ currentStep, setCurrentStep, formData, setFormDa
     e.preventDefault();
     
     // Prevent auto-submission - user must explicitly initiate
-    if (!paymentCompleted && !paymentSkipped) {
+    if (!canSubmit) {
       return;
     }
     
@@ -286,6 +297,7 @@ function FreightForwarderForm({ currentStep, setCurrentStep, formData, setFormDa
         setCurrentStep(0);
         setPaymentCompleted(false);
         setPaymentSkipped(false);
+        setCanSubmit(false);
       }, 3000);
 
     } catch (error) {
@@ -322,6 +334,7 @@ function FreightForwarderForm({ currentStep, setCurrentStep, formData, setFormDa
     setCurrentStep(1);
     setPaymentCompleted(false);
     setPaymentSkipped(false);
+    setCanSubmit(false);
   };
 
   // Paystack button component props
@@ -330,7 +343,7 @@ function FreightForwarderForm({ currentStep, setCurrentStep, formData, setFormDa
     text: paymentCompleted ? "Payment Completed" : "Pay with Paystack",
     onSuccess: onPaystackSuccess,
     onClose: onPaystackClose,
-    className: `w-full py-3 px-6 rounded-lg md:rounded-none md:rounded-none md:rounded-none md:rounded-none font-semibold transition-colors flex items-center justify-center gap-2 ${
+    className: `w-full py-3 px-6 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2 ${
       paymentCompleted
         ? 'bg-green-600 text-white cursor-not-allowed'
         : formData.email
@@ -342,7 +355,7 @@ function FreightForwarderForm({ currentStep, setCurrentStep, formData, setFormDa
 
   return (
     <div className="max-w-2xl mx-auto">
-      <div className="bg-white md:rounded-none rounded-lg md:rounded-none md:rounded-none md:rounded-none md:rounded-none  border border-gray-200 md:p-8 p-3">
+      <div className="bg-white rounded-lg border border-gray-200 md:p-8 p-4">
         {/* Switch Type Button - Above Progress Steps */}
         <div className="flex justify-end mb-6">
           <button
@@ -357,25 +370,25 @@ function FreightForwarderForm({ currentStep, setCurrentStep, formData, setFormDa
         <div className="flex justify-between mb-8 relative">
           {steps.map((step) => (
             <div key={step.number} className="flex flex-col items-center flex-1">
-              <div className={`w-10 h-10 rounded-full flex items-center justify-center border transition-colors ${
+              <div className={`w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center border transition-colors ${
                 currentStep >= step.number
                   ? 'bg-purple-900 border-purple-900 text-white'
                   : 'border-gray-300 text-gray-400'
               }`}>
                 {currentStep > step.number ? (
-                  <CheckCircle className="w-5 h-5" />
+                  <CheckCircle className="w-4 h-4 md:w-5 md:h-5" />
                 ) : (
-                  <step.icon className="w-5 h-5" />
+                  <step.icon className="w-4 h-4 md:w-5 md:h-5" />
                 )}
               </div>
-              <span className={`mt-2 text-sm font-medium ${
+              <span className={`mt-2 text-xs md:text-sm font-medium ${
                 currentStep >= step.number ? 'text-purple-900' : 'text-gray-500'
               }`}>
                 {step.title}
               </span>
             </div>
           ))}
-          <div className="absolute top-5 left-0 right-0 h-0.5 bg-gray-200 -z-10">
+          <div className="absolute top-4 md:top-5 left-0 right-0 h-0.5 bg-gray-200 -z-10">
             <div 
               className="h-full bg-purple-900 transition-all duration-300"
               style={{ width: `${((currentStep - 1) / (steps.length - 1)) * 100}%` }}
@@ -385,20 +398,20 @@ function FreightForwarderForm({ currentStep, setCurrentStep, formData, setFormDa
 
         {/* Submission Status Messages */}
         {submitStatus === 'success' && (
-          <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg md:rounded-none md:rounded-none md:rounded-none md:rounded-none ">
+          <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
             <div className="flex items-center">
               <CheckCircle className="w-5 h-5 text-green-600 mr-2" />
-              <p className="text-green-800 font-medium">Application submitted successfully!</p>
+              <p className="text-green-800 font-medium text-sm md:text-base">Application submitted successfully!</p>
             </div>
-            <p className="text-green-700 text-sm mt-1">Redirecting you back to the homepage...</p>
+            <p className="text-green-700 text-xs md:text-sm mt-1">Redirecting you back to the homepage...</p>
           </div>
         )}
 
         {submitStatus === 'error' && (
-          <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg md:rounded-none md:rounded-none md:rounded-none md:rounded-none">
+          <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
             <div className="flex items-center">
               <div className="w-5 h-5 text-red-600 mr-2">!</div>
-              <p className="text-red-800 font-medium">Error submitting application. Please try again.</p>
+              <p className="text-red-800 font-medium text-sm md:text-base">Error submitting application. Please try again.</p>
             </div>
           </div>
         )}
@@ -407,27 +420,27 @@ function FreightForwarderForm({ currentStep, setCurrentStep, formData, setFormDa
           {/* Step 1: Company Info */}
           {currentStep === 1 && (
             <div className="space-y-6">
-              <h3 className="text-2xl font-semibold text-gray-900 mb-6">Company Information</h3>
+              <h3 className="text-xl md:text-2xl font-semibold text-gray-900 mb-6">Company Information</h3>
               <div className="space-y-4">
                 <div>
-                  <label className="block text-gray-700 mb-2 font-medium">Company Name *</label>
+                  <label className="block text-gray-700 mb-2 font-medium text-sm md:text-base">Company Name *</label>
                   <input
                     type="text"
                     required
                     value={formData.companyName || ''}
                     onChange={(e) => handleInputChange('companyName', e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg md:rounded-none md:rounded-none md:rounded-none md:rounded-none focus:ring-2 focus:ring-purple-900 focus:border-purple-900"
+                    className="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-900 focus:border-purple-900 text-sm md:text-base"
                     placeholder="Enter company name"
                   />
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-gray-700 mb-2 font-medium">Years in Business *</label>
+                    <label className="block text-gray-700 mb-2 font-medium text-sm md:text-base">Years in Business *</label>
                     <select
                       required
                       value={formData.yearsInBusiness || ''}
                       onChange={(e) => handleInputChange('yearsInBusiness', e.target.value)}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg md:rounded-none md:rounded-none md:rounded-none md:rounded-none focus:ring-2 focus:ring-purple-900 focus:border-purple-900"
+                      className="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-900 focus:border-purple-900 text-sm md:text-base"
                     >
                       <option value="">Select years</option>
                       <option value="0-2">0-2 years</option>
@@ -437,12 +450,12 @@ function FreightForwarderForm({ currentStep, setCurrentStep, formData, setFormDa
                     </select>
                   </div>
                   <div>
-                    <label className="block text-gray-700 mb-2 font-medium">Employees *</label>
+                    <label className="block text-gray-700 mb-2 font-medium text-sm md:text-base">Employees *</label>
                     <select
                       required
                       value={formData.employeeCount || ''}
                       onChange={(e) => handleInputChange('employeeCount', e.target.value)}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg md:rounded-none md:rounded-none md:rounded-none md:rounded-none focus:ring-2 focus:ring-purple-900 focus:border-purple-900"
+                      className="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-900 focus:border-purple-900 text-sm md:text-base"
                     >
                       <option value="">Select size</option>
                       <option value="1-10">1-10 employees</option>
@@ -454,36 +467,36 @@ function FreightForwarderForm({ currentStep, setCurrentStep, formData, setFormDa
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-gray-700 mb-2 font-medium">Contact Person *</label>
+                    <label className="block text-gray-700 mb-2 font-medium text-sm md:text-base">Contact Person *</label>
                     <input
                       type="text"
                       required
                       value={formData.contactName || ''}
                       onChange={(e) => handleInputChange('contactName', e.target.value)}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg md:rounded-none md:rounded-none md:rounded-none md:rounded-none focus:ring-2 focus:ring-purple-900 focus:border-purple-900"
+                      className="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-900 focus:border-purple-900 text-sm md:text-base"
                       placeholder="Full name"
                     />
                   </div>
                   <div>
-                    <label className="block text-gray-700 mb-2 font-medium">Email *</label>
+                    <label className="block text-gray-700 mb-2 font-medium text-sm md:text-base">Email *</label>
                     <input
                       type="email"
                       required
                       value={formData.email || ''}
                       onChange={(e) => handleInputChange('email', e.target.value)}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg md:rounded-none md:rounded-none md:rounded-none md:rounded-none focus:ring-2 focus:ring-purple-900 focus:border-purple-900"
+                      className="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-900 focus:border-purple-900 text-sm md:text-base"
                       placeholder="your@email.com"
                     />
                   </div>
                 </div>
                 <div>
-                  <label className="block text-gray-700 mb-2 font-medium">Phone *</label>
+                  <label className="block text-gray-700 mb-2 font-medium text-sm md:text-base">Phone *</label>
                   <input
                     type="tel"
                     required
                     value={formData.phone || ''}
                     onChange={(e) => handleInputChange('phone', e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg md:rounded-none md:rounded-none md:rounded-none md:rounded-none focus:ring-2 focus:ring-purple-900 focus:border-purple-900"
+                    className="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-900 focus:border-purple-900 text-sm md:text-base"
                     placeholder="+1234567890"
                   />
                 </div>
@@ -494,13 +507,13 @@ function FreightForwarderForm({ currentStep, setCurrentStep, formData, setFormDa
           {/* Step 2: Services */}
           {currentStep === 2 && (
             <div className="space-y-6">
-              <h3 className="text-2xl font-semibold text-gray-900 mb-6">Services & Coverage</h3>
+              <h3 className="text-xl md:text-2xl font-semibold text-gray-900 mb-6">Services & Coverage</h3>
               <div className="space-y-6">
                 <div>
-                  <label className="block text-gray-700 mb-4 font-medium">Services Offered *</label>
+                  <label className="block text-gray-700 mb-4 font-medium text-sm md:text-base">Services Offered *</label>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                     {['Air Freight', 'Sea Freight', 'Road Transport', 'Warehousing', 'Customs Brokerage'].map(service => (
-                      <label key={service} className="flex items-center space-x-3 p-3 border border-gray-300 rounded-lg md:rounded-none md:rounded-none md:rounded-none md:rounded-none hover:bg-gray-50 cursor-pointer">
+                      <label key={service} className="flex items-center space-x-3 p-3 border border-gray-300 rounded-lg hover:bg-gray-50 cursor-pointer">
                         <input
                           type="checkbox"
                           checked={formData.services?.includes(service) || false}
@@ -512,19 +525,19 @@ function FreightForwarderForm({ currentStep, setCurrentStep, formData, setFormDa
                           }}
                           className="rounded border-gray-300 text-purple-900 focus:ring-purple-900"
                         />
-                        <span className="text-gray-700">{service}</span>
+                        <span className="text-gray-700 text-sm md:text-base">{service}</span>
                       </label>
                     ))}
                   </div>
                 </div>
                 <div>
-                  <label className="block text-gray-700 mb-2 font-medium">Geographic Coverage *</label>
+                  <label className="block text-gray-700 mb-2 font-medium text-sm md:text-base">Geographic Coverage *</label>
                   <textarea
                     required
                     value={formData.coverage || ''}
                     onChange={(e) => handleInputChange('coverage', e.target.value)}
                     rows={3}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg md:rounded-none md:rounded-none md:rounded-none md:rounded-none focus:ring-2 focus:ring-purple-900 focus:border-purple-900"
+                    className="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-900 focus:border-purple-900 text-sm md:text-base"
                     placeholder="List countries or regions you serve..."
                   />
                 </div>
@@ -535,23 +548,23 @@ function FreightForwarderForm({ currentStep, setCurrentStep, formData, setFormDa
           {/* Step 3: References */}
           {currentStep === 3 && (
             <div className="space-y-6">
-              <h3 className="text-2xl font-semibold text-gray-900 mb-6">Professional References</h3>
+              <h3 className="text-xl md:text-2xl font-semibold text-gray-900 mb-6">Professional References</h3>
               <div className="space-y-6">
-                <div className="bg-purple-50 rounded-lg md:rounded-none md:rounded-none md:rounded-none md:rounded-none p-4 border border-purple-200">
-                  <p className="text-purple-800 text-sm">
+                <div className="bg-purple-50 rounded-lg p-4 border border-purple-200">
+                  <p className="text-purple-800 text-xs md:text-sm">
                     Please provide at least 2 professional references from clients or business partners.
                   </p>
                 </div>
                 
                 {(formData.references || []).map((reference, index) => (
-                  <div key={index} className="border border-gray-200 rounded-lg md:rounded-none md:rounded-none md:rounded-none md:rounded-none p-6 space-y-4">
+                  <div key={index} className="border border-gray-200 rounded-lg p-4 md:p-6 space-y-4">
                     <div className="flex justify-between items-center">
-                      <h4 className="font-medium text-gray-900">Reference #{index + 1}</h4>
+                      <h4 className="font-medium text-gray-900 text-sm md:text-base">Reference #{index + 1}</h4>
                       {index > 0 && (
                         <button
                           type="button"
                           onClick={() => removeReference(index)}
-                          className="text-red-600 hover:text-red-800 text-sm font-medium"
+                          className="text-red-600 hover:text-red-800 text-xs md:text-sm font-medium"
                         >
                           Remove
                         </button>
@@ -559,48 +572,48 @@ function FreightForwarderForm({ currentStep, setCurrentStep, formData, setFormDa
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-gray-700 mb-2 font-medium">Name *</label>
+                        <label className="block text-gray-700 mb-2 font-medium text-sm md:text-base">Name *</label>
                         <input
                           type="text"
                           required
                           value={reference.name}
                           onChange={(e) => handleReferenceChange(index, 'name', e.target.value)}
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg md:rounded-none md:rounded-none md:rounded-none md:rounded-none focus:ring-2 focus:ring-purple-900 focus:border-purple-900"
+                          className="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-900 focus:border-purple-900 text-sm md:text-base"
                           placeholder="Full name"
                         />
                       </div>
                       <div>
-                        <label className="block text-gray-700 mb-2 font-medium">Relationship *</label>
+                        <label className="block text-gray-700 mb-2 font-medium text-sm md:text-base">Relationship *</label>
                         <input
                           type="text"
                           required
                           value={reference.relationship}
                           onChange={(e) => handleReferenceChange(index, 'relationship', e.target.value)}
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg md:rounded-none md:rounded-none md:rounded-none md:rounded-none focus:ring-2 focus:ring-purple-900 focus:border-purple-900"
+                          className="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-900 focus:border-purple-900 text-sm md:text-base"
                           placeholder="Client, Partner, etc."
                         />
                       </div>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-gray-700 mb-2 font-medium">Email *</label>
+                        <label className="block text-gray-700 mb-2 font-medium text-sm md:text-base">Email *</label>
                         <input
                           type="email"
                           required
                           value={reference.email}
                           onChange={(e) => handleReferenceChange(index, 'email', e.target.value)}
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg md:rounded-none md:rounded-none md:rounded-none md:rounded-none focus:ring-2 focus:ring-purple-900 focus:border-purple-900"
+                          className="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-900 focus:border-purple-900 text-sm md:text-base"
                           placeholder="email@example.com"
                         />
                       </div>
                       <div>
-                        <label className="block text-gray-700 mb-2 font-medium">Phone *</label>
+                        <label className="block text-gray-700 mb-2 font-medium text-sm md:text-base">Phone *</label>
                         <input
                           type="tel"
                           required
                           value={reference.phone}
                           onChange={(e) => handleReferenceChange(index, 'phone', e.target.value)}
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg md:rounded-none md:rounded-none md:rounded-none md:rounded-none focus:ring-2 focus:ring-purple-900 focus:border-purple-900"
+                          className="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-900 focus:border-purple-900 text-sm md:text-base"
                           placeholder="+1234567890"
                         />
                       </div>
@@ -611,7 +624,7 @@ function FreightForwarderForm({ currentStep, setCurrentStep, formData, setFormDa
                 <button
                   type="button"
                   onClick={addReference}
-                  className="w-full py-3 border border-dashed border-gray-300 rounded-lg md:rounded-none md:rounded-none md:rounded-none md:rounded-none text-gray-600 hover:text-gray-800 hover:border-gray-400 transition-colors"
+                  className="w-full py-3 border border-dashed border-gray-300 rounded-lg text-gray-600 hover:text-gray-800 hover:border-gray-400 transition-colors text-sm md:text-base"
                 >
                   + Add Another Reference
                 </button>
@@ -622,16 +635,16 @@ function FreightForwarderForm({ currentStep, setCurrentStep, formData, setFormDa
           {/* Step 4: Payment */}
           {currentStep === 4 && (
             <div className="space-y-6">
-              <h3 className="text-2xl font-semibold text-gray-900 mb-6">Membership Payment</h3>
-              <div className="bg-gray-50 rounded-xl p-6 border border-gray-200">
+              <h3 className="text-xl md:text-2xl font-semibold text-gray-900 mb-6">Membership Payment</h3>
+              <div className="bg-gray-50 rounded-xl p-4 md:p-6 border border-gray-200">
                 <div className="text-center mb-6">
-                  <CreditCard className="w-12 h-12 text-purple-900 mx-auto mb-4" />
-                  <h4 className="text-xl font-semibold text-gray-900 mb-2">Complete Your Registration</h4>
-                  <p className="text-gray-600">Choose your payment option to complete registration</p>
+                  <CreditCard className="w-10 h-10 md:w-12 md:h-12 text-purple-900 mx-auto mb-4" />
+                  <h4 className="text-lg md:text-xl font-semibold text-gray-900 mb-2">Complete Your Registration</h4>
+                  <p className="text-gray-600 text-sm md:text-base">Choose your payment option to complete registration</p>
                 </div>
-                <div className="bg-purple-50 rounded-lg md:rounded-none md:rounded-none md:rounded-none md:rounded-none p-4 text-center mb-6 border border-purple-200">
-                  <div className="text-2xl font-bold text-purple-900 mb-1">$299</div>
-                  <div className="text-purple-700">Annual Membership Fee</div>
+                <div className="bg-purple-50 rounded-lg p-4 text-center mb-6 border border-purple-200">
+                  <div className="text-xl md:text-2xl font-bold text-purple-900 mb-1">$299</div>
+                  <div className="text-purple-700 text-sm md:text-base">Annual Membership Fee</div>
                 </div>
                 
                 {/* Payment Options */}
@@ -640,9 +653,9 @@ function FreightForwarderForm({ currentStep, setCurrentStep, formData, setFormDa
                   {paymentCompleted ? (
                     <button
                       disabled
-                      className="w-full py-3 px-6 rounded-lg md:rounded-none md:rounded-none md:rounded-none md:rounded-none font-semibold bg-green-600 text-white cursor-not-allowed flex items-center justify-center gap-2"
+                      className="w-full py-3 px-6 rounded-lg font-semibold bg-green-600 text-white cursor-not-allowed flex items-center justify-center gap-2 text-sm md:text-base"
                     >
-                      <CheckCircle className="w-5 h-5" />
+                      <CheckCircle className="w-4 h-4 md:w-5 md:h-5" />
                       Payment Completed
                     </button>
                   ) : (
@@ -657,7 +670,7 @@ function FreightForwarderForm({ currentStep, setCurrentStep, formData, setFormDa
                       type="button"
                       onClick={handleSkipPayment}
                       disabled={paymentSkipped || paymentCompleted}
-                      className={`text-sm font-medium transition-colors ${
+                      className={`text-xs md:text-sm font-medium transition-colors ${
                         paymentSkipped 
                           ? 'text-green-600 cursor-not-allowed' 
                           : 'text-gray-500 hover:text-gray-700'
@@ -683,7 +696,7 @@ function FreightForwarderForm({ currentStep, setCurrentStep, formData, setFormDa
                 type="button"
                 onClick={prevStep}
                 disabled={currentStep === 1 || isSubmitting}
-                className={`flex items-center gap-2 px-6 py-3 rounded-lg md:rounded-none md:rounded-none md:rounded-none md:rounded-none transition-colors ${
+                className={`flex items-center gap-2 px-4 md:px-6 py-0 md:py-0 rounded-full transition-colors text-sm md:text-base ${
                   currentStep === 1 || isSubmitting
                     ? 'text-gray-400 cursor-not-allowed'
                     : 'text-gray-700 hover:bg-gray-100'
@@ -698,7 +711,7 @@ function FreightForwarderForm({ currentStep, setCurrentStep, formData, setFormDa
                   type="button"
                   onClick={nextStep}
                   disabled={isSubmitting}
-                  className="flex items-center gap-2 bg-purple-900 hover:bg-purple-800 text-white px-6 py-3 rounded-lg md:rounded-none md:rounded-none md:rounded-none md:rounded-none transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="flex items-center gap-2 bg-purple-900 hover:bg-purple-800 text-white px-4 md:px-6 py-0 md:py-0 rounded-full transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm md:text-base"
                 >
                   Next
                   <MoveRight className="w-4 h-4" />
@@ -706,9 +719,9 @@ function FreightForwarderForm({ currentStep, setCurrentStep, formData, setFormDa
               ) : (
                 <button
                   type="submit"
-                  disabled={isSubmitting || (!paymentCompleted && !paymentSkipped)}
-                  className={`flex items-center gap-2 px-6 py-3 rounded-lg md:rounded-none md:rounded-none md:rounded-none md:rounded-none transition-colors ${
-                    (paymentCompleted || paymentSkipped) && !isSubmitting
+                  disabled={isSubmitting || !canSubmit}
+                  className={`flex items-center gap-2 px-4 md:px-6 py-2 md:py-3 rounded-lg transition-colors text-sm md:text-base ${
+                    canSubmit && !isSubmitting
                       ? 'bg-green-600 hover:bg-green-700 text-white'
                       : 'bg-gray-300 text-gray-500 cursor-not-allowed'
                   }`}
@@ -734,7 +747,7 @@ function FreightForwarderForm({ currentStep, setCurrentStep, formData, setFormDa
   );
 }
 
-// Trader Form Component (remains the same as before)
+// Trader Form Component (with similar mobile fixes)
 function TraderForm({ currentStep, setCurrentStep, formData, setFormData, selectedType, setSelectedType }: FormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
@@ -820,7 +833,7 @@ function TraderForm({ currentStep, setCurrentStep, formData, setFormData, select
 
   return (
     <div className="max-w-2xl mx-auto">
-      <div className="bg-white rounded-lg md:rounded-none  border border-gray-200 md:p-8 p-3">
+      <div className="bg-white rounded-lg border border-gray-200 md:p-8 p-4">
         {/* Switch Type Button - Above Progress Steps */}
         <div className="flex justify-end mb-6">
           <button
@@ -835,25 +848,25 @@ function TraderForm({ currentStep, setCurrentStep, formData, setFormData, select
         <div className="flex justify-between mb-8 relative">
           {steps.map((step) => (
             <div key={step.number} className="flex flex-col items-center flex-1">
-              <div className={`w-10 h-10 rounded-full flex items-center justify-center border transition-colors ${
+              <div className={`w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center border transition-colors ${
                 currentStep >= step.number
                   ? 'bg-orange-600 border-orange-600 text-white'
                   : 'border-gray-300 text-gray-400'
               }`}>
                 {currentStep > step.number ? (
-                  <CheckCircle className="w-5 h-5" />
+                  <CheckCircle className="w-4 h-4 md:w-5 md:h-5" />
                 ) : (
-                  <step.icon className="w-5 h-5" />
+                  <step.icon className="w-4 h-4 md:w-5 md:h-5" />
                 )}
               </div>
-              <span className={`mt-2 text-sm font-medium ${
+              <span className={`mt-2 text-xs md:text-sm font-medium ${
                 currentStep >= step.number ? 'text-orange-600' : 'text-gray-500'
               }`}>
                 {step.title}
               </span>
             </div>
           ))}
-          <div className="absolute top-5 left-0 right-0 h-0.5 bg-gray-200 -z-10">
+          <div className="absolute top-4 md:top-5 left-0 right-0 h-0.5 bg-gray-200 -z-10">
             <div 
               className="h-full bg-orange-600 transition-all duration-300"
               style={{ width: `${((currentStep - 1) / (steps.length - 1)) * 100}%` }}
@@ -863,20 +876,20 @@ function TraderForm({ currentStep, setCurrentStep, formData, setFormData, select
 
         {/* Submission Status Messages */}
         {submitStatus === 'success' && (
-          <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg md:rounded-none md:rounded-none md:rounded-none md:rounded-none">
+          <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
             <div className="flex items-center">
               <CheckCircle className="w-5 h-5 text-green-600 mr-2" />
-              <p className="text-green-800 font-medium">Application submitted successfully!</p>
+              <p className="text-green-800 font-medium text-sm md:text-base">Application submitted successfully!</p>
             </div>
-            <p className="text-green-700 text-sm mt-1">Redirecting you back to the homepage...</p>
+            <p className="text-green-700 text-xs md:text-sm mt-1">Redirecting you back to the homepage...</p>
           </div>
         )}
 
         {submitStatus === 'error' && (
-          <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg md:rounded-none md:rounded-none md:rounded-none md:rounded-none">
+          <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
             <div className="flex items-center">
               <div className="w-5 h-5 text-red-600 mr-2">!</div>
-              <p className="text-red-800 font-medium">Error submitting application. Please try again.</p>
+              <p className="text-red-800 font-medium text-sm md:text-base">Error submitting application. Please try again.</p>
             </div>
           </div>
         )}
@@ -885,27 +898,27 @@ function TraderForm({ currentStep, setCurrentStep, formData, setFormData, select
           {/* Step 1: Business Info */}
           {currentStep === 1 && (
             <div className="space-y-6">
-              <h3 className="text-2xl font-semibold text-gray-900 mb-6">Business Information</h3>
+              <h3 className="text-xl md:text-2xl font-semibold text-gray-900 mb-6">Business Information</h3>
               <div className="space-y-4">
                 <div>
-                  <label className="block text-gray-700 mb-2 font-medium">Company Name *</label>
+                  <label className="block text-gray-700 mb-2 font-medium text-sm md:text-base">Company Name *</label>
                   <input
                     type="text"
                     required
                     value={formData.companyName || ''}
                     onChange={(e) => handleInputChange('companyName', e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg md:rounded-none md:rounded-none md:rounded-none md:rounded-none focus:ring-2 focus:ring-orange-600 focus:border-orange-600"
+                    className="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-600 focus:border-orange-600 text-sm md:text-base"
                     placeholder="Enter company name"
                   />
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-gray-700 mb-2 font-medium">Business Type *</label>
+                    <label className="block text-gray-700 mb-2 font-medium text-sm md:text-base">Business Type *</label>
                     <select
                       required
                       value={formData.businessType || ''}
                       onChange={(e) => handleInputChange('businessType', e.target.value)}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg md:rounded-none md:rounded-none md:rounded-none md:rounded-none focus:ring-2 focus:ring-orange-600 focus:border-orange-600"
+                      className="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-600 focus:border-orange-600 text-sm md:text-base"
                     >
                       <option value="">Select type</option>
                       <option value="manufacturer">Manufacturer</option>
@@ -915,12 +928,12 @@ function TraderForm({ currentStep, setCurrentStep, formData, setFormData, select
                     </select>
                   </div>
                   <div>
-                    <label className="block text-gray-700 mb-2 font-medium">Industry *</label>
+                    <label className="block text-gray-700 mb-2 font-medium text-sm md:text-base">Industry *</label>
                     <select
                       required
                       value={formData.industry || ''}
                       onChange={(e) => handleInputChange('industry', e.target.value)}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg md:rounded-none md:rounded-none md:rounded-none md:rounded-none focus:ring-2 focus:ring-orange-600 focus:border-orange-600"
+                      className="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-600 focus:border-orange-600 text-sm md:text-base"
                     >
                       <option value="">Select industry</option>
                       <option value="electronics">Electronics</option>
@@ -932,36 +945,36 @@ function TraderForm({ currentStep, setCurrentStep, formData, setFormData, select
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-gray-700 mb-2 font-medium">Contact Person *</label>
+                    <label className="block text-gray-700 mb-2 font-medium text-sm md:text-base">Contact Person *</label>
                     <input
                       type="text"
                       required
                       value={formData.contactName || ''}
                       onChange={(e) => handleInputChange('contactName', e.target.value)}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg md:rounded-none md:rounded-none md:rounded-none md:rounded-none focus:ring-2 focus:ring-orange-600 focus:border-orange-600"
+                      className="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-600 focus:border-orange-600 text-sm md:text-base"
                       placeholder="Full name"
                     />
                   </div>
                   <div>
-                    <label className="block text-gray-700 mb-2 font-medium">Email *</label>
+                    <label className="block text-gray-700 mb-2 font-medium text-sm md:text-base">Email *</label>
                     <input
                       type="email"
                       required
                       value={formData.email || ''}
                       onChange={(e) => handleInputChange('email', e.target.value)}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg md:rounded-none md:rounded-none md:rounded-none md:rounded-none focus:ring-2 focus:ring-orange-600 focus:border-orange-600"
+                      className="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-600 focus:border-orange-600 text-sm md:text-base"
                       placeholder="your@email.com"
                     />
                   </div>
                 </div>
                 <div>
-                  <label className="block text-gray-700 mb-2 font-medium">Phone *</label>
+                  <label className="block text-gray-700 mb-2 font-medium text-sm md:text-base">Phone *</label>
                   <input
                     type="tel"
                     required
                     value={formData.phone || ''}
                     onChange={(e) => handleInputChange('phone', e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg md:rounded-none md:rounded-none md:rounded-none md:rounded-none focus:ring-2 focus:ring-orange-600 focus:border-orange-600"
+                    className="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-600 focus:border-orange-600 text-sm md:text-base"
                     placeholder="+1234567890"
                   />
                 </div>
@@ -972,24 +985,24 @@ function TraderForm({ currentStep, setCurrentStep, formData, setFormData, select
           {/* Step 2: Shipping Needs */}
           {currentStep === 2 && (
             <div className="space-y-6">
-              <h3 className="text-2xl font-semibold text-gray-900 mb-6">Shipping Requirements</h3>
+              <h3 className="text-xl md:text-2xl font-semibold text-gray-900 mb-6">Shipping Requirements</h3>
               <div className="space-y-6">
                 <div>
-                  <label className="block text-gray-700 mb-2 font-medium">Shipping Needs *</label>
+                  <label className="block text-gray-700 mb-2 font-medium text-sm md:text-base">Shipping Needs *</label>
                   <textarea
                     required
                     value={formData.shippingNeeds || ''}
                     onChange={(e) => handleInputChange('shippingNeeds', e.target.value)}
                     rows={4}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg md:rounded-none md:rounded-none md:rounded-none md:rounded-none focus:ring-2 focus:ring-orange-600 focus:border-orange-600"
+                    className="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-600 focus:border-orange-600 text-sm md:text-base"
                     placeholder="Describe your shipping requirements..."
                   />
                 </div>
                 <div>
-                  <label className="block text-gray-700 mb-3 font-medium">Preferred Regions *</label>
+                  <label className="block text-gray-700 mb-3 font-medium text-sm md:text-base">Preferred Regions *</label>
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                     {['North America', 'Europe', 'Asia', 'Africa', 'South America'].map(region => (
-                      <label key={region} className="flex items-center space-x-3 p-3 border border-gray-300 rounded-lg md:rounded-none md:rounded-none md:rounded-none md:rounded-none hover:bg-gray-50 cursor-pointer">
+                      <label key={region} className="flex items-center space-x-3 p-3 border border-gray-300 rounded-lg hover:bg-gray-50 cursor-pointer">
                         <input
                           type="checkbox"
                           checked={formData.preferredRegions?.includes(region) || false}
@@ -1001,7 +1014,7 @@ function TraderForm({ currentStep, setCurrentStep, formData, setFormData, select
                           }}
                           className="rounded border-gray-300 text-orange-600 focus:ring-orange-600"
                         />
-                        <span className="text-gray-700">{region}</span>
+                        <span className="text-gray-700 text-sm md:text-base">{region}</span>
                       </label>
                     ))}
                   </div>
@@ -1013,23 +1026,23 @@ function TraderForm({ currentStep, setCurrentStep, formData, setFormData, select
           {/* Step 3: References */}
           {currentStep === 3 && (
             <div className="space-y-6">
-              <h3 className="text-2xl font-semibold text-gray-900 mb-6">Business References</h3>
+              <h3 className="text-xl md:text-2xl font-semibold text-gray-900 mb-6">Business References</h3>
               <div className="space-y-6">
-                <div className="bg-orange-50 rounded-lg md:rounded-none md:rounded-none md:rounded-none md:rounded-none p-4 border border-orange-200">
-                  <p className="text-orange-800 text-sm">
+                <div className="bg-orange-50 rounded-lg p-4 border border-orange-200">
+                  <p className="text-orange-800 text-xs md:text-sm">
                     Please provide at least 2 business references from suppliers or partners.
                   </p>
                 </div>
                 
                 {(formData.references || []).map((reference, index) => (
-                  <div key={index} className="border border-gray-200 rounded-lg md:rounded-none md:rounded-none md:rounded-none md:rounded-none p-6 space-y-4">
+                  <div key={index} className="border border-gray-200 rounded-lg p-4 md:p-6 space-y-4">
                     <div className="flex justify-between items-center">
-                      <h4 className="font-medium text-gray-900">Reference #{index + 1}</h4>
+                      <h4 className="font-medium text-gray-900 text-sm md:text-base">Reference #{index + 1}</h4>
                       {index > 0 && (
                         <button
                           type="button"
                           onClick={() => removeReference(index)}
-                          className="text-red-600 hover:text-red-800 text-sm font-medium"
+                          className="text-red-600 hover:text-red-800 text-xs md:text-sm font-medium"
                         >
                           Remove
                         </button>
@@ -1037,48 +1050,48 @@ function TraderForm({ currentStep, setCurrentStep, formData, setFormData, select
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-gray-700 mb-2 font-medium">Name *</label>
+                        <label className="block text-gray-700 mb-2 font-medium text-sm md:text-base">Name *</label>
                         <input
                           type="text"
                           required
                           value={reference.name}
                           onChange={(e) => handleReferenceChange(index, 'name', e.target.value)}
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg md:rounded-none md:rounded-none md:rounded-none md:rounded-none focus:ring-2 focus:ring-orange-600 focus:border-orange-600"
+                          className="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-600 focus:border-orange-600 text-sm md:text-base"
                           placeholder="Full name"
                         />
                       </div>
                       <div>
-                        <label className="block text-gray-700 mb-2 font-medium">Relationship *</label>
+                        <label className="block text-gray-700 mb-2 font-medium text-sm md:text-base">Relationship *</label>
                         <input
                           type="text"
                           required
                           value={reference.relationship}
                           onChange={(e) => handleReferenceChange(index, 'relationship', e.target.value)}
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg md:rounded-none md:rounded-none md:rounded-none md:rounded-none focus:ring-2 focus:ring-orange-600 focus:border-orange-600"
+                          className="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-600 focus:border-orange-600 text-sm md:text-base"
                           placeholder="Supplier, Partner, etc."
                         />
                       </div>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-gray-700 mb-2 font-medium">Email *</label>
+                        <label className="block text-gray-700 mb-2 font-medium text-sm md:text-base">Email *</label>
                         <input
                           type="email"
                           required
                           value={reference.email}
                           onChange={(e) => handleReferenceChange(index, 'email', e.target.value)}
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg md:rounded-none md:rounded-none md:rounded-none md:rounded-none focus:ring-2 focus:ring-orange-600 focus:border-orange-600"
+                          className="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-600 focus:border-orange-600 text-sm md:text-base"
                           placeholder="email@example.com"
                         />
                       </div>
                       <div>
-                        <label className="block text-gray-700 mb-2 font-medium">Phone *</label>
+                        <label className="block text-gray-700 mb-2 font-medium text-sm md:text-base">Phone *</label>
                         <input
                           type="tel"
                           required
                           value={reference.phone}
                           onChange={(e) => handleReferenceChange(index, 'phone', e.target.value)}
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg md:rounded-none md:rounded-none md:rounded-none md:rounded-none focus:ring-2 focus:ring-orange-600 focus:border-orange-600"
+                          className="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-600 focus:border-orange-600 text-sm md:text-base"
                           placeholder="+1234567890"
                         />
                       </div>
@@ -1089,7 +1102,7 @@ function TraderForm({ currentStep, setCurrentStep, formData, setFormData, select
                 <button
                   type="button"
                   onClick={addReference}
-                  className="w-full py-3 border border-dashed border-gray-300 rounded-lg md:rounded-none md:rounded-none md:rounded-none md:rounded-none text-gray-600 hover:text-gray-800 hover:border-gray-400 transition-colors"
+                  className="w-full py-3 border border-dashed border-gray-300 rounded-lg text-gray-600 hover:text-gray-800 hover:border-gray-400 transition-colors text-sm md:text-base"
                 >
                   + Add Another Reference
                 </button>
@@ -1104,7 +1117,7 @@ function TraderForm({ currentStep, setCurrentStep, formData, setFormData, select
                 type="button"
                 onClick={prevStep}
                 disabled={currentStep === 1 || isSubmitting}
-                className={`flex items-center gap-2 px-6 py-3 rounded-lg md:rounded-none md:rounded-none md:rounded-none md:rounded-none transition-colors ${
+                className={`flex items-center gap-2 px-4 md:px-6 py-0 md:py-0 rounded-full transition-colors text-sm md:text-base ${
                   currentStep === 1 || isSubmitting
                     ? 'text-gray-400 cursor-not-allowed'
                     : 'text-gray-700 hover:bg-gray-100'
@@ -1119,7 +1132,7 @@ function TraderForm({ currentStep, setCurrentStep, formData, setFormData, select
                   type="button"
                   onClick={nextStep}
                   disabled={isSubmitting}
-                  className="flex items-center gap-2 bg-orange-600 hover:bg-orange-500 text-white px-6 py-3 rounded-lg md:rounded-none md:rounded-none md:rounded-none md:rounded-none transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="flex items-center gap-2 bg-orange-600 hover:bg-orange-500 text-white px-4 md:px-6 py-0 md:py-0 rounded-full transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm md:text-base"
                 >
                   Next
                   <MoveRight className="w-4 h-4" />
@@ -1128,7 +1141,7 @@ function TraderForm({ currentStep, setCurrentStep, formData, setFormData, select
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg md:rounded-none md:rounded-none md:rounded-none md:rounded-none transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-4 md:px-6 py-2 md:py-3 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm md:text-base"
                 >
                   {isSubmitting ? 'Submitting...' : 'Finish '}
                   <CheckCircle className="w-4 h-4" />
