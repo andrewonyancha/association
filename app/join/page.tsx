@@ -75,7 +75,7 @@ export default function JoinPage() {
                     setSelectedType('freight');
                     setCurrentStep(1);
                   }}
-                  className={`px-4 py-6 bg-white rounded-xl border transition-all text-left cursor-pointer ${
+                  className={`px-4 py-6 bg-white rounded-lg border transition-all text-left cursor-pointer ${
                     selectedType === 'freight'
                       ? 'border-purple-900 bg-purple-50'
                       : 'border-gray-300 hover:border-purple-400'
@@ -109,7 +109,7 @@ export default function JoinPage() {
                     setSelectedType('traders');
                     setCurrentStep(1);
                   }}
-                  className={`py-6 px-4 bg-white rounded-xl border transition-all text-left cursor-pointer ${
+                  className={`py-6 px-4 bg-white rounded-lg border transition-all text-left cursor-pointer ${
                     selectedType === 'traders'
                       ? 'border-orange-600 bg-orange-50'
                       : 'border-gray-300 hover:border-orange-400'
@@ -143,7 +143,7 @@ export default function JoinPage() {
                     setSelectedType('investor');
                     setCurrentStep(1);
                   }}
-                  className={`py-6 px-4 bg-white rounded-xl border transition-all text-left cursor-pointer ${
+                  className={`py-6 px-4 bg-white rounded-lg border transition-all text-left cursor-pointer ${
                     selectedType === 'investor'
                       ? 'border-blue-600 bg-blue-50'
                       : 'border-gray-300 hover:border-blue-400'
@@ -873,7 +873,7 @@ function FreightForwarderForm({ currentStep, setCurrentStep, formData, setFormDa
           {currentStep === 4 && (
             <div className="space-y-6">
               <h3 className="text-xl md:text-2xl font-semibold text-gray-900 mb-6">Membership Payment</h3>
-              <div className="bg-gray-50 rounded-xl p-4 md:p-6 border border-gray-200">
+              <div className="bg-gray-50 rounded-lg p-4 md:p-6 border border-gray-200">
                 <div className="text-center mb-6">
                   <CreditCard className="w-10 h-10 md:w-12 md:h-12 text-purple-900 mx-auto mb-4" />
                   <h4 className="text-lg md:text-xl font-semibold text-gray-900 mb-2">Complete Your Registration</h4>
