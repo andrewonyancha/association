@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, Dispatch, SetStateAction, useEffect } from 'react';
-import { ArrowRight, ArrowLeft, CheckCircle, CreditCard, MapPin, User } from 'lucide-react';
+import { MoveRight, ArrowLeft, CheckCircle, CreditCard, MapPin, User } from 'lucide-react';
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, addDoc, Timestamp } from 'firebase/firestore';
 import dynamic from 'next/dynamic';
@@ -92,9 +92,9 @@ export default function JoinPage() {
                           }}
                         />
                       </div>
-                      <h3 className="text-lg font-semibold text-gray-900">Freight Forwarders</h3>
+                      <h3 className="text-lg font-semibold text-gray-900">Join as Forwarder</h3>
                     </div>
-                    <ArrowRight className={`w-5 h-5 ${
+                    <MoveRight className={`w-5 h-5 ${
                       selectedType === 'freight' ? 'text-purple-900' : 'text-gray-400'
                     }`} />
                   </div>
@@ -127,9 +127,9 @@ export default function JoinPage() {
                           }}
                         />
                       </div>
-                      <h3 className="text-lg font-semibold text-gray-900">Traders & Shippers</h3>
+                      <h3 className="text-lg font-semibold text-gray-900">Join as Trader</h3>
                     </div>
-                    <ArrowRight className={`w-5 h-5 ${
+                    <MoveRight className={`w-5 h-5 ${
                       selectedType === 'traders' ? 'text-orange-600' : 'text-gray-400'
                     }`} />
                   </div>
@@ -702,7 +702,7 @@ function FreightForwarderForm({ currentStep, setCurrentStep, formData, setFormDa
                   className="flex items-center gap-2 bg-purple-900 hover:bg-purple-800 text-white px-6 py-3 rounded-lg md:rounded-none md:rounded-none md:rounded-none md:rounded-none transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   Next
-                  <ArrowRight className="w-4 h-4" />
+                  <MoveRight className="w-4 h-4" />
                 </button>
               ) : (
                 <button
@@ -1123,7 +1123,7 @@ function TraderForm({ currentStep, setCurrentStep, formData, setFormData, select
                   className="flex items-center gap-2 bg-orange-600 hover:bg-orange-500 text-white px-6 py-3 rounded-lg md:rounded-none md:rounded-none md:rounded-none md:rounded-none transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   Next
-                  <ArrowRight className="w-4 h-4" />
+                  <MoveRight className="w-4 h-4" />
                 </button>
               ) : (
                 <button
