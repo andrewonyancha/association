@@ -92,7 +92,7 @@ export default function JoinPage() {
                           }}
                         />
                       </div>
-                      <h3 className="text-lg font-semibold text-gray-900">Join as Forwarder</h3>
+                      <h3 className="md:text-lg text-sm font-semibold text-gray-900">Join as Forwarder</h3>
                     </div>
                     <MoveRight className={`w-5 h-5 ${
                       selectedType === 'freight' ? 'text-purple-900' : 'text-gray-400'
@@ -127,7 +127,7 @@ export default function JoinPage() {
                           }}
                         />
                       </div>
-                      <h3 className="text-lg font-semibold text-gray-900">Join as Trader</h3>
+                      <h3 className="md:text-lg text-sm font-semibold text-gray-900">Join as Trader</h3>
                     </div>
                     <MoveRight className={`w-5 h-5 ${
                       selectedType === 'traders' ? 'text-orange-600' : 'text-gray-400'
