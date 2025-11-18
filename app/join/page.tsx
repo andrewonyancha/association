@@ -5,6 +5,7 @@ import { ArrowRight, ArrowLeft, CheckCircle, CreditCard, MapPin, User } from 'lu
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, addDoc, Timestamp } from 'firebase/firestore';
 import dynamic from 'next/dynamic';
+import Image from 'next/image';
 
 const PaystackButton = dynamic(() => import('@makozi/paystack-react-pay').then(mod => ({ default: mod.PaystackButton })), { ssr: false });
 
@@ -62,8 +63,8 @@ export default function JoinPage() {
     return (
       <div className="min-h-screen bg-purple-50 -mt-2">
         <div className="container mx-auto px-4 py-12">
-          <div className="max-w-2xl mx-auto">
-            <div className="bg-white rounded-xl border border-gray-200 p-8">
+          <div className=" mx-auto">
+            <div className="bg-purple-50">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Freight Forwarders Container */}
                 <div
@@ -71,7 +72,7 @@ export default function JoinPage() {
                     setSelectedType('freight');
                     setCurrentStep(1);
                   }}
-                  className={`p-6 rounded-xl border-2 transition-all text-left cursor-pointer hover:shadow-md ${
+                  className={`px-4 py-6 bg-white rounded-xl border transition-all text-left cursor-pointer ${
                     selectedType === 'freight'
                       ? 'border-purple-900 bg-purple-50'
                       : 'border-gray-300 hover:border-purple-400'
@@ -79,12 +80,14 @@ export default function JoinPage() {
                 >
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center">
-                      <div className="w-12 h-12 mr-4">
-                        <img 
-                          src="/icons/freight-icon.png" 
+                      <div className=" aspect-[3/2] mr-4">
+                        <Image
+                          src="/images/hero.jpg"
                           alt="Freight Forwarders"
-                          className="w-full h-full object-contain"
-                          onError={(e) => {
+                          width={96}
+                          height={128}
+                          className="w-full h-full rounded-lg object-contain"
+                          onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
                             (e.target as HTMLImageElement).style.display = 'none';
                           }}
                         />
@@ -103,7 +106,7 @@ export default function JoinPage() {
                     setSelectedType('traders');
                     setCurrentStep(1);
                   }}
-                  className={`p-6 rounded-xl border-2 transition-all text-left cursor-pointer hover:shadow-md ${
+                  className={`py-6 px-4 bg-white rounded-xl border transition-all text-left cursor-pointer ${
                     selectedType === 'traders'
                       ? 'border-orange-600 bg-orange-50'
                       : 'border-gray-300 hover:border-orange-400'
@@ -111,12 +114,15 @@ export default function JoinPage() {
                 >
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center">
-                      <div className="w-12 h-12 mr-4">
-                        <img 
-                          src="/icons/trader-icon.png" 
-                          alt="Traders & Shippers"
-                          className="w-full h-full object-contain"
-                          onError={(e) => {
+                      <div className=" aspect-[3/2] mr-4">
+                        
+                         <Image
+                          src="/images/trader.jpg"
+                          alt="Freight Forwarders"
+                          width={96}
+                          height={128}
+                          className="w-full h-full rounded-lg object-contain"
+                          onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
                             (e.target as HTMLImageElement).style.display = 'none';
                           }}
                         />
@@ -606,7 +612,7 @@ function FreightForwarderForm({ currentStep, setCurrentStep, formData, setFormDa
                 <button
                   type="button"
                   onClick={addReference}
-                  className="w-full py-3 border-2 border-dashed border-gray-300 rounded-lg md:rounded-none md:rounded-none md:rounded-none md:rounded-none text-gray-600 hover:text-gray-800 hover:border-gray-400 transition-colors"
+                  className="w-full py-3 border border-dashed border-gray-300 rounded-lg md:rounded-none md:rounded-none md:rounded-none md:rounded-none text-gray-600 hover:text-gray-800 hover:border-gray-400 transition-colors"
                 >
                   + Add Another Reference
                 </button>
@@ -710,7 +716,7 @@ function FreightForwarderForm({ currentStep, setCurrentStep, formData, setFormDa
                 >
                   {isSubmitting ? (
                     <>
-                      <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                      <div className="w-4 h-4 border border-white border-t-transparent rounded-full animate-spin"></div>
                       Submitting...
                     </>
                   ) : (
@@ -1084,7 +1090,7 @@ function TraderForm({ currentStep, setCurrentStep, formData, setFormData, select
                 <button
                   type="button"
                   onClick={addReference}
-                  className="w-full py-3 border-2 border-dashed border-gray-300 rounded-lg md:rounded-none md:rounded-none md:rounded-none md:rounded-none text-gray-600 hover:text-gray-800 hover:border-gray-400 transition-colors"
+                  className="w-full py-3 border border-dashed border-gray-300 rounded-lg md:rounded-none md:rounded-none md:rounded-none md:rounded-none text-gray-600 hover:text-gray-800 hover:border-gray-400 transition-colors"
                 >
                   + Add Another Reference
                 </button>
