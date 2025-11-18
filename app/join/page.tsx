@@ -559,7 +559,6 @@ function FreightForwarderForm({ currentStep, setCurrentStep, formData, setFormDa
                 currentStep >= step.number ? 'text-purple-900' : 'text-gray-500'
               }`}>
                 {step.title}
-                {step.optional && <span className="text-xs text-gray-400 ml-1">(Optional)</span>}
               </span>
             </div>
           ))}
