@@ -467,14 +467,14 @@ function FreightForwarderForm({ currentStep, setCurrentStep, formData, setFormDa
           <button
             type="button"
             onClick={handleBackToHome}
-            className="text-purple-900 text-sm font-medium transition-colors hover:text-purple-700 bg-white px-0.5 "
+            className="text-purple-900 md:text-sm text-xs font-medium transition-colors hover:text-purple-700 bg-white px-0.5 "
           >
             ← Back to Selection
           </button>
           <button
             type="button"
             onClick={handleSwitchType}
-            className="text-purple-900 text-sm font-medium transition-colors hover:text-orange-600 bg-white px-0.5 "
+            className="text-purple-900 md:text-sm text-xs font-medium transition-colors hover:text-orange-600 bg-white px-0.5 "
           >
             Switch to Trader
           </button>
@@ -1012,16 +1012,16 @@ function TraderForm({ currentStep, setCurrentStep, formData, setFormData, select
           <button
             type="button"
             onClick={handleBackToHome}
-            className="text-orange-600 text-sm font-medium transition-colors hover:text-orange-700 bg-white px-0.5 "
+            className="text-orange-600 md:text-sm text-xs font-medium transition-colors hover:text-orange-700 bg-white px-0.5 "
           >
             ← Back to Selection
           </button>
           <button
             type="button"
             onClick={handleSwitchType}
-            className="text-orange-600 hover:text-purple-900 text-sm font-medium transition-colors bg-white px-0.5 "
+            className="text-orange-600 hover:text-purple-900 md:text-sm text-xs font-medium transition-colors bg-white px-0.5 "
           >
-            Switch to Freight Forwarder
+            Switch to Forwarder
           </button>
         </div>
         {/* Progress Steps */}
@@ -1462,16 +1462,16 @@ function InvestorForm({ currentStep, setCurrentStep, formData, setFormData, sele
           <button
             type="button"
             onClick={handleBackToHome}
-            className="text-blue-600 text-sm font-medium transition-colors hover:text-blue-700 bg-white px-0.5 "
+            className="text-blue-600 md:text-sm text-xs font-medium transition-colors hover:text-blue-700 bg-white px-0.5 "
           >
             ← Back to Selection
           </button>
           <button
             type="button"
             onClick={handleSwitchType}
-            className="text-blue-600 hover:text-purple-900 text-sm font-medium transition-colors bg-white px-0.5 "
+            className="text-blue-600 hover:text-purple-900 md:text-sm text-xs font-medium transition-colors bg-white px-0.5 "
           >
-            Switch to Freight Forwarder
+            Switch to Forwarder
           </button>
         </div>
         {/* Progress Steps */}
