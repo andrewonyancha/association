@@ -15,7 +15,7 @@ export default function Marketplace() {
 
         <div className="pt-6">
           <Link
-            href="https://www.tmxglobalfreightnetwork.com/marketplace"
+            href="https://www.tmxglobalfreightnetwork.com/join"
             target="_blank"
             className="inline-block bg-orange-600 hover:bg-orange-700 text-white font-semibold text-lg px-10 py-4 rounded-full transition shadow-lg"
           >
