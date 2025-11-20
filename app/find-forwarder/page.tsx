@@ -33,7 +33,7 @@ export default function FindForwarder() {
     <div className="flex h-screen">
 
       {/* Sidebar - ONLY visible on desktop (lg and up) */}
-      <div className="hidden lg:flex w-72 bg-purple-950 text-white flex-col">
+      <div className="hidden lg:flex w-72 bg-purple-950 border-b border-gray-500 text-white flex-col">
         <div className="p-6 border-b border-gray-800">
           <h2 className="text-xl font-semibold">Chat History</h2>
         </div>
