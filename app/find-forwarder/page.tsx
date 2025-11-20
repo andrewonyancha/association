@@ -13,12 +13,7 @@ export default function FindForwarder() {
 
   const { onSent, setInput, input, showResult, recentPrompt, resultData, loading } = context;
 
-  // Demo history
-  const history = [
-    { id: 1, title: "China → USA forwarders", date: "Today" },
-    { id: 2, title: "Air freight to Brazil", date: "Yesterday" },
-    { id: 3, title: "Dubai partners", date: "Nov 18" },
-  ];
+ 
 
   useEffect(() => {
     messagesContainerRef.current?.scrollTo({
@@ -50,17 +45,7 @@ export default function FindForwarder() {
           </button>
         </div>
 
-        <div className="flex-1 overflow-y-auto px-4 space-y-2">
-          {history.map((item) => (
-            <div
-              key={item.id}
-              className="p-3 rounded-lg hover:bg-purple-800/50 cursor-pointer transition"
-            >
-              <p className="font-medium truncate">{item.title}</p>
-              <p className="text-sm text-gray-400">{item.date}</p>
-            </div>
-          ))}
-        </div>
+       
       </div>
 
       {/* MAIN CHAT AREA - takes full width on mobile */}
@@ -69,17 +54,17 @@ export default function FindForwarder() {
         {/* Messages */}
         <div
           ref={messagesContainerRef}
-          className="flex-1 overflow-y-auto bg-white px-4 pt-8 pb-4"
+          className="flex-1 overflow-y-auto bg-white px-4 pt-0 pb-1"
         >
-          <div className="max-w-4xl mx-auto space-y-6">
+          <div className="max-w-4xl mx-auto space-y-0">
 
             {/* Welcome screen */}
             {!showResult && (
-              <div className="text-center py-12">
-                <div className="w-16 h-16 bg-purple-950 flex items-center justify-center text-white text-4xl font-bold rounded-full mx-auto mb-6">
+              <div className="text-center ">
+                <div className="w-10 h-10 bg-purple-950 flex items-center justify-center text-white text-4xl font-bold rounded-full mx-auto mb-0">
                   AI
                 </div>
-                <h1 className="text-4xl font-bold text-purple-900 mb-4">
+                <h1 className="text-4xl font-bold text-purple-900 mb-0">
                   Freight Forwarder Assistant
                 </h1>
                 <p className="text-xl text-gray-600">
@@ -91,7 +76,7 @@ export default function FindForwarder() {
             {/* User message */}
             {showResult && recentPrompt && (
               <div className="flex justify-end">
-                <div className="bg-purple-100 text-black px-6 py-4 rounded-2xl max-w-2xl">
+                <div className="py-2 text-black px-6 py-0  max-w-2xl">
                   {recentPrompt}
                 </div>
               </div>
@@ -99,9 +84,9 @@ export default function FindForwarder() {
 
             {/* AI response */}
             {showResult && (
-              <div className="bg-purple-50 rounded-2xl p-6 border border-purple-200">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center text-white font-bold">
+              <div className="bg-purple-50 rounded-2xl p-3 border border-purple-200">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-8 h-8 bg-purple-900 rounded-full flex items-center justify-center text-white font-bold">
                     AI
                   </div>
                   <span className="font-semibold">Forwarder Assistant</span>
@@ -115,7 +100,7 @@ export default function FindForwarder() {
                   </div>
                 ) : (
                   <div
-                    className="prose prose-lg max-w-none text-black"
+                    className="prose prose-lg max-w-none text-sm text-black"
                     dangerouslySetInnerHTML={{ __html: resultData }}
                   />
                 )}
