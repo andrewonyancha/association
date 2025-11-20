@@ -1,6 +1,6 @@
-"use client";
+'use client';
 import React, { useState, useEffect, createContext } from 'react';
-import runChat from '../config/gemini';
+import runChat from "../config/gemini";
 
 interface ContextState {
   prevPrompts: string[];
@@ -53,7 +53,7 @@ const ContextProvider: React.FC<ContextProviderProps> = (props) => {
     setShowResult(true);
   
     try {
-      const response = await runChat (prompt);
+      const response = await runChat(prompt);
       setRecentPrompt(prompt);
       setPrevPrompts(prev => [...prev, prompt]);
   
@@ -79,35 +79,37 @@ const ContextProvider: React.FC<ContextProviderProps> = (props) => {
     setLoading(false);
     setInput("");
   };
-  
 
   useEffect(() => {
-    // Load data from localStorage
-    const savedPrevPrompts: string[] = JSON.parse(localStorage.getItem('prevPrompts') || '[]');
-    const savedRecentPrompt: string = localStorage.getItem('recentPrompt') || "";
-    const savedShowResult: boolean = localStorage.getItem('showResult') === 'true';
+    // Load data from localStorage (client-side only)
+    if (typeof window !== 'undefined') {
+      const savedPrevPrompts: string[] = JSON.parse(localStorage.getItem('prevPrompts') || '[]');
+      const savedRecentPrompt: string = localStorage.getItem('recentPrompt') || "";
+      const savedShowResult: boolean = localStorage.getItem('showResult') === 'true';
 
-    if (savedPrevPrompts.length > 0) {
-      setPrevPrompts(savedPrevPrompts);
+      if (savedPrevPrompts.length > 0) {
+        setPrevPrompts(savedPrevPrompts);
+      }
+
+      if (savedRecentPrompt) {
+        setRecentPrompt(savedRecentPrompt);
+      }
+
+      setShowResult(savedShowResult);
+
+      // Initial prompt on component mount
+      onSent("hello");
     }
+  }, []);
 
-    if (savedRecentPrompt) {
-      setRecentPrompt(savedRecentPrompt);
-    }
-
-    setShowResult(savedShowResult);
-
-    // Initial prompt on component mount
-    onSent("hello");
-
-    // Clean up
-    return () => {
-      // Save data to localStorage when component unmounts
+  useEffect(() => {
+    // Save data to localStorage when state changes
+    if (typeof window !== 'undefined') {
       localStorage.setItem('prevPrompts', JSON.stringify(prevPrompts));
       localStorage.setItem('recentPrompt', recentPrompt);
       localStorage.setItem('showResult', showResult.toString());
-    };
-  }, []);
+    }
+  }, [prevPrompts, recentPrompt, showResult]);
 
   const contextValue: ContextState = {
     prevPrompts,

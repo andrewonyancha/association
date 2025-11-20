@@ -5,6 +5,8 @@ import "./globals.css";
 import { Footer } from "./components/Footer";
 import Script from "next/script";
 import { Header } from "./components/Header";
+import MainAi from "./components/MainAi";
+import ContextProvider from "./context/context";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -95,12 +97,16 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
+      <ContextProvider>
+
 
         <Header />
 
         <main id="main-content">{children}</main>
+        <MainAi />
 
         <Footer />
+        </ContextProvider>
 
         {/* JSON-LD: Organization + Association */}
         <Script
