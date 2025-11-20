@@ -120,7 +120,7 @@ export default function FindForwarder() {
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && !e.shiftKey && (e.preventDefault(), handleSend())}
                 placeholder="Ask about forwarders in any country..."
-                className="w-full px-6 py-5 pr-20 bg-purple-100 rounded-full focus:outline-none focus:ring-4 focus:ring-purple-300 focus:bg-white transition-all text-lg placeholder-gray-500"
+                className="w-full px-6 py-5 pr-20 bg-purple-100 rounded-full focus:outline-none focus:ring focus:ring-purple-300 focus:bg-white transition-all text-lg placeholder-gray-500"
                 autoFocus
               />
               <button
