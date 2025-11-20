@@ -4,11 +4,11 @@ export default function Marketplace() {
   return (
     <div className="min-h-screen bg-purple-50 flex items-center justify-center px-6">
       <div className="max-w-2xl w-full text-center space-y-4">
-        <h1 className="text-4xl md:text-5xl font-bold text-purple-900">
+        <h1 className="text-lg md:text-2xl font-bold text-purple-900">
           Marketplace Coming Soon
         </h1>
 
-        <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
+        <p className="text-gray-700 leading-relaxed">
           Trader registration and verification is currently in progress.<br />
           Product listings will begin once verification is complete.
         </p>
