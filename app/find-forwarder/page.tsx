@@ -34,12 +34,12 @@ export default function FindForwarder() {
 
       {/* Sidebar - ONLY visible on desktop (lg and up) */}
       <div className="hidden lg:flex w-72 bg-purple-950 border-b border-gray-500 text-white flex-col">
-        <div className="p-6 border-b border-gray-800">
-          <h2 className="text-xl font-semibold">Chat History</h2>
+        <div className="p-2 ">
+          <h2 className="font-semibold">Chat History</h2>
         </div>
 
         <div className="p-4">
-          <button className="w-full flex items-center justify-center gap-2 bg-white text-gray-900 rounded-xl py-3 font-medium hover:bg-gray-100 transition">
+          <button className="w-full flex items-center justify-center gap-2 bg-white text-gray-900 rounded-xl py-1 font-medium hover:bg-gray-100 transition">
             <Plus className="w-5 h-5" />
             New Chat
           </button>
