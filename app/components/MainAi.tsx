@@ -99,7 +99,7 @@ const MainAi: React.FC = () => {
       </AnimatePresence>
 
       {/* Always positioned at bottom left */}
-      <div className="fixed bottom-5 left-5 z-50">
+      <div className="fixed md:bottom-5 bottom-5 md:left-5 left-1 z-50">
         {isHidden ? (
           <motion.button
             className="w-12 h-12 bg-gradient-to-br from-orange-600 to-orange-600 rounded-full shadow-lg flex items-center justify-center relative group"

@@ -7,6 +7,7 @@ import Script from "next/script";
 import { Header } from "./components/Header";
 import MainAi from "./components/MainAi";
 import ContextProvider from "./context/context";
+import ForwarderContextProvider from "./context/context_forwarder";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -99,13 +100,14 @@ export default function RootLayout({
         </a>
       <ContextProvider>
 
-
+    <ForwarderContextProvider>
         <Header />
 
         <main id="main-content">{children}</main>
         <MainAi />
 
         <Footer />
+        </ForwarderContextProvider>
         </ContextProvider>
 
         {/* JSON-LD: Organization + Association */}
