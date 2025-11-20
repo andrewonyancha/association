@@ -164,7 +164,7 @@ const MainAi: React.FC = () => {
             </div>
 
             {/* Messages Area */}
-            <div className="flex-1 overflow-y-auto p-4">
+            <div className="flex-1 text-sm overflow-y-auto p-4">
               {showResult ? (
                 <div className="space-y-4">
                   {/* User Message */}
